@@ -9,10 +9,9 @@ interface SuccessPageProps {
 }
 
 const PLATFORMS = [
-  { key: "macos",   icon: "🍎", label: "macOS",           badge: ".dmg"    },
-  { key: "windows", icon: "🪟", label: "Windows",          badge: ".exe"    },
-  { key: "android", icon: "🤖", label: "Android Scanner",  badge: ".apk"    },
-  { key: "ios",     icon: "📱", label: "iOS Simulator",    badge: ".tar.gz" },
+  { key: "macos",   icon: "🍎", label: "macOS",          badge: ".dmg" },
+  { key: "windows", icon: "🪟", label: "Windows",         badge: ".exe" },
+  { key: "android", icon: "🤖", label: "Android Scanner", badge: ".apk" },
 ] as const;
 
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -261,6 +260,56 @@ p{font-size:15px;line-height:1.6;color:#a1a1aa;margin:0 0 16px}
               </li>
             ))}
           </ol>
+        </div>
+
+        {/* Get started in 3 steps */}
+        <div
+          className="rounded-2xl border p-6"
+          style={{ background: "#0a0a14", borderColor: "#27272a" }}
+        >
+          <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "#52525b" }}>
+            Get started in 3 steps
+          </p>
+          <ol className="space-y-4 text-sm" style={{ color: "#a1a1aa" }}>
+            <li className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-5 h-5 rounded-full text-xs font-bold flex items-center justify-center mt-0.5"
+                style={{ background: "rgba(99,102,241,0.2)", color: "#a5b4fc" }}>1</span>
+              <span>
+                <strong className="text-white">Download and open Marrow Library</strong> on your Mac or PC —{" "}
+                <Link href="/download" className="underline" style={{ color: "#818cf8" }}>download page →</Link>
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-5 h-5 rounded-full text-xs font-bold flex items-center justify-center mt-0.5"
+                style={{ background: "rgba(99,102,241,0.2)", color: "#a5b4fc" }}>2</span>
+              <span>
+                Go to <strong className="text-white">Settings → License</strong>, paste your license key, and click <strong className="text-white">Activate</strong>
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-5 h-5 rounded-full text-xs font-bold flex items-center justify-center mt-0.5"
+                style={{ background: "rgba(99,102,241,0.2)", color: "#a5b4fc" }}>3</span>
+              <span>
+                Install <strong className="text-white">Marrow Scanner</strong> on your phone for barcode scanning —{" "}
+                <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer"
+                  className="underline" style={{ color: "#818cf8" }}>Android</a>{" "}·{" "}
+                <a href="mailto:support@marrowlibrary.app?subject=iOS%20Scanner%20Early%20Access" className="underline" style={{ color: "#818cf8" }}>iOS waitlist</a>
+              </span>
+            </li>
+          </ol>
+        </div>
+
+        {/* Support */}
+        <div className="rounded-2xl border p-5 text-center" style={{ background: "rgba(99,102,241,0.04)", borderColor: "rgba(99,102,241,0.15)" }}>
+          <p className="text-sm" style={{ color: "#71717a" }}>
+            Questions or issues?{" "}
+            <a href="mailto:support@marrowlibrary.app"
+              className="font-semibold hover:text-indigo-400 transition-colors"
+              style={{ color: "#818cf8" }}>
+              support@marrowlibrary.app
+            </a>{" "}
+            · We reply within 24 hours.
+          </p>
         </div>
 
         {/* Footer nav */}
