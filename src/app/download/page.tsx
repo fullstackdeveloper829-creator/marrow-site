@@ -98,7 +98,7 @@ export default async function DownloadPage() {
       key: "windows",
       icon: "🪟",
       label: "Windows",
-      sub: "Windows 10 / 11 · 64-bit",
+      sub: "Windows 10 / 11 · 64-bit · 4 GB RAM · 200 MB storage",
       badge: ".exe",
       asset: winAsset ?? { browser_download_url: STABLE_ASSETS.windows.url, name: `MarrowLibrary-${version}-windows-setup.exe`, size: STABLE_ASSETS.windows.size },
     },
@@ -106,7 +106,7 @@ export default async function DownloadPage() {
       key: "macos",
       icon: "🍏",
       label: "macOS",
-      sub: "macOS 11+ · Universal (M1 + Intel)",
+      sub: "macOS 11 (Big Sur)+ · Universal (M1 + Intel) · 200 MB storage",
       badge: ".dmg",
       asset: macAsset ?? { browser_download_url: STABLE_ASSETS.macos.url, name: `MarrowLibrary-${version}-macos-universal.dmg`, size: STABLE_ASSETS.macos.size },
     },
@@ -114,7 +114,7 @@ export default async function DownloadPage() {
       key: "android",
       icon: "🤖",
       label: "Android Scanner",
-      sub: "Android 8.0+ · Companion scanner app",
+      sub: "Android 8.0+ · Free companion barcode scanning app",
       badge: ".apk",
       asset: androidAsset ?? { browser_download_url: STABLE_ASSETS.android.url, name: `MarrowScanner-${version}-android.apk`, size: STABLE_ASSETS.android.size },
     },
@@ -122,8 +122,8 @@ export default async function DownloadPage() {
       key: "ios",
       icon: "🍎",
       label: "iOS Scanner",
-      sub: "iPhone · Companion scanner app",
-      badge: "TestFlight",
+      sub: "iPhone · Join the TestFlight beta waitlist",
+      badge: "Beta",
       asset: undefined as ReleaseAsset | undefined,
     },
   ];
@@ -143,7 +143,7 @@ export default async function DownloadPage() {
           </h1>
           <div className="flex items-center justify-center gap-3">
             <p className="text-base" style={{ color: "var(--text-2)" }}>
-              $20 once · 3 months full access · no subscription
+              Free trial · Full access from $20 once · no subscription
             </p>
             <span className="text-xs font-mono px-2 py-0.5 rounded-full border"
               style={{ background: "rgba(91,82,240,0.1)", borderColor: "rgba(91,82,240,0.3)", color: "#a5b4fc" }}>
@@ -155,6 +155,27 @@ export default async function DownloadPage() {
               Released {formatDate(release.published_at)}
             </p>
           )}
+        </div>
+
+        {/* Free trial info */}
+        <div className="rounded-2xl border p-6 mb-4"
+          style={{ background: "rgba(91,82,240,0.04)", borderColor: "rgba(91,82,240,0.2)" }}>
+          <p className="text-xs font-bold uppercase tracking-widest mb-3"
+            style={{ color: "#a5b4fc" }}>
+            What the free trial includes
+          </p>
+          <ul className="grid grid-cols-2 gap-2 mb-3">
+            {["Unlimited items cataloged","Barcode scanning","Basic search & filters","CSV & PDF export","Local-first, 100% offline","All 13 media types"].map(f => (
+              <li key={f} className="flex items-center gap-2 text-sm" style={{ color: "#9090c0" }}>
+                <span className="w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold flex-shrink-0"
+                  style={{ background: "rgba(91,82,240,0.2)", color: "#a5b4fc" }}>✓</span>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <p className="text-xs" style={{ color: "#606090" }}>
+            After trial: unlock live eBay valuations, price alerts, Discogs import, insurance PDF, and lending tracker — from <strong style={{ color: "#a5b4fc" }}>$20 once</strong>, no subscription.
+          </p>
         </div>
 
         {/* Purchase card */}
@@ -222,7 +243,7 @@ export default async function DownloadPage() {
                   return (
                     <a
                       key={p.key}
-                      href={p.key === "ios" ? "https://testflight.apple.com" : url}
+                      href={p.key === "ios" ? "mailto:support@marrowlibrary.app?subject=iOS%20Scanner%20Early%20Access" : url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`flex items-center gap-3 px-5 py-3.5 transition-colors group ${
