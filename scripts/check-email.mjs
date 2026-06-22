@@ -75,7 +75,7 @@ if (!alreadyRegistered) {
   const created = await stripePost("/webhook_endpoints", params);
   if (created.id) {
     console.log(`   ✅ Created: ${created.id}`);
-    console.log(`   🔑 Webhook signing secret: ${created.secret}`);
+    console.log(`   🔑 Webhook signing secret: ${created.secret.slice(0, 12)}...(copy to STRIPE_WEBHOOK_SECRET in Vercel)`);
     console.log(`\n   ⚠  ACTION REQUIRED: Update STRIPE_WEBHOOK_SECRET in Vercel to:`);
     console.log(`      ${created.secret}`);
     console.log(`      https://vercel.com/marrow-library/marrow-site/settings/environment-variables`);

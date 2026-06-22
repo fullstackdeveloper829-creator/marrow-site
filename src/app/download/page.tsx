@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { GITHUB_REPO, FALLBACK_RELEASE, SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Download Marrow Library — Windows, macOS, Android & iOS",
@@ -7,21 +8,19 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Download Marrow Library — Windows, macOS, Android & iOS",
     description: "Download free. Catalog books, vinyl, games, movies & more. $20 once, no subscription. Mac, Windows, Android, iOS.",
-    url: "https://marrow-site.vercel.app/download",
-    images: [{ url: "https://marrow-site.vercel.app/og-image.png", width: 1200, height: 630 }],
+    url: `${SITE_URL}/download`,
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
   },
-  alternates: { canonical: "https://marrow-site.vercel.app/download" },
+  alternates: { canonical: `${SITE_URL}/download` },
 };
 
 // Revalidate every hour — picks up new releases automatically
 export const revalidate = 3600;
 
-const REPO = "fullstackdeveloper829-creator/marrow-library";
+const REPO = GITHUB_REPO;
 
 // ── Known-good fallback: last confirmed stable release ────────────────────────
-// Update these whenever a new release is published to GitHub.
-// Used when the GitHub API is unavailable (e.g. private repo, rate limit).
-const STABLE_VERSION = "v1.3.2";
+const STABLE_VERSION = FALLBACK_RELEASE;
 const STABLE_BASE    = `https://github.com/${REPO}/releases/download/${STABLE_VERSION}`;
 const STABLE_ASSETS  = {
   windows: { url: `${STABLE_BASE}/MarrowLibrary-${STABLE_VERSION}-windows-setup.exe`, size: 27_800_000 },
@@ -196,13 +195,19 @@ export default async function DownloadPage() {
             </ul>
           </div>
 
-          {/* Buy button */}
+          {/* Buy button — POST to prevent CSRF via navigation preload or crawlers */}
           <div className="px-8 pb-6">
-            <Link href="/api/checkout?tier=COLLECTOR&billing=launch"
-              className="flex items-center justify-center w-full px-6 py-4 rounded-xl text-base font-bold text-white text-center transition-all hover:scale-105"
-              style={{ background: "linear-gradient(135deg, #5b52f0, #7c74f5)", boxShadow: "0 0 30px rgba(91,82,240,0.35)" }}>
-              Buy Now — $20 →
-            </Link>
+            <form method="POST" action="/api/checkout">
+              <input type="hidden" name="tier"    value="COLLECTOR" />
+              <input type="hidden" name="billing" value="launch" />
+              <button
+                type="submit"
+                className="flex items-center justify-center w-full px-6 py-4 rounded-xl text-base font-bold text-white text-center transition-all hover:scale-105 cursor-pointer"
+                style={{ background: "linear-gradient(135deg, #5b52f0, #7c74f5)", boxShadow: "0 0 30px rgba(91,82,240,0.35)", border: "none" }}
+              >
+                Buy Now — $20 →
+              </button>
+            </form>
           </div>
 
           {/* Platform download grid */}

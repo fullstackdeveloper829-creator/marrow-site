@@ -19,6 +19,8 @@ import { signSession } from "@/lib/license";
 export const dynamic = "force-dynamic";
 
 // ── In-process rate limit: 5 attempts per email per 15 min ───────────────────
+// NOTE: This map resets on every server restart/deploy. For a persistent limit,
+// replace with a database-backed counter (e.g. AppSetting or Redis/KV).
 const rateMap = new Map<string, { count: number; resetAt: number }>();
 const RL_MAX = 5;
 const RL_WINDOW_MS = 15 * 60 * 1000;

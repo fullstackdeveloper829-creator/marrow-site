@@ -3,6 +3,7 @@ node_modules/
 .vercel/
 .env*.local
 *.db
+tsconfig.tsbuildinfo
 
 .vercel
 .env*

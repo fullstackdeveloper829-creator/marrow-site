@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { stripe } from "@/lib/stripe";
-import { sendEmail } from "@/lib/mailer";
 import { generateLicenseKey, PAID_TIERS, type LicenseTier, type LicensePayload } from "@/lib/license";
 import type Stripe from "stripe";
 
@@ -33,7 +32,6 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
 
   if (sessionId) {
     try {
-      // Retrieve full session — expand customer + payment_intent for email resolution
       const session = await stripe.checkout.sessions.retrieve(sessionId, {
         expand: ["customer", "payment_intent"],
       });
@@ -44,10 +42,9 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
       const tier    = session.metadata?.["tier"]    ?? "COLLECTOR";
       const billing = session.metadata?.["billing"] ?? "launch";
 
-      if (tier === "CURATOR")   tierLabel = "Curator";
+      if (tier === "CURATOR")        tierLabel = "Curator";
       else if (tier === "COLLECTOR") tierLabel = "Collector";
 
-      // Resolve email from every available source
       customerEmail =
         session.customer_details?.email ??
         customer?.email ??
@@ -55,7 +52,9 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
         session.customer_email ??
         null;
 
-      // Generate license key and send email if payment is confirmed
+      // Generate license key for on-page display only.
+      // The purchase confirmation email is sent exclusively by the Stripe webhook
+      // (/api/webhook) to avoid duplicate sends.
       if (customerEmail && session.payment_status === "paid") {
         const licenseSecret = process.env.MARROW_LICENSE_SECRET;
         if (licenseSecret) {
@@ -72,54 +71,6 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
           };
 
           licenseKey = generateLicenseKey(payload, licenseSecret);
-          const siteUrl    = process.env.NEXT_PUBLIC_SITE_URL ?? "https://marrow-site.vercel.app";
-          const encodedKey = encodeURIComponent(licenseKey);
-          const dlBase     = `${siteUrl}/api/download/premium?key=${encodedKey}&platform=`;
-
-          const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"/>
-<style>body{margin:0;padding:0;background:#050510;font-family:-apple-system,sans-serif;color:#f4f4f5}
-.w{max-width:560px;margin:40px auto;padding:0 20px}
-.card{background:#0f0f1a;border:1px solid #27272a;border-radius:12px;padding:40px}
-.logo{font-size:20px;font-weight:800;color:#fff;margin-bottom:32px}
-h1{font-size:24px;font-weight:700;margin:0 0 8px;color:#fff}
-p{font-size:15px;line-height:1.6;color:#a1a1aa;margin:0 0 16px}
-.key{background:#18181b;border:1px solid #3f3f46;border-radius:8px;padding:16px 20px;font-family:monospace;font-size:12px;color:#e4e4e7;word-break:break-all;margin:24px 0}
-.label{font-size:11px;font-weight:700;color:#52525b;text-transform:uppercase;letter-spacing:.1em;margin:28px 0 12px}
-.btn{display:block;background:rgba(79,70,229,.15);border:1px solid rgba(99,102,241,.35);border-radius:10px;padding:14px 18px;text-decoration:none;color:#d4d4d8;font-size:14px;font-weight:600;margin-bottom:8px}
-.footer{margin-top:32px;font-size:13px;color:#52525b;text-align:center}
-</style></head><body>
-<div class="w"><div class="card">
-<div class="logo">Marrow Library</div>
-<h1>You're all set!</h1>
-<p>Thanks for your purchase, ${customerEmail}. Your license key and download links are below.</p>
-<div class="label">Your License Key</div>
-<div class="key">${licenseKey}</div>
-<div class="label">Download</div>
-<a class="btn" href="${dlBase}macos">🍎 Download for macOS (.dmg)</a>
-<a class="btn" href="${dlBase}windows">🪟 Download for Windows (.exe)</a>
-<a class="btn" href="${dlBase}android">🤖 Download Android Scanner (.apk)</a>
-<div style="margin-top:24px;background:#0a0a14;border:1px solid #27272a;border-radius:8px;padding:20px">
-<p style="font-size:11px;font-weight:700;color:#52525b;text-transform:uppercase;letter-spacing:.1em;margin:0 0 12px">Activate</p>
-<ol style="margin:0;padding-left:20px;color:#a1a1aa;font-size:14px;line-height:1.8">
-<li>Open Marrow Library → Settings → License</li>
-<li>Paste your key → click Activate</li>
-</ol>
-</div>
-</div>
-<div class="footer">Marrow Library · Questions? Reply to this email.<br/>© 2026 Marrow Library.</div>
-</div></body></html>`;
-
-          // Fire email — awaited so it completes before page renders
-          try {
-            await sendEmail({
-              to:      customerEmail,
-              subject: "Your Marrow Library License Key & Download Links",
-              html,
-            });
-            console.log(`[success] License email sent to ${customerEmail}`);
-          } catch (emailErr) {
-            console.error(`[success] Email failed:`, emailErr);
-          }
         }
       }
     } catch (err) {
@@ -165,12 +116,36 @@ p{font-size:15px;line-height:1.6;color:#a1a1aa;margin:0 0 16px}
             <span className="text-xs font-bold" style={{ color: "#a5b4fc" }}>★ {tierLabel} Tier Unlocked</span>
           </div>
           <p style={{ color: "#a1a1aa", lineHeight: "1.7", fontSize: "0.875rem" }}>
-            Your license key and personal download links have been sent to your email.
+            Your purchase confirmation and download links have been sent to your email.
             Check your inbox (and spam folder).
           </p>
         </div>
 
-        {/* Premium download card */}
+        {/* License key display — copy & paste to activate in-app */}
+        {licenseKey && (
+          <div
+            className="rounded-2xl border p-6"
+            style={{ background: "#0a0a14", borderColor: "#27272a" }}
+          >
+            <p
+              className="text-xs font-bold uppercase tracking-widest mb-3"
+              style={{ color: "#52525b" }}
+            >
+              Your License Key
+            </p>
+            <code
+              className="block text-xs break-all p-4 rounded-xl select-all"
+              style={{ background: "#0f0f1a", border: "1px solid #3f3f46", color: "#e4e4e7", fontFamily: "monospace" }}
+            >
+              {licenseKey}
+            </code>
+            <p className="text-xs mt-2" style={{ color: "#52525b" }}>
+              Click the code above to select all, then copy it.
+            </p>
+          </div>
+        )}
+
+        {/* Premium download card — POST forms keep the license key out of the URL */}
         <div
           className="rounded-2xl border overflow-hidden"
           style={{
@@ -185,27 +160,43 @@ p{font-size:15px;line-height:1.6;color:#a1a1aa;margin:0 0 16px}
             </h2>
             <p className="text-sm" style={{ color: "#71717a" }}>
               {licenseKey
-                ? "Your license key is pre-filled in each link below."
-                : "Paste your license key from the email into the link to unlock the download."}
+                ? "Click a platform below to download. Your license key is submitted securely."
+                : "Use the download links from your confirmation email, or download below and activate via email in the app."}
             </p>
           </div>
 
           <div className="px-8 py-6 space-y-3">
-            {PLATFORMS.map((p) => {
-              const href = licenseKey
-                ? `/api/download/premium?key=${encodeURIComponent(licenseKey)}&platform=${p.key}`
-                : `/api/download/premium?platform=${p.key}&key=PASTE_YOUR_LICENSE_KEY`;
-
-              return (
-                <a
+            {PLATFORMS.map((p) => (
+              licenseKey ? (
+                <form key={p.key} method="POST" action="/api/download/premium">
+                  <input type="hidden" name="key"      value={licenseKey} />
+                  <input type="hidden" name="platform" value={p.key} />
+                  <button
+                    type="submit"
+                    className="flex items-center justify-between w-full px-4 py-3.5 rounded-xl text-sm font-semibold transition-all hover:opacity-85 cursor-pointer"
+                    style={{
+                      background: "rgba(79,70,229,0.15)",
+                      border: "1px solid rgba(99,102,241,0.4)",
+                      color: "#d4d4d8",
+                    }}
+                  >
+                    <span className="flex items-center gap-2">
+                      <span>{p.icon}</span>
+                      <span>Download for {p.label}</span>
+                    </span>
+                    <span
+                      className="text-xs font-mono px-2 py-0.5 rounded"
+                      style={{ background: "rgba(0,0,0,0.3)", color: "#71717a" }}
+                    >
+                      {p.badge}
+                    </span>
+                  </button>
+                </form>
+              ) : (
+                <div
                   key={p.key}
-                  href={href}
-                  className="flex items-center justify-between w-full px-4 py-3.5 rounded-xl text-sm font-semibold transition-all hover:opacity-85"
-                  style={{
-                    background: licenseKey ? "rgba(79,70,229,0.15)" : "#18181b",
-                    border: `1px solid ${licenseKey ? "rgba(99,102,241,0.4)" : "#27272a"}`,
-                    color: "#d4d4d8",
-                  }}
+                  className="flex items-center justify-between w-full px-4 py-3.5 rounded-xl text-sm font-semibold opacity-50"
+                  style={{ background: "#18181b", border: "1px solid #27272a", color: "#d4d4d8" }}
                 >
                   <span className="flex items-center gap-2">
                     <span>{p.icon}</span>
@@ -217,16 +208,15 @@ p{font-size:15px;line-height:1.6;color:#a1a1aa;margin:0 0 16px}
                   >
                     {p.badge}
                   </span>
-                </a>
-              );
-            })}
+                </div>
+              )
+            ))}
           </div>
 
           {!licenseKey && (
             <div className="px-8 pb-6">
               <p className="text-xs text-center" style={{ color: "#52525b" }}>
-                💡 Replace <code style={{ color: "#71717a" }}>PASTE_YOUR_LICENSE_KEY</code> in the URL with
-                your actual key, or use the link from your email which has it pre-filled.
+                💡 Download links with your key are in your confirmation email.
               </p>
             </div>
           )}
@@ -241,13 +231,13 @@ p{font-size:15px;line-height:1.6;color:#a1a1aa;margin:0 0 16px}
             className="text-xs font-bold uppercase tracking-widest mb-4"
             style={{ color: "#52525b" }}
           >
-            Activate your license in the app
+            Activate via email (easiest)
           </p>
           <ol className="space-y-3 text-sm" style={{ color: "#a1a1aa" }}>
             {[
               "Download and open Marrow Library on your Mac or PC",
-              <>Navigate to <strong className="text-white">Settings → License</strong></>,
-              <>Paste your license key and click <strong className="text-white">Activate</strong></>,
+              <>Click the <strong className="text-white">license badge</strong> in the top-right corner</>,
+              <>Enter <strong className="text-white">{customerEmail ?? "your purchase email"}</strong> and click <strong className="text-white">Activate Pro</strong></>,
               "Your Premium features unlock immediately",
             ].map((step, i) => (
               <li key={i} className="flex items-start gap-3">

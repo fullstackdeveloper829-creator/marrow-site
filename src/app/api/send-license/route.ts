@@ -1,13 +1,14 @@
 /**
  * POST /api/send-license
- * Called from the success page after checkout completes.
- * Retrieves the session directly and sends the license email —
- * does NOT rely on Stripe webhooks.
+ * Called as a manual retry if the user didn't receive their webhook email.
+ * Retrieves the session, generates the license key, and sends a confirmation email.
+ * Download links in the email go directly to GitHub releases — no key in URL.
  */
 import { NextRequest, NextResponse } from "next/server";
 import { stripe } from "@/lib/stripe";
 import { sendEmail } from "@/lib/mailer";
 import { generateLicenseKey, PAID_TIERS, type LicenseTier, type LicensePayload } from "@/lib/license";
+import { GITHUB_REPO, FALLBACK_RELEASE } from "@/lib/constants";
 import type Stripe from "stripe";
 
 export const dynamic = "force-dynamic";
@@ -33,7 +34,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   const licenseSecret = process.env.MARROW_LICENSE_SECRET;
   if (!licenseSecret) return NextResponse.json({ error: "Server misconfiguration" }, { status: 500 });
 
-  // Retrieve full session with customer expanded
   let session: Stripe.Checkout.Session;
   try {
     session = await stripe.checkout.sessions.retrieve(sessionId, {
@@ -47,7 +47,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ error: "Payment not completed" }, { status: 402 });
   }
 
-  const customer = session.customer as Stripe.Customer | null;
+  const customer      = session.customer      as Stripe.Customer      | null;
   const paymentIntent = session.payment_intent as Stripe.PaymentIntent | null;
   const email =
     session.customer_details?.email ??
@@ -69,9 +69,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   };
 
   const licenseKey = generateLicenseKey(payload, licenseSecret);
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://marrow-site.vercel.app";
-  const encodedKey = encodeURIComponent(licenseKey);
-  const dlBase = `${siteUrl}/api/download/premium?key=${encodedKey}&platform=`;
+  const siteUrl    = process.env.NEXT_PUBLIC_SITE_URL ?? "https://marrow-site.vercel.app";
+  const ghBase     = `https://github.com/${GITHUB_REPO}/releases/download/${FALLBACK_RELEASE}`;
 
   const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"/>
 <style>body{margin:0;padding:0;background:#050510;font-family:-apple-system,sans-serif;color:#f4f4f5}
@@ -88,22 +87,22 @@ p{font-size:15px;line-height:1.6;color:#a1a1aa;margin:0 0 16px}
 <div class="w"><div class="card">
 <div class="logo">Marrow Library</div>
 <h1>You're all set!</h1>
-<p>Thanks for your purchase, ${email}. Your license key and download links are below.</p>
+<p>Thanks for your purchase, ${email}. Your license key is below — or just enter your email in the app to activate.</p>
 <div class="label">Your License Key</div>
 <div class="key">${licenseKey}</div>
 <div class="label">Download</div>
-<a class="btn" href="${dlBase}macos">🍎 Download for macOS (.dmg)</a>
-<a class="btn" href="${dlBase}windows">🪟 Download for Windows (.exe)</a>
-<a class="btn" href="${dlBase}android">🤖 Download Android Scanner (.apk)</a>
+<a class="btn" href="${ghBase}/MarrowLibrary-${FALLBACK_RELEASE}-macos-universal.dmg">🍎 Download for macOS (.dmg)</a>
+<a class="btn" href="${ghBase}/MarrowLibrary-${FALLBACK_RELEASE}-windows-setup.exe">🪟 Download for Windows (.exe)</a>
+<a class="btn" href="${ghBase}/MarrowScanner-${FALLBACK_RELEASE}-android.apk">🤖 Download Android Scanner (.apk)</a>
 <div style="margin-top:24px;background:#0a0a14;border:1px solid #27272a;border-radius:8px;padding:20px">
-<p style="font-size:11px;font-weight:700;color:#52525b;text-transform:uppercase;letter-spacing:.1em;margin:0 0 12px">Activate</p>
+<p style="font-size:11px;font-weight:700;color:#52525b;text-transform:uppercase;letter-spacing:.1em;margin:0 0 12px">Easiest activation</p>
 <ol style="margin:0;padding-left:20px;color:#a1a1aa;font-size:14px;line-height:1.8">
-<li>Open Marrow Library → Settings → License</li>
-<li>Paste your key → click Activate</li>
+<li>Open Marrow Library → click the license badge (top-right)</li>
+<li>Enter <strong style="color:#c7d2fe;">${email}</strong> → click Activate Pro</li>
 </ol>
 </div>
 </div>
-<div class="footer">Marrow Library · Questions? Reply to this email.<br/>© 2026 Marrow Library.</div>
+<div class="footer">Marrow Library · Questions? Reply to this email.<br/>© 2026 Marrow Library · <a href="${siteUrl}/privacy" style="color:#52525b;">Privacy</a></div>
 </div></body></html>`;
 
   try {

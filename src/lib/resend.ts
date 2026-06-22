@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 
-// Fallback to empty string so the module loads at build time without throwing.
-// The actual key is required at runtime (webhook handler checks for it).
-export const resend = new Resend(process.env.RESEND_API_KEY ?? "re_placeholder");
+const key = process.env.RESEND_API_KEY;
+if (!key) throw new Error("RESEND_API_KEY environment variable is required");
+
+export const resend = new Resend(key);
