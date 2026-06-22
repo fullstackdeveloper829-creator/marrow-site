@@ -15,7 +15,6 @@ interface PriceConfig {
 }
 
 function getPriceConfig(tier: CheckoutTier, billing: BillingCycle): PriceConfig | null {
-  // Launch deal: $20 one-time payment, unlocks 3-month Collector access
   if (billing === "launch") {
     return {
       unitAmount: 2000,
@@ -79,31 +78,45 @@ function getPriceConfig(tier: CheckoutTier, billing: BillingCycle): PriceConfig 
   return null;
 }
 
-export async function GET(req: NextRequest): Promise<NextResponse> {
-  const { searchParams } = new URL(req.url);
-  const rawTier = searchParams.get("tier");
-  const rawBilling = searchParams.get("billing") ?? "annual";
+// GET is explicitly disallowed — checkout sessions must be initiated via POST
+// to prevent CSRF via navigation pre-fetch, <img src>, or search engine crawlers.
+export async function GET(): Promise<NextResponse> {
+  return NextResponse.json(
+    { error: "Method not allowed. Send a POST request with { tier, billing } to create a checkout session." },
+    { status: 405, headers: { Allow: "POST" } }
+  );
+}
 
-  const validTiers: CheckoutTier[] = ["COLLECTOR", "CURATOR", "COLLECTOR_LIFETIME"];
+export async function POST(req: NextRequest): Promise<NextResponse> {
+  const contentType = req.headers.get("content-type") ?? "";
+  let rawTier: string | null = null;
+  let rawBilling: string | null = null;
+
+  if (contentType.includes("application/x-www-form-urlencoded") || contentType.includes("multipart/form-data")) {
+    const form = await req.formData();
+    rawTier    = form.get("tier")    as string | null;
+    rawBilling = form.get("billing") as string | null;
+  } else {
+    const body = await req.json().catch(() => ({})) as Record<string, unknown>;
+    rawTier    = typeof body["tier"]    === "string" ? body["tier"]    : null;
+    rawBilling = typeof body["billing"] === "string" ? body["billing"] : null;
+  }
+
+  rawBilling ??= "annual";
+
+  const validTiers: CheckoutTier[]   = ["COLLECTOR", "CURATOR", "COLLECTOR_LIFETIME"];
   const validBilling: BillingCycle[] = ["monthly", "annual", "lifetime", "launch"];
 
   if (!rawTier || !validTiers.includes(rawTier as CheckoutTier)) {
-    return NextResponse.json(
-      { error: "Invalid or missing tier parameter" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Invalid or missing tier parameter" }, { status: 400 });
   }
 
   if (!validBilling.includes(rawBilling as BillingCycle)) {
-    return NextResponse.json(
-      { error: "Invalid billing parameter" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Invalid billing parameter" }, { status: 400 });
   }
 
-  const tier = rawTier as CheckoutTier;
+  const tier    = rawTier    as CheckoutTier;
   const billing = rawBilling as BillingCycle;
-
   const priceConfig = getPriceConfig(tier, billing);
 
   if (!priceConfig) {
@@ -111,10 +124,6 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       { error: "No price found for this tier/billing combination" },
       { status: 400 }
     );
-  }
-
-  if (!process.env.STRIPE_SECRET_KEY) {
-    return NextResponse.redirect("https://marrow-site.vercel.app/#pricing");
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://marrow-site.vercel.app";
@@ -140,8 +149,11 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
   });
 
   if (!session.url) {
-    return NextResponse.json({ error: "Stripe did not return a checkout URL. Please try again." }, { status: 502 });
+    return NextResponse.json(
+      { error: "Stripe did not return a checkout URL. Please try again." },
+      { status: 502 }
+    );
   }
 
-  return NextResponse.redirect(session.url);
+  return NextResponse.redirect(session.url, 303);
 }

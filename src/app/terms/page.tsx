@@ -50,8 +50,8 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-bold text-white mb-3">4. Payment and Refunds</h2>
             <p>Paid plans are billed via Stripe. Annual subscriptions renew automatically. Lifetime licenses are one-time purchases with no recurring charge.</p>
-            <p className="mt-3">We offer a <strong className="text-white">7-day refund policy</strong> for all paid plans. If you are unsatisfied for any reason within 7 days of purchase, contact us at <a href={`mailto:${EMAIL}`} className="underline hover:text-white">{EMAIL}</a> for a full refund.</p>
-            <p className="mt-3">After 7 days, refunds are issued at our discretion.</p>
+            <p className="mt-3">We offer a <strong className="text-white">14-day refund policy</strong> for all paid plans. If you are unsatisfied for any reason within 14 days of purchase, contact us at <a href={`mailto:${EMAIL}`} className="underline hover:text-white">{EMAIL}</a> for a full refund.</p>
+            <p className="mt-3">After 14 days, refunds are issued at our discretion.</p>
           </section>
 
           <section>

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { stripe } from "@/lib/stripe";
 import { transporter, FROM } from "@/lib/mailer";
+import { GITHUB_REPO, FALLBACK_RELEASE } from "@/lib/constants";
 import type Stripe from "stripe";
 
 export const dynamic = "force-dynamic";
@@ -9,8 +10,7 @@ export const dynamic = "force-dynamic";
 
 function emailHtml(email: string, siteUrl: string): string {
   const name = email.split("@")[0] ?? "there";
-  const dl = (platform: string) =>
-    `${siteUrl}/api/download/premium?email=${encodeURIComponent(email)}&platform=${platform}`;
+  const ghBase = `https://github.com/${GITHUB_REPO}/releases/download/${FALLBACK_RELEASE}`;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -65,17 +65,17 @@ function emailHtml(email: string, siteUrl: string): string {
       </td></tr>
     </table>
 
-    <!-- Download buttons -->
+    <!-- Download buttons — direct GitHub links, no license key in URL -->
     <p style="margin:0 0 12px;font-size:10px;font-weight:700;color:#52525b;text-transform:uppercase;letter-spacing:.12em;">Download</p>
     ${[
-      { platform: "macos",   icon: "🍏", label: "macOS",          ext: ".dmg" },
-      { platform: "windows", icon: "🪟", label: "Windows",         ext: ".exe" },
-      { platform: "android", icon: "🤖", label: "Android Scanner", ext: ".apk" },
+      { url: `${ghBase}/MarrowLibrary-${FALLBACK_RELEASE}-macos-universal.dmg`,    icon: "🍏", label: "macOS",          ext: ".dmg" },
+      { url: `${ghBase}/MarrowLibrary-${FALLBACK_RELEASE}-windows-setup.exe`,      icon: "🪟", label: "Windows",         ext: ".exe" },
+      { url: `${ghBase}/MarrowScanner-${FALLBACK_RELEASE}-android.apk`,            icon: "🤖", label: "Android Scanner", ext: ".apk" },
     ].map(p => `
     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:8px;">
       <tr>
         <td style="background:rgba(79,70,229,.12);border:1px solid rgba(99,102,241,.3);border-radius:10px;padding:0;">
-          <a href="${dl(p.platform)}" style="display:block;padding:14px 18px;text-decoration:none;color:#d4d4d8;font-size:14px;font-weight:600;">
+          <a href="${p.url}" style="display:block;padding:14px 18px;text-decoration:none;color:#d4d4d8;font-size:14px;font-weight:600;">
             ${p.icon}&nbsp;&nbsp;Download for ${p.label} <span style="color:#52525b;font-weight:400;font-size:12px;">${p.ext}</span>
           </a>
         </td>
@@ -100,7 +100,7 @@ function emailHtml(email: string, siteUrl: string): string {
 }
 
 function emailText(email: string, siteUrl: string): string {
-  const dl = (p: string) => `${siteUrl}/api/download/premium?email=${encodeURIComponent(email)}&platform=${p}`;
+  const ghBase = `https://github.com/${GITHUB_REPO}/releases/download/${FALLBACK_RELEASE}`;
   return [
     "Marrow Library Pro — Purchase Confirmed",
     "",
@@ -112,9 +112,9 @@ function emailText(email: string, siteUrl: string): string {
     "4. Click Activate Pro — done!",
     "",
     "Download links:",
-    `macOS:   ${dl("macos")}`,
-    `Windows: ${dl("windows")}`,
-    `Android: ${dl("android")}`,
+    `macOS:   ${ghBase}/MarrowLibrary-${FALLBACK_RELEASE}-macos-universal.dmg`,
+    `Windows: ${ghBase}/MarrowLibrary-${FALLBACK_RELEASE}-windows-setup.exe`,
+    `Android: ${ghBase}/MarrowScanner-${FALLBACK_RELEASE}-android.apk`,
     "",
     "Questions? Reply to this email.",
     `© 2026 Marrow Library · ${siteUrl}`,
@@ -147,6 +147,11 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       return NextResponse.json({ received: true, skipped: "not_paid" });
     }
 
+    // Dedup: skip if we already sent an email for this session.
+    if (session.metadata?.emailSent === "true") {
+      return NextResponse.json({ received: true, skipped: "email_already_sent" });
+    }
+
     const email =
       session.customer_details?.email ??
       session.customer_email ??
@@ -168,6 +173,11 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         text: emailText(email, siteUrl),
       });
       console.log("[webhook] Purchase email sent to", email);
+
+      // Mark this session so duplicate webhook deliveries don't resend.
+      await stripe.checkout.sessions.update(session.id, {
+        metadata: { ...(session.metadata ?? {}), emailSent: "true" },
+      });
     } catch (err) {
       console.error("[webhook] SMTP error:", err);
     }
