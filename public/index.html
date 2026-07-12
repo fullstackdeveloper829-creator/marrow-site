@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Marrow Library — Catalog Your Collection</title>
-  <meta name="description" content="Scan barcodes, track live eBay values, catalog books, vinyl, games, movies & more. One-time $20, no subscription. Local-first. Mac, Windows, Android & iOS." />
+  <meta name="description" content="Scan barcodes, track live eBay values, catalog books, vinyl, games, movies & more. Local-first, no subscription. Coming soon — join the waitlist." />
   <link rel="canonical" href="https://marrow-site.vercel.app/" />
 
   <!-- Open Graph -->
@@ -12,7 +12,7 @@
   <meta property="og:site_name" content="Marrow Library" />
   <meta property="og:url" content="https://marrow-site.vercel.app/" />
   <meta property="og:title" content="Marrow Library — Catalog Your Collection" />
-  <meta property="og:description" content="Scan barcodes, track live eBay values, catalog books, vinyl, games, movies & more. One-time $20, no subscription. Local-first." />
+  <meta property="og:description" content="Scan barcodes, track live eBay values, catalog books, vinyl, games, movies & more. Local-first, no subscription. Coming soon — join the waitlist." />
   <meta property="og:image" content="https://marrow-site.vercel.app/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -21,12 +21,12 @@
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Marrow Library — Catalog Your Collection" />
-  <meta name="twitter:description" content="Scan barcodes, track live eBay values, catalog books, vinyl, games & more. $20 once, no subscription." />
+  <meta name="twitter:description" content="Scan barcodes, track live eBay values, catalog books, vinyl, games & more. Coming soon — join the waitlist." />
   <meta name="twitter:image" content="https://marrow-site.vercel.app/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="/marrow-site.svg" />
 
   <!-- JSON-LD Structured Data for AI search, Google AI Overviews, Perplexity, Bing Copilot -->
@@ -39,7 +39,7 @@
         "@id": "https://marrow-site.vercel.app/#app",
         "name": "Marrow Library",
         "alternateName": ["Marrow", "Marrow Library App"],
-        "description": "Local-first collection cataloging app for books, vinyl records, video games, movies, board games, trading cards, comic books and more. Scan barcodes, track live eBay market values, manage loans, generate insurance PDFs. One-time $20, no subscription. Mac and Windows desktop app with iOS/Android scanner companion.",
+        "description": "Local-first collection cataloging app for books, vinyl records, video games, movies, board games, trading cards, comic books and more. Scan barcodes, track live eBay market values, manage loans, generate insurance PDFs. Planned launch price: one-time $20, no subscription. Mac and Windows desktop app with iOS/Android scanner companion. Coming soon.",
         "applicationCategory": "UtilitiesApplication",
         "applicationSubCategory": "Collection Management",
         "operatingSystem": ["Windows", "macOS", "iOS", "Android"],
@@ -53,8 +53,8 @@
           "price": "20.00",
           "priceCurrency": "USD",
           "priceValidUntil": "2026-12-31",
-          "description": "One-time payment, 3 months full access. No subscription, no auto-renewal.",
-          "availability": "https://schema.org/InStock"
+          "description": "Planned launch price: one-time payment, 3 months full access. No subscription, no auto-renewal.",
+          "availability": "https://schema.org/PreOrder"
         },
         "aggregateRating": {
           "@type": "AggregateRating",
@@ -140,7 +140,7 @@
             "name": "Is Marrow Library a subscription?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. Marrow Library is $20 one-time for 3 months of full access. There is no subscription, no auto-renewal, and no recurring charges ever. After the initial period, a free tier covers basic cataloging."
+              "text": "No. When Marrow Library launches, it will be a one-time $20 payment for 3 months of full access. There is no subscription, no auto-renewal, and no recurring charges ever. Join the waitlist to be notified at launch."
             }
           },
           {
@@ -169,10 +169,10 @@
           },
           {
             "@type": "Question",
-            "name": "What is the best alternative to CLZ for collection management?",
+            "name": "When will Marrow Library be available?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Marrow Library is a popular CLZ alternative. It costs $20 once (vs CLZ's $4-8/month subscription), is fully local-first, supports 13 media types, includes live eBay market valuations, Discogs import, and a free mobile scanner app."
+              "text": "Marrow Library is coming soon. Join the waitlist on the website and you'll get one email the moment it launches. Waitlist members lock in the planned $20 one-time launch price."
             }
           }
         ]
@@ -180,35 +180,40 @@
     ]
   }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* ── "THE ARCHIVE" — warm paper, ink, burnt-sienna stamp ── */
     :root {
-      --bg:     #02020c;
-      --bg2:    #04041a;
-      --bg3:    #070720;
-      --indigo: #5b52f0;
-      --ind2:   #7c74f5;
-      --ind3:   #a5b4fc;
-      --amber:  #f59e0b;
-      --green:  #10b981;
-      --text:   #dde0f0;
-      --sub:    #7070a0;   /* readable muted */
-      --dim:    #52527a;   /* dimmer labels */
-      --faint:  #30305a;   /* faintest text */
-      --border: rgba(255,255,255,0.07);
-      --r:      16px;
-      --r-lg:   24px;
-      --r-sm:   10px;
+      --paper:   #FAF6EE;
+      --paper-2: #F3EDE0;
+      --paper-3: #ECE4D2;
+      --card:    #FFFDF8;
+      --ink:     #1C1812;
+      --sub:     #57503F;   /* body text */
+      --dim:     #8A806B;   /* muted labels */
+      --faint:   #B3A98E;   /* faintest text */
+      --line:    rgba(28,24,18,.16);
+      --accent:  #C24B24;
+      --accent2: #9A3A1B;
+      --tint:    rgba(194,75,36,.09);
+      --moss:    #3F6B4F;
+      --ochre:   #B98A2F;
+      --r:      10px;
+      --r-lg:   16px;
+      --r-sm:   6px;
+      --shadow:    4px 4px 0 var(--ink);
+      --shadow-sm: 2px 2px 0 var(--ink);
+      --shadow-lg: 6px 6px 0 var(--ink);
+      --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
-      font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: var(--text);
+      background: var(--paper);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
       line-height: 1.6;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
@@ -217,8 +222,8 @@
 
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #2a2a55; border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: #3d3d80; }
+    ::-webkit-scrollbar-thumb { background: #D8CFBA; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #C2B79C; }
 
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
@@ -240,22 +245,33 @@
     .d4 { transition-delay: .32s; }
     .d5 { transition-delay: .40s; }
 
+    /* ── COMING SOON stamp ── */
+    .stamp {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--mono); font-weight: 600; font-size: 12px;
+      text-transform: uppercase; letter-spacing: .14em;
+      color: var(--accent); background: var(--card);
+      border: 3px double var(--accent); border-radius: var(--r-sm);
+      padding: 6px 16px; transform: rotate(-4deg); opacity: .92;
+    }
+
     /* ── TOP BAR (announcement + nav fixed together) ── */
     #topbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       display: flex; flex-direction: column;
     }
     .announce {
-      background: linear-gradient(90deg, rgba(91,82,240,.14), rgba(124,116,245,.14));
-      border-bottom: 1px solid rgba(91,82,240,.2);
+      background: var(--paper-3);
+      border-bottom: 1px solid var(--line);
       padding: 9px 20px; text-align: center;
-      font-size: 13px; font-weight: 500; color: #9090c8;
+      font-size: 13px; font-weight: 500; color: var(--sub);
+      font-family: var(--mono);
       transition: max-height .3s, opacity .3s, padding .3s;
       max-height: 48px; overflow: hidden;
     }
     .announce.hidden { max-height: 0; opacity: 0; padding: 0; }
-    .announce strong { color: var(--ind3); font-weight: 700; }
-    .announce a { color: var(--ind3); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(165,180,252,.35); }
+    .announce strong { color: var(--accent); font-weight: 600; }
+    .announce a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(194,75,36,.4); }
 
     #nav {
       background: transparent;
@@ -263,45 +279,38 @@
       transition: background .35s, border-color .35s, backdrop-filter .35s;
     }
     #nav.scrolled {
-      background: rgba(2,2,12,.93);
-      border-color: rgba(255,255,255,.06);
-      backdrop-filter: blur(28px) saturate(200%);
-      -webkit-backdrop-filter: blur(28px) saturate(200%);
+      background: rgba(250,246,238,.92);
+      border-color: var(--ink);
+      backdrop-filter: blur(14px) saturate(150%);
+      -webkit-backdrop-filter: blur(14px) saturate(150%);
     }
     .nav-row {
       display: flex; align-items: center; justify-content: space-between;
       height: 62px; padding: 0 32px; max-width: 1160px; margin: 0 auto;
     }
     .nav-brand { display: flex; align-items: center; gap: 10px; }
-    .brand-icon {
-      width: 30px; height: 30px; border-radius: 9px; flex-shrink: 0;
-      background: linear-gradient(145deg, var(--indigo), var(--ind2));
-      box-shadow: 0 0 18px rgba(91,82,240,.5);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .brand-icon svg { width: 16px; height: 16px; }
-    .brand-name { font-weight: 800; font-size: 15px; color: #fff; letter-spacing: -.02em; }
+    .brand-name { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 17px; color: var(--ink); letter-spacing: -.01em; }
     .nav-links { display: flex; align-items: center; gap: 4px; }
     .nav-a {
       padding: 6px 13px; border-radius: 8px; font-size: 14px; font-weight: 500; color: var(--sub);
       transition: color .15s, background .15s;
     }
-    .nav-a:hover { color: #e0e0f4; background: rgba(255,255,255,.05); }
-    .nav-a.active { color: var(--ind3); }
+    .nav-a:hover { color: var(--ink); background: rgba(28,24,18,.05); }
+    .nav-a.active { color: var(--accent2); }
     .nav-btn {
-      margin-left: 6px; padding: 8px 20px; border-radius: 10px;
-      font-size: 14px; font-weight: 700; color: #fff; border: none; cursor: pointer;
-      background: linear-gradient(135deg, #4f46e5, var(--ind2));
-      box-shadow: 0 0 22px rgba(91,82,240,.4);
-      transition: filter .2s, box-shadow .2s, transform .12s;
+      margin-left: 6px; padding: 8px 20px; border-radius: var(--r);
+      font-size: 14px; font-weight: 700; color: var(--paper); border: 1.5px solid var(--ink); cursor: pointer;
+      background: var(--ink);
+      box-shadow: var(--shadow-sm);
+      transition: transform .15s, box-shadow .15s, background .15s;
     }
-    .nav-btn:hover { filter: brightness(1.14); box-shadow: 0 0 32px rgba(91,82,240,.6); }
-    .nav-btn:active { transform: scale(.95); }
+    .nav-btn:hover { transform: translate(-1px,-1px); box-shadow: 3px 3px 0 var(--accent); }
+    .nav-btn:active { transform: translate(1px,1px); box-shadow: none; }
     .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
-    .burger span { display: block; width: 22px; height: 2px; background: #9090bc; border-radius: 2px; transition: .25s; }
+    .burger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: .25s; }
     .mob-menu {
       display: none; flex-direction: column; gap: 3px;
-      padding: 10px 18px 18px; background: rgba(2,2,12,.98); border-top: 1px solid var(--border);
+      padding: 10px 18px 18px; background: rgba(250,246,238,.98); border-top: 1px solid var(--line); border-bottom: 1.5px solid var(--ink);
     }
     .mob-menu.open { display: flex; }
     .mob-menu .nav-a { padding: 11px 14px; font-size: 15px; }
@@ -311,41 +320,9 @@
     /* ── HERO ── */
     #hero {
       position: relative; overflow: hidden;
-      /* push down past topbar: announce(~42px) + nav(62px) = ~104px, add breathing room */
       padding-top: 110px;
     }
-    .orb {
-      position: absolute; pointer-events: none; border-radius: 50%;
-    }
-    .orb-1 {
-      top: -15%; left: 50%; transform: translateX(-50%);
-      width: 900px; height: 800px;
-      background: radial-gradient(ellipse at center, rgba(91,82,240,.18) 0%, rgba(91,82,240,.07) 30%, transparent 65%);
-      animation: bobA 11s ease-in-out infinite;
-    }
-    .orb-2 {
-      top: 25%; right: -12%;
-      width: 480px; height: 480px;
-      background: radial-gradient(ellipse at center, rgba(124,116,245,.1) 0%, transparent 65%);
-      animation: bobB 15s ease-in-out infinite;
-    }
-    .orb-3 {
-      bottom: 5%; left: -8%;
-      width: 360px; height: 360px;
-      background: radial-gradient(ellipse at center, rgba(16,185,129,.06) 0%, transparent 65%);
-      animation: bobA 19s ease-in-out infinite reverse;
-    }
-    @keyframes bobA { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-22px)} }
-    @keyframes bobB { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-16px)} }
-
-    .hero-grid {
-      position: absolute; inset: 0; pointer-events: none;
-      background-image: linear-gradient(rgba(91,82,240,.032) 1px,transparent 1px),
-                        linear-gradient(90deg,rgba(91,82,240,.032) 1px,transparent 1px);
-      background-size: 72px 72px;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 25%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 25%, transparent 100%);
-    }
+    .hero-grid { display: none; }
 
     .hero-body {
       position: relative; z-index: 10;
@@ -354,49 +331,49 @@
     }
 
     /* Badges */
-    .badge-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .badge-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: center; }
     .badge {
       display: inline-flex; align-items: center; gap: 7px;
-      padding: 5px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap;
+      padding: 5px 14px; border-radius: 999px; font-size: 12px; font-weight: 500; white-space: nowrap;
+      font-family: var(--mono); letter-spacing: .04em;
     }
-    .badge-amber { background: rgba(245,158,11,.09); border: 1px solid rgba(245,158,11,.25); color: #fbbf24; }
-    .badge-indigo { background: rgba(91,82,240,.09); border: 1px solid rgba(91,82,240,.25); color: var(--ind3); font-family: 'Menlo','Consolas',monospace; letter-spacing:.04em; transition: border-color .2s; }
-    .badge-indigo:hover { border-color: rgba(91,82,240,.5); }
-    .dot-amber { width:6px; height:6px; border-radius:50%; background:#fbbf24; animation: blink 2.2s ease-in-out infinite; }
-    .dot-green  { width:6px; height:6px; border-radius:50%; background:var(--green); }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+    .badge-ver { background: var(--card); border: 1px solid var(--line); color: var(--dim); }
+    .dot-green { width: 6px; height: 6px; border-radius: 50%; background: var(--moss); }
 
     /* Headline */
     .hero-h1 {
-      font-size: clamp(3rem, 8.5vw, 6.2rem);
-      font-weight: 900; letter-spacing: -.045em; line-height: .93; color: #fff;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(2.9rem, 8vw, 5.8rem);
+      font-weight: 700; letter-spacing: -.025em; line-height: 1.02; color: var(--ink);
     }
-    .grad { background: linear-gradient(135deg,#c7d2fe 0%,#a5b4fc 40%,#6d62f8 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-    .grad-green { background: linear-gradient(135deg,#a7f3d0 0%,#34d399 50%,#059669 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-    .grad-amber { background: linear-gradient(135deg,#fde68a 0%,#fbbf24 50%,#d97706 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .grad { color: var(--accent); font-style: italic; }
 
-    .hero-sub { font-size: 18px; color: var(--sub); max-width: 420px; line-height: 1.7; margin: 14px auto 0; text-align: center; }
-    .hero-sub em { color: #9090cc; font-style: normal; }
+    .hero-sub { font-size: 18px; color: var(--sub); max-width: 440px; line-height: 1.7; margin: 14px auto 0; text-align: center; }
+    .hero-sub em { color: var(--ink); font-style: normal; font-weight: 600; }
 
     /* CTA buttons */
     .cta-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
     .btn-main {
       display: inline-flex; align-items: center; gap: 9px;
-      padding: 15px 34px; border-radius: 13px; font-size: 16px; font-weight: 700; color: #fff;
-      background: linear-gradient(135deg, #4f46e5 0%, #6d62f8 60%, #7c74f5 100%);
-      box-shadow: 0 0 40px rgba(91,82,240,.45), 0 2px 16px rgba(0,0,0,.45);
-      border: none; cursor: pointer; transition: filter .2s, box-shadow .2s, transform .12s; letter-spacing: -.01em;
+      padding: 15px 34px; border-radius: var(--r); font-size: 16px; font-weight: 700; color: var(--paper);
+      background: var(--ink);
+      border: 1.5px solid var(--ink); cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: transform .15s, box-shadow .15s; letter-spacing: -.01em;
     }
-    .btn-main:hover { filter: brightness(1.13); box-shadow: 0 0 56px rgba(91,82,240,.65), 0 4px 24px rgba(0,0,0,.55); }
-    .btn-main:active { transform: scale(.96); }
+    .btn-main:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--accent); }
+    .btn-main:active { transform: translate(1px,1px); box-shadow: none; }
+    .btn-main:disabled { opacity: .6; cursor: default; transform: none; box-shadow: var(--shadow); }
+    .btn-accent { background: var(--accent); }
+    .btn-accent:hover { background: var(--accent2); box-shadow: 6px 6px 0 var(--ink); }
     .btn-ghost {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 15px 24px; border-radius: 13px; font-size: 15px; font-weight: 600;
-      border: 1px solid rgba(255,255,255,.1); color: var(--sub);
-      background: rgba(255,255,255,.025);
-      transition: border-color .2s, color .2s, background .2s;
+      padding: 15px 24px; border-radius: var(--r); font-size: 15px; font-weight: 600;
+      border: 1.5px solid var(--ink); color: var(--ink);
+      background: transparent;
+      transition: background .2s, transform .15s, box-shadow .15s;
     }
-    .btn-ghost:hover { border-color: rgba(91,82,240,.4); color: #c0c0e0; background: rgba(91,82,240,.06); }
+    .btn-ghost:hover { background: var(--card); transform: translate(-1px,-1px); box-shadow: var(--shadow-sm); }
     .btn-ghost svg { width: 16px; height: 16px; }
 
     /* Platform chips */
@@ -404,47 +381,44 @@
     .plat {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 6px 14px; border-radius: 9px; font-size: 13px; font-weight: 500;
-      background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); color: var(--dim);
+      font-family: var(--mono);
+      background: var(--card); border: 1px solid var(--line); color: var(--dim);
       transition: border-color .2s, color .2s;
     }
-    .plat:hover { border-color: rgba(255,255,255,.14); color: var(--sub); }
+    .plat:hover { border-color: var(--ink); color: var(--sub); }
 
     /* Social proof */
     .proof {
       display: inline-flex; align-items: center; gap: 14px;
-      padding: 11px 20px; border-radius: 14px;
-      background: rgba(6,6,24,.75); border: 1px solid rgba(255,255,255,.08);
-      backdrop-filter: blur(10px);
+      padding: 11px 20px; border-radius: var(--r);
+      background: var(--card); border: 1.5px solid var(--ink);
+      box-shadow: var(--shadow-sm);
     }
     .avs { display: flex; }
     .av {
       width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
-      font-size: 11px; font-weight: 800; color: #c7d2fe;
-      border: 2px solid rgba(3,3,15,.9); margin-left: -9px;
+      font-size: 11px; font-weight: 800; color: var(--card);
+      border: 2px solid var(--card); margin-left: -9px;
     }
     .av:first-child { margin-left: 0; }
-    .stars { display: flex; gap: 1px; color: #fbbf24; font-size: 13px; }
+    .stars { display: flex; gap: 1px; color: var(--ochre); font-size: 13px; }
     .proof-txt { font-size: 13px; color: var(--dim); }
-    .proof-txt strong { color: #d0d0f0; }
+    .proof-txt strong { color: var(--ink); }
 
     /* Marquee */
     .marquee { width: 100%; overflow: hidden; mask-image: linear-gradient(90deg,transparent,black 10%,black 90%,transparent); -webkit-mask-image: linear-gradient(90deg,transparent,black 10%,black 90%,transparent); }
     .marquee-inner { display: flex; gap: 10px; width: max-content; animation: scroll 32s linear infinite; }
-    .m-tag { padding: 5px 14px; border-radius: 999px; font-size: 12px; font-weight: 500; white-space: nowrap; background: rgba(91,82,240,.06); border: 1px solid rgba(255,255,255,.07); color: var(--faint); }
+    .m-tag { padding: 5px 14px; border-radius: 999px; font-size: 12px; font-weight: 500; white-space: nowrap; font-family: var(--mono); background: transparent; border: 1px solid var(--line); color: var(--dim); }
     @keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
-    /* App mockup */
+    /* App mockup — dark interior kept, framed like an archival photo */
     .mock-wrap { position: relative; z-index: 10; max-width: 680px; margin: 0 auto; padding: 0 32px 96px; }
-    .mock-shadow { position: absolute; bottom: 72px; left: 15%; right: 15%; height: 50px; background: rgba(91,82,240,.28); filter: blur(42px); pointer-events: none; }
     .mock {
       border-radius: 14px; overflow: hidden;
-      background: #060616; border: 1px solid rgba(255,255,255,.09);
-      box-shadow: 0 50px 100px rgba(0,0,0,.85), 0 0 0 1px rgba(91,82,240,.08), 0 0 70px rgba(91,82,240,.1);
-      transform: perspective(1400px) rotateX(3deg);
-      transition: transform .5s cubic-bezier(.16,1,.3,1);
+      background: #060616; border: 1.5px solid var(--ink);
+      box-shadow: 8px 8px 0 var(--ink);
     }
-    .mock:hover { transform: perspective(1400px) rotateX(0); }
     .mock-bar { display: flex; align-items: center; gap: 8px; padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255,.06); background: rgba(3,3,12,.9); }
     .tls { display: flex; gap: 6px; }
     .tl { width: 10px; height: 10px; border-radius: 50%; }
@@ -470,8 +444,7 @@
     .v-btn.b { color: #252560; }
     .mock-grid-wrap { flex: 1; overflow: hidden; padding: 9px; }
     .igrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 7px; }
-    .icard { border-radius: 8px; overflow: hidden; background: rgba(10,10,28,.9); border: 1px solid rgba(255,255,255,.07); transition: border-color .2s; }
-    .icard:hover { border-color: rgba(255,255,255,.14); }
+    .icard { border-radius: 8px; overflow: hidden; background: rgba(10,10,28,.9); border: 1px solid rgba(255,255,255,.07); }
     .ibar { height: 2px; }
     .ithumb { display: flex; align-items: center; justify-content: center; font-size: 21px; padding: 10px 0 5px; }
     .iinfo { padding: 0 6px 7px; }
@@ -482,278 +455,270 @@
 
     /* ── STATS BAR ── */
     #stats {
-      background: rgba(4,4,18,.96); border-top: 1px solid rgba(255,255,255,.05); border-bottom: 1px solid rgba(255,255,255,.05);
+      background: var(--paper-2); border-top: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink);
       padding: 40px 0;
     }
     .stats-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; }
     @media(min-width:600px){ .stats-grid{ grid-template-columns:repeat(4,1fr); } }
     .s-stat { text-align: center; }
     .s-num {
-      font-size: clamp(2rem,4vw,2.8rem); font-weight: 900; letter-spacing: -.04em; line-height: 1;
-      background: linear-gradient(135deg,#c7d2fe,#818cf8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(2rem,4vw,2.8rem); font-weight: 700; letter-spacing: -.02em; line-height: 1;
+      color: var(--ink);
     }
-    .s-lbl { font-size: 14px; color: var(--faint); font-weight: 500; margin-top: 6px; }
+    .s-lbl { font-size: 14px; color: var(--dim); font-weight: 500; margin-top: 6px; }
 
     /* ── STORY ── */
     #story {
       padding: 120px 0; position: relative; overflow: hidden;
-      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      background: var(--paper);
     }
-    .story-orb { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 40% 60% at 0% 50%, rgba(91,82,240,.07) 0%, transparent 70%); }
     .story-layout { display: grid; gap: 72px; align-items: center; }
     @media(min-width:1024px){ .story-layout{ grid-template-columns:1fr 1fr; } }
-    .eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--amber); margin-bottom: 18px; }
-    .h2 { font-weight: 900; color: #fff; line-height: 1.04; font-size: clamp(2rem,3.8vw,3.1rem); letter-spacing: -.035em; margin-bottom: 28px; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .12em; color: var(--accent2); margin-bottom: 18px; }
+    .h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; color: var(--ink); line-height: 1.06; font-size: clamp(2rem,3.8vw,3.1rem); letter-spacing: -.02em; margin-bottom: 28px; }
     .story-body { color: var(--sub); font-size: 16px; display: flex; flex-direction: column; gap: 16px; line-height: 1.72; }
-    .story-body em { color: #8888bb; font-style: normal; }
+    .story-body em { color: var(--ink); font-style: normal; font-weight: 600; }
     .stat-cards { display: flex; flex-direction: column; gap: 14px; }
     .sc {
       display: flex; align-items: center; gap: 20px; padding: 20px 22px; border-radius: var(--r);
-      background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.06);
-      transition: transform .3s, border-color .3s;
+      background: var(--card); border: 1.5px solid var(--ink);
+      box-shadow: var(--shadow-sm);
+      transition: transform .3s, box-shadow .3s;
     }
-    .sc:hover { transform: translateX(8px); border-color: rgba(255,255,255,.12); }
+    .sc:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow); }
     .sc-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .sc-num { font-size: 22px; font-weight: 900; }
-    .sc-label { font-size: 15px; font-weight: 700; color: #e0e0f0; }
-    .sc-sub { font-size: 13px; color: var(--faint); margin-top: 2px; }
+    .sc-num { font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 700; }
+    .sc-label { font-size: 15px; font-weight: 700; color: var(--ink); }
+    .sc-sub { font-size: 13px; color: var(--dim); margin-top: 2px; }
 
     /* ── FEATURES ── */
     #features {
       padding: 120px 0; position: relative; overflow: hidden;
-      background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+      background: var(--paper-2);
+      border-top: 1.5px solid var(--ink);
     }
-    .feat-orb { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 50% 40% at 100% 50%, rgba(91,82,240,.05) 0%, transparent 70%); }
     .sec-head { text-align: center; margin-bottom: 64px; }
     .sec-sub { font-size: 17px; color: var(--sub); max-width: 500px; margin: 16px auto 0; line-height: 1.65; }
-    .feat-grid { display: grid; gap: 14px; }
+    .feat-grid { display: grid; gap: 16px; }
     @media(min-width:640px){  .feat-grid{ grid-template-columns:1fr 1fr; } }
     @media(min-width:1024px){ .feat-grid{ grid-template-columns:1fr 1fr 1fr; } }
     .fc {
       padding: 26px; border-radius: var(--r);
-      background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.055);
+      background: var(--card); border: 1.5px solid var(--ink);
+      box-shadow: var(--shadow-sm);
       display: flex; flex-direction: column; gap: 14px;
-      transition: transform .3s cubic-bezier(.16,1,.3,1), border-color .3s, box-shadow .3s;
+      transition: transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s;
       position: relative; overflow: hidden;
     }
-    .fc::after { content:''; position:absolute; inset:0; border-radius:inherit; background: var(--fc-bg,transparent); opacity:0; transition:opacity .3s; pointer-events:none; }
-    .fc:hover::after { opacity:1; }
-    .fc:hover { transform: translateY(-5px); }
+    .fc:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow); }
     .fc-icon { width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .fc-icon svg { width: 21px; height: 21px; }
-    .fc-name { font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -.01em; }
-    .fc-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; margin-top: 2px; }
+    .fc-name { font-size: 15px; font-weight: 700; color: var(--ink); letter-spacing: -.01em; }
+    .fc-tag { font-family: var(--mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; margin-top: 2px; }
     .fc-body { font-size: 14px; color: var(--sub); line-height: 1.65; }
 
     /* ── REVIEWS ── */
     #reviews {
       padding: 120px 0; position: relative; overflow: hidden;
-      background: var(--bg2);
+      background: var(--paper);
+      border-top: 1.5px solid var(--ink);
     }
-    .rev-orb { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 55% 45% at 50% 0%, rgba(91,82,240,.07) 0%, transparent 70%); }
-    .rev-grid { display: grid; gap: 14px; margin-top: 52px; }
+    .rev-grid { display: grid; gap: 16px; margin-top: 52px; }
     @media(min-width:640px){  .rev-grid{ grid-template-columns:1fr 1fr; } }
     @media(min-width:1024px){ .rev-grid{ grid-template-columns:1fr 1fr 1fr; } }
     .rc {
       padding: 26px; border-radius: var(--r);
-      background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.055);
+      background: var(--card); border: 1.5px solid var(--ink);
+      box-shadow: var(--shadow-sm);
       display: flex; flex-direction: column; gap: 16px;
-      transition: transform .25s, border-color .25s;
+      transition: transform .25s, box-shadow .25s;
     }
-    .rc:hover { transform: translateY(-3px); border-color: rgba(91,82,240,.22); }
+    .rc:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow); }
     .rc-body { font-size: 14px; color: var(--sub); line-height: 1.72; flex: 1; font-style: italic; }
-    .rc-foot { display: flex; align-items: center; gap: 12px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.05); }
-    .rav { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: #c7d2fe; flex-shrink: 0; }
-    .rc-name { font-size: 14px; font-weight: 700; color: #e0e0f0; }
-    .rc-role { font-size: 12px; color: var(--faint); margin-top: 2px; }
-    .rating-row { display: inline-flex; align-items: center; gap: 14px; padding: 11px 24px; border-radius: 999px; background: rgba(255,255,255,.025); border: 1px solid rgba(255,255,255,.08); }
+    .rc-foot { display: flex; align-items: center; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line); }
+    .rav { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: var(--card); flex-shrink: 0; }
+    .rc-name { font-size: 14px; font-weight: 700; color: var(--ink); }
+    .rc-role { font-size: 12px; color: var(--dim); margin-top: 2px; }
+    .rating-row { display: inline-flex; align-items: center; gap: 14px; padding: 11px 24px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--ink); box-shadow: var(--shadow-sm); }
+    .rc-quote { font-size: 48px; line-height: 1; color: rgba(194,75,36,.25); font-family: 'Fraunces', Georgia, serif; margin-bottom: -10px; }
 
     /* ── FAQ ── */
     .faq-sec { margin-top: 96px; }
     .faq-list { max-width: 660px; margin: 48px auto 0; display: flex; flex-direction: column; gap: 9px; }
     .fi {
       border-radius: var(--r-sm); overflow: hidden;
-      background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.06);
+      background: var(--card); border: 1px solid var(--line);
       transition: border-color .2s;
     }
-    .fi.open { border-color: rgba(91,82,240,.28); }
+    .fi.open { border-color: var(--accent); }
     .fi-btn {
       width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
       padding: 18px 22px; background: none; border: none; cursor: pointer; text-align: left; font-family: inherit;
     }
-    .fi-q { font-size: 15px; font-weight: 600; color: #c0c0e0; transition: color .2s; }
-    .fi.open .fi-q { color: #fff; }
+    .fi-q { font-size: 15px; font-weight: 600; color: var(--sub); transition: color .2s; }
+    .fi.open .fi-q { color: var(--ink); }
     .fi-ic {
       width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
-      background: rgba(255,255,255,.05); color: var(--dim);
+      background: var(--paper-2); color: var(--dim);
       transition: background .2s, color .2s, transform .3s; font-size: 14px; font-weight: 700; line-height: 1;
     }
-    .fi.open .fi-ic { background: rgba(91,82,240,.18); color: var(--ind3); transform: rotate(45deg); }
+    .fi.open .fi-ic { background: var(--tint); color: var(--accent); transform: rotate(45deg); }
     .fi-body { max-height: 0; overflow: hidden; transition: max-height .35s cubic-bezier(.16,1,.3,1); }
     .fi-a { padding: 0 22px 18px; font-size: 14px; color: var(--sub); line-height: 1.7; }
 
-    /* ── PRICING ── */
+    /* ── PRICING → WAITLIST ── */
     #pricing {
       padding: 120px 0; position: relative; overflow: hidden;
-      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 20%, var(--bg) 100%);
+      background: var(--paper-2);
+      border-top: 1.5px solid var(--ink);
     }
-    .p-glow { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(91,82,240,.13) 0%, transparent 70%); }
-    .p-grid { position: absolute; inset: 0; pointer-events: none;
-      background-image: linear-gradient(rgba(91,82,240,.025) 1px,transparent 1px), linear-gradient(90deg,rgba(91,82,240,.025) 1px,transparent 1px);
-      background-size: 60px 60px; }
+    .p-grid { display: none; }
 
     .p-card {
-      max-width: 460px; margin: 0 auto; position: relative; border-radius: var(--r-lg); padding: 36px;
-      background: linear-gradient(160deg, #0d0d24 0%, #070718 100%);
-      border: 1px solid rgba(91,82,240,.32);
-      box-shadow: 0 0 0 1px rgba(91,82,240,.12), 0 0 100px rgba(91,82,240,.18);
+      max-width: 460px; margin: 0 auto; position: relative; border-radius: var(--r-lg); padding: 40px 36px 36px;
+      background: var(--card);
+      border: 1.5px solid var(--ink);
+      box-shadow: var(--shadow-lg);
       display: flex; flex-direction: column; gap: 24px;
     }
-    .p-badge {
-      position: absolute; top: -16px; left: 50%; transform: translateX(-50%); white-space: nowrap;
-      padding: 7px 22px; border-radius: 999px; font-size: 12px; font-weight: 800;
-      background: linear-gradient(135deg,#f59e0b,#fbbf24); color: #1c0a00;
-      box-shadow: 0 4px 22px rgba(245,158,11,.38);
+    .p-stamp {
+      position: absolute; top: -20px; left: 50%; transform: translateX(-50%) rotate(-4deg); white-space: nowrap;
+      font-family: var(--mono); font-weight: 600; font-size: 13px;
+      text-transform: uppercase; letter-spacing: .16em;
+      padding: 8px 22px; border-radius: var(--r-sm);
+      background: var(--paper); color: var(--accent);
+      border: 3px double var(--accent);
     }
-    .p-tier { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--ind2); }
+    .p-tier { font-family: var(--mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--accent2); }
     .p-price { text-align: center; padding: 6px 0 2px; }
     .p-row { display: flex; align-items: flex-end; justify-content: center; gap: 5px; margin: 10px 0 5px; }
-    .p-dollar { font-size: 26px; font-weight: 900; color: #5050a0; align-self: flex-start; padding-top: 12px; }
-    .p-num { font-size: 82px; font-weight: 900; color: #fff; line-height: 1; letter-spacing: -.04em; }
-    .p-per { font-size: 15px; font-weight: 600; color: var(--faint); padding-bottom: 12px; }
-    .p-note { font-size: 12px; color: #252548; }
-    .p-tabs { display: flex; gap: 4px; padding: 4px; border-radius: 13px; background: rgba(255,255,255,.03); border: 1px solid rgba(91,82,240,.12); }
-    .t-btn {
-      flex: 1; padding: 9px 8px; border-radius: 9px; font-size: 12px; font-weight: 600;
-      border: none; cursor: pointer; font-family: inherit; transition: all .25s;
-    }
-    .t-btn.on  { background: var(--indigo); color: #fff; box-shadow: 0 0 18px rgba(91,82,240,.45); }
-    .t-btn.off { background: transparent; color: #383878; }
+    .p-dollar { font-family: 'Fraunces', Georgia, serif; font-size: 26px; font-weight: 700; color: var(--dim); align-self: flex-start; padding-top: 12px; }
+    .p-num { font-family: 'Fraunces', Georgia, serif; font-size: 82px; font-weight: 700; color: var(--ink); line-height: 1; letter-spacing: -.02em; }
+    .p-per { font-size: 15px; font-weight: 600; color: var(--dim); padding-bottom: 12px; }
+    .p-note { font-size: 12px; color: var(--dim); }
     .form { display: flex; flex-direction: column; gap: 14px; }
-    .fl { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .09em; color: #383870; margin-bottom: 7px; }
+    .fl { display: block; font-family: var(--mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .09em; color: var(--dim); margin-bottom: 7px; }
     .fi-inp {
-      width: 100%; padding: 13px 16px; border-radius: 11px; font-size: 14px; color: #e0e0f0;
-      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09); outline: none;
+      width: 100%; padding: 13px 16px; border-radius: 8px; font-size: 14px; color: var(--ink);
+      background: var(--paper); border: 1.5px solid var(--ink); outline: none;
       transition: border-color .2s, box-shadow .2s; font-family: inherit;
     }
-    .fi-inp:focus { border-color: rgba(91,82,240,.55); box-shadow: 0 0 0 3px rgba(91,82,240,.13); }
-    .fi-inp::placeholder { color: #282855; }
-    .fh { font-size: 12px; color: #252550; margin-top: 5px; }
-    .p-div { border: none; border-top: 1px solid rgba(91,82,240,.1); }
+    .fi-inp:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--tint); }
+    .fi-inp::placeholder { color: var(--faint); }
+    .fh { font-size: 12px; color: var(--dim); margin-top: 5px; text-align: center; }
+    .f-err { padding: 12px 16px; border-radius: 8px; background: rgba(194,75,36,.08); color: var(--accent2); border: 1px solid var(--accent); font-size: 14px; }
+    .notify-done {
+      text-align: center; font-size: 15px; font-weight: 600; color: var(--moss);
+      padding: 18px 16px; border-radius: var(--r);
+      background: rgba(63,107,79,.08); border: 1.5px solid var(--moss);
+    }
+    .p-div { border: none; border-top: 1px solid var(--line); }
     .feat-check { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
-    .fci { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: #b0b0d8; line-height: 1.3; }
-    .ck { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 900; background: rgba(91,82,240,.18); color: #818cf8; }
-    .p-fine { font-size: 12px; text-align: center; color: #1e1e40; }
+    .fci { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--sub); line-height: 1.3; }
+    .ck { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 900; background: rgba(63,107,79,.14); color: var(--moss); }
+    .p-fine { font-size: 12px; text-align: center; color: var(--dim); }
 
     /* Comparison table */
     .cmp-sec { margin-top: 80px; }
-    .cmp-title { text-align: center; font-size: 19px; font-weight: 800; color: #d0d0f0; margin-bottom: 28px; letter-spacing: -.02em; }
-    .tbl-wrap { overflow-x: auto; border-radius: var(--r); border: 1px solid rgba(255,255,255,.07); }
+    .cmp-title { text-align: center; font-family: 'Fraunces', Georgia, serif; font-size: 21px; font-weight: 700; color: var(--ink); margin-bottom: 28px; letter-spacing: -.01em; }
+    .tbl-wrap { overflow-x: auto; border-radius: var(--r); border: 1.5px solid var(--ink); background: var(--card); box-shadow: var(--shadow); }
     table.cmp { width: 100%; border-collapse: collapse; }
     table.cmp th, table.cmp td { padding: 13px 18px; text-align: center; font-size: 14px; }
-    table.cmp th { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--faint); background: rgba(255,255,255,.02); border-bottom: 1px solid rgba(255,255,255,.06); }
+    table.cmp th { font-family: var(--mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--dim); background: var(--paper-3); border-bottom: 1.5px solid var(--ink); }
     table.cmp th:first-child, table.cmp td:first-child { text-align: left; }
-    table.cmp td { color: var(--sub); border-bottom: 1px solid rgba(255,255,255,.04); }
+    table.cmp td { color: var(--sub); border-bottom: 1px solid var(--line); }
     table.cmp tr:last-child td { border-bottom: none; }
-    table.cmp tr:hover td { background: rgba(255,255,255,.015); }
-    table.cmp .m-col { color: #c7d2fe; font-weight: 700; background: rgba(91,82,240,.04); }
-    table.cmp th.m-col { color: var(--ind2); background: rgba(91,82,240,.07); }
-    .cy { color: #34d399; font-size: 16px; }
-    .cn { color: #28285a; font-size: 16px; }
-    .cp { color: #f59e0b; font-size: 13px; font-weight: 700; }
+    table.cmp tr:hover td { background: rgba(28,24,18,.02); }
+    table.cmp .m-col { color: var(--ink); font-weight: 700; background: var(--tint); }
+    table.cmp th.m-col { color: var(--accent2); background: var(--tint); }
+    .cy { color: var(--moss); font-size: 16px; }
+    .cn { color: var(--faint); font-size: 16px; }
+    .cp { color: var(--ochre); font-size: 13px; font-weight: 700; }
+    .cmp-foot { text-align: center; font-size: 12px; color: var(--dim); margin-top: 12px; }
 
     /* ── CTA ── */
     #cta {
       padding: 130px 0; position: relative; overflow: hidden;
-      background: linear-gradient(180deg, var(--bg2) 0%, var(--bg3) 50%, var(--bg2) 100%);
+      background: var(--paper-3);
+      border-top: 1.5px solid var(--ink);
     }
-    .cta-orb { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 720px; height: 600px; pointer-events: none; background: radial-gradient(ellipse at center, rgba(91,82,240,.16) 0%, transparent 65%); animation: bobB 13s ease-in-out infinite; }
-    .cta-grid { position: absolute; inset: 0; pointer-events: none;
-      background-image: linear-gradient(rgba(91,82,240,.03) 1px,transparent 1px), linear-gradient(90deg,rgba(91,82,240,.03) 1px,transparent 1px);
-      background-size: 56px 56px;
-      mask-image: radial-gradient(ellipse 65% 65% at 50% 50%, black 20%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 65% 65% at 50% 50%, black 20%, transparent 100%); }
+    .cta-grid { display: none; }
     .cta-inner { position: relative; z-index: 10; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 26px; max-width: 780px; margin: 0 auto; padding: 0 32px; }
-    .cta-h2 { font-weight: 900; color: #fff; line-height: 1.04; font-size: clamp(2.2rem,5vw,3.8rem); letter-spacing: -.04em; }
+    .cta-h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; color: var(--ink); line-height: 1.06; font-size: clamp(2.2rem,5vw,3.8rem); letter-spacing: -.02em; }
     .cta-sub { font-size: 18px; color: var(--sub); max-width: 460px; line-height: 1.6; }
-    .cta-fine { font-size: 13px; color: var(--faint); }
+    .cta-fine { font-size: 13px; color: var(--dim); font-family: var(--mono); }
 
     /* ── FOOTER ── */
-    footer { background: #010108; border-top: 1px solid rgba(255,255,255,.05); }
+    footer { background: var(--paper-3); border-top: 1.5px solid var(--ink); }
     .foot-main { padding: 60px 0; }
     .foot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
     @media(min-width:768px){ .foot-grid{ grid-template-columns: 2fr 1fr 1fr 1fr; } }
     .foot-logo { display: flex; align-items: center; gap: 9px; margin-bottom: 14px; }
-    .fl-icon { width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(145deg,var(--indigo),var(--ind2)); display: flex; align-items: center; justify-content: center; }
-    .fl-icon svg { width: 14px; height: 14px; }
-    .fl-name { font-weight: 800; font-size: 15px; color: #e0e0f0; }
-    .ft { font-size: 14px; color: #282850; line-height: 1.5; }
-    .fc-copy { font-size: 12px; color: #1e1e40; margin-top: 14px; }
-    .fh-col { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #303060; margin-bottom: 16px; }
+    .fl-name { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 16px; color: var(--ink); }
+    .ft { font-size: 14px; color: var(--sub); line-height: 1.5; }
+    .fc-copy { font-size: 12px; color: var(--dim); margin-top: 14px; }
+    .fh-col { font-family: var(--mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--dim); margin-bottom: 16px; }
     .flinks { display: flex; flex-direction: column; gap: 10px; }
-    .flinks a { font-size: 14px; color: #35355a; transition: color .15s; }
-    .flinks a:hover { color: #b0b0d8; }
-    .foot-bar { border-top: 1px solid rgba(255,255,255,.04); padding: 18px 0; }
+    .flinks a { font-size: 14px; color: var(--sub); transition: color .15s; }
+    .flinks a:hover { color: var(--accent2); }
+    .foot-bar { border-top: 1px solid var(--line); padding: 18px 0; }
     .foot-bar-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; }
-    .fb-txt { font-size: 12px; color: #1e1e40; }
+    .fb-txt { font-size: 12px; color: var(--dim); }
     .chips { display: flex; gap: 10px; flex-wrap: wrap; }
-    .chip { font-size: 11px; padding: 3px 10px; border-radius: 999px; font-weight: 500; }
-    .chip-g { background: rgba(16,185,129,.07); color: #34d399; border: 1px solid rgba(16,185,129,.14); }
-    .chip-i { background: rgba(99,102,241,.07); color: #818cf8; border: 1px solid rgba(99,102,241,.14); }
+    .chip { font-size: 11px; padding: 3px 10px; border-radius: 999px; font-weight: 500; font-family: var(--mono); }
+    .chip-g { background: rgba(63,107,79,.10); color: var(--moss); border: 1px solid rgba(63,107,79,.3); }
+    .chip-i { background: var(--tint); color: var(--accent2); border: 1px solid rgba(194,75,36,.3); }
 
     /* ── HOW IT WORKS ── */
     #how {
       padding: 100px 0; position: relative; overflow: hidden;
-      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      background: var(--paper);
     }
-    .how-grid { display: grid; gap: 2px; margin-top: 56px; }
-    @media(min-width:768px){ .how-grid{ grid-template-columns: 1fr 1fr 1fr; gap: 0; } }
+    .how-grid { display: grid; gap: 16px; margin-top: 56px; }
+    @media(min-width:768px){ .how-grid{ grid-template-columns: 1fr 1fr 1fr; } }
     .how-step {
-      position: relative; padding: 36px 32px;
-      background: rgba(255,255,255,.015); border: 1px solid rgba(255,255,255,.055);
-      transition: background .3s, border-color .3s;
+      position: relative; padding: 36px 32px; border-radius: var(--r);
+      background: var(--card); border: 1.5px solid var(--ink);
+      box-shadow: var(--shadow-sm);
+      transition: transform .25s, box-shadow .25s;
     }
-    .how-step:first-child { border-radius: 16px 0 0 16px; }
-    .how-step:last-child  { border-radius: 0 16px 16px 0; }
-    @media(max-width:767px){
-      .how-step:first-child { border-radius: 16px 16px 0 0; }
-      .how-step:last-child  { border-radius: 0 0 16px 16px; }
-    }
-    .how-step:hover { background: rgba(91,82,240,.04); border-color: rgba(91,82,240,.22); }
+    .how-step:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow); }
     .how-num {
-      font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--ind2); margin-bottom: 18px; display: flex; align-items: center; gap: 8px;
+      font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent2); margin-bottom: 18px; display: flex; align-items: center; gap: 8px;
     }
     .how-num::before {
       content: attr(data-n); width: 26px; height: 26px; border-radius: 50%;
-      background: rgba(91,82,240,.15); border: 1px solid rgba(91,82,240,.3);
+      background: var(--tint); border: 1.5px solid var(--accent);
       display: flex; align-items: center; justify-content: center;
-      font-size: 12px; font-weight: 900; color: #a5b4fc; flex-shrink: 0;
+      font-size: 12px; font-weight: 700; color: var(--accent); flex-shrink: 0;
       line-height: 1;
     }
     .how-icon { font-size: 36px; margin-bottom: 16px; display: block; }
-    .how-h { font-size: 18px; font-weight: 800; color: #fff; letter-spacing: -.02em; margin-bottom: 10px; }
+    .how-h { font-family: 'Fraunces', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink); letter-spacing: -.01em; margin-bottom: 10px; }
     .how-p { font-size: 14px; color: var(--sub); line-height: 1.7; }
     .how-arrow {
-      position: absolute; right: -14px; top: 50%; transform: translateY(-50%);
+      position: absolute; right: -16px; top: 50%; transform: translateY(-50%);
       width: 28px; height: 28px; border-radius: 50%; z-index: 2;
-      background: var(--bg2); border: 1px solid rgba(91,82,240,.25);
+      background: var(--paper); border: 1.5px solid var(--ink);
       display: flex; align-items: center; justify-content: center;
-      color: var(--ind2); font-size: 12px;
+      color: var(--ink); font-size: 12px;
     }
     @media(max-width:767px){ .how-arrow { display: none; } }
 
     /* ── TRUST BAR ── */
     .trust-bar {
       display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px 24px;
-      padding: 22px 32px; border-radius: 16px;
-      background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.055);
+      padding: 22px 32px; border-radius: var(--r);
+      background: var(--card); border: 1.5px solid var(--ink);
+      box-shadow: var(--shadow-sm);
       margin-top: 52px;
     }
-    .trust-item { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500; color: var(--dim); white-space: nowrap; }
-    .trust-item svg { width: 15px; height: 15px; flex-shrink: 0; color: var(--green); }
-    .trust-sep { width: 1px; height: 18px; background: rgba(255,255,255,.06); }
+    .trust-item { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500; color: var(--sub); white-space: nowrap; }
+    .trust-item svg { width: 15px; height: 15px; flex-shrink: 0; color: var(--moss); }
+    .trust-sep { width: 1px; height: 18px; background: var(--line); }
     @media(max-width:640px){ .trust-sep { display: none; } }
 
     /* ── UTILS ── */
@@ -767,43 +732,8 @@
       .wrap, .wrap-md { padding: 0 20px; }
     }
 
-    /* ── NOISE TEXTURE ── */
-    body::before {
-      content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
-      opacity: .028;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 180px 180px;
-    }
-
-    /* ── SHIMMER CTA ── */
-    .btn-main {
-      position: relative; overflow: hidden;
-    }
-    .btn-main::before {
-      content: ''; position: absolute; top: 0; left: -120%; width: 60%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
-      transform: skewX(-15deg);
-      animation: shimmer 3.2s ease-in-out infinite;
-    }
-    @keyframes shimmer { 0%{left:-120%} 60%,100%{left:160%} }
-
-    /* ── ENHANCED HERO H1 ── */
-    .hero-h1 { text-shadow: 0 0 80px rgba(91,82,240,.15); }
-
-    /* ── SCAN LINE in mockup ── */
-    .mock-scan-line {
-      position: absolute; left: 0; right: 0; height: 2px; pointer-events: none;
-      background: linear-gradient(90deg, transparent 0%, rgba(91,82,240,.7) 20%, rgba(165,180,252,.9) 50%, rgba(91,82,240,.7) 80%, transparent 100%);
-      box-shadow: 0 0 12px rgba(91,82,240,.8), 0 0 24px rgba(91,82,240,.4);
-      animation: scanDown 2.8s cubic-bezier(.4,0,.6,1) infinite;
-      z-index: 5;
-    }
-    @keyframes scanDown {
-      0%   { top: 0%;   opacity: 0; }
-      5%   { opacity: 1; }
-      90%  { opacity: 1; }
-      100% { top: 100%; opacity: 0; }
-    }
+    /* ── SECTION DIVIDERS ── */
+    .sec-div { height: 1.5px; margin: 0; background: var(--ink); border: none; }
 
     /* ── FEATURE GRID: 2-col featured first row ── */
     .fc.fc-wide {
@@ -813,39 +743,18 @@
     .fc.fc-wide .fc-icon { width: 52px; height: 52px; flex-shrink: 0; margin-top: 3px; }
     @media(max-width:639px){ .fc.fc-wide { grid-column: span 1; flex-direction: column; } }
 
-    /* ── GRADIENT EYEBROW PILL ── */
+    /* ── EYEBROW PILL ── */
     .eyebrow-pill {
       display: inline-flex; align-items: center; gap: 7px;
-      padding: 5px 16px; border-radius: 999px; font-size: 11px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: .1em;
-      background: rgba(91,82,240,.08); border: 1px solid rgba(91,82,240,.2);
-      color: var(--ind3); margin-bottom: 18px;
+      padding: 5px 16px; border-radius: 999px; font-size: 11px; font-weight: 600;
+      font-family: var(--mono); text-transform: uppercase; letter-spacing: .1em;
+      background: var(--tint); border: 1px solid var(--accent);
+      color: var(--accent2); margin-bottom: 18px;
     }
-
-    /* ── FLOATING SPARKLES in hero ── */
-    .sparkle {
-      position: absolute; width: 3px; height: 3px; border-radius: 50%;
-      background: rgba(165,180,252,.7); pointer-events: none;
-      animation: twinkle var(--dur,4s) ease-in-out var(--del,0s) infinite;
-    }
-    @keyframes twinkle { 0%,100%{opacity:0;transform:scale(.5)} 50%{opacity:1;transform:scale(1)} }
-
-    /* ── SECTION DIVIDERS ── */
-    .sec-div {
-      height: 1px; margin: 0;
-      background: linear-gradient(90deg, transparent, rgba(91,82,240,.15) 30%, rgba(91,82,240,.15) 70%, transparent);
-    }
-
-    /* ── REVIEW QUOTE MARK ── */
-    .rc-quote { font-size: 48px; line-height: 1; color: rgba(91,82,240,.15); font-family: Georgia,serif; margin-bottom: -10px; }
 
     /* ── BETTER STATS ── */
-    .s-stat { position: relative; padding: 28px 24px; border-radius: var(--r); background: rgba(255,255,255,.015); border: 1px solid rgba(255,255,255,.05); transition: border-color .3s, transform .3s; }
-    .s-stat:hover { border-color: rgba(91,82,240,.2); transform: translateY(-3px); }
-
-    /* ── TYPED CURSOR ── */
-    .typed-cursor { display: inline-block; width: 2px; height: .85em; background: var(--ind3); margin-left: 3px; vertical-align: middle; animation: blink .9s step-end infinite; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .s-stat { position: relative; padding: 28px 24px; border-radius: var(--r); background: var(--card); border: 1px solid var(--line); transition: border-color .3s, transform .3s; }
+    .s-stat:hover { border-color: var(--ink); transform: translateY(-3px); }
 
     /* ── PLATFORM CHIPS ENHANCED ── */
     .plat svg { width: 14px; height: 14px; }
@@ -863,12 +772,12 @@
 <!-- ── TOP BAR ── -->
 <div id="topbar">
   <div class="announce" id="announce">
-    🎉 <strong>Launch Price</strong> — $20 once for 3 months full access. &nbsp;<a href="#pricing">Get it now →</a>
+    📮 <strong>Coming soon</strong> — Marrow Library launches shortly. &nbsp;<a href="#pricing">Join the waitlist →</a>
   </div>
   <nav id="nav">
     <div class="nav-row">
       <a href="#" class="nav-brand">
-        <img src="/marrow-site.svg" alt="Marrow" width="32" height="32" style="border-radius:9px;box-shadow:0 0 18px rgba(91,82,240,.5);flex-shrink:0;" />
+        <img src="/marrow-site.svg" alt="Marrow" width="32" height="32" style="border-radius:9px;border:1.5px solid var(--ink);flex-shrink:0;" />
         <span class="brand-name">Marrow</span>
       </a>
       <div class="nav-links">
@@ -878,7 +787,7 @@
         <a href="#reviews"     class="nav-a" data-sec="reviews">Reviews</a>
         <a href="#pricing"  class="nav-a" data-sec="pricing">Pricing</a>
         <a href="/download" class="nav-a">Download</a>
-        <a href="#pricing"  class="nav-btn">Get Marrow — $20</a>
+        <a href="#pricing"  class="nav-btn">Join the waitlist</a>
       </div>
       <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -890,26 +799,23 @@
       <a href="#reviews"  class="nav-a" onclick="closeMob()">Reviews</a>
       <a href="#pricing"  class="nav-a" onclick="closeMob()">Pricing</a>
       <a href="/download" class="nav-a" onclick="closeMob()">Download</a>
-      <a href="#pricing"  class="nav-btn" onclick="closeMob()">Get Marrow — $20</a>
+      <a href="#pricing"  class="nav-btn" onclick="closeMob()">Join the waitlist</a>
     </div>
   </nav>
 </div>
 
 <!-- ── HERO ── -->
 <section id="hero">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
   <div class="hero-grid"></div>
 
   <div class="hero-body">
     <div class="badge-row reveal">
-      <span class="badge badge-amber"><span class="dot-amber"></span>Launch Price · $20 once</span>
-      <a href="/download" class="badge badge-indigo"><span class="dot-green"></span>v1.3 · Now available</a>
+      <span class="stamp">Coming Soon</span>
+      <span class="badge badge-ver"><span class="dot-green"></span>v1.3 · in development</span>
     </div>
 
     <div class="reveal d1">
-      <h1 class="hero-h1">The collection app<br>for <span class="grad">serious collectors.</span></h1>
+      <h1 class="hero-h1">Every collection<br>deserves <span class="grad">a catalog.</span></h1>
       <p class="hero-sub">
         Scan barcodes. Auto-fill metadata. Track live eBay market values.<br>
         <em>Local-first. No cloud. No subscription. Ever.</em>
@@ -918,12 +824,12 @@
 
     <div class="cta-row reveal d2">
       <a href="#pricing" class="btn-main">
-        Get Marrow Library — $20
+        Notify me at launch
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M6 12h12"/></svg>
       </a>
-      <a href="/download" class="btn-ghost">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-        Download Free Trial
+      <a href="#how" class="btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        See how it works
       </a>
     </div>
 
@@ -936,14 +842,14 @@
 
     <div class="proof reveal d4">
       <div class="avs">
-        <div class="av" style="background:hsl(228,48%,23%)">M</div>
-        <div class="av" style="background:hsl(242,48%,23%)">S</div>
-        <div class="av" style="background:hsl(256,48%,23%)">J</div>
-        <div class="av" style="background:hsl(270,48%,23%)">P</div>
-        <div class="av" style="background:hsl(284,48%,23%)">D</div>
+        <div class="av" style="background:#C24B24">M</div>
+        <div class="av" style="background:#3F6B4F">S</div>
+        <div class="av" style="background:#B98A2F">J</div>
+        <div class="av" style="background:#4A5D82">P</div>
+        <div class="av" style="background:#7A4A63">D</div>
       </div>
       <div class="stars">★★★★★</div>
-      <span class="proof-txt"><strong>4.9</strong> from 127 collectors</span>
+      <span class="proof-txt"><strong>4.9</strong> from 127 beta collectors</span>
     </div>
 
     <div class="marquee reveal d5">
@@ -953,7 +859,6 @@
 
   <!-- Mockup -->
   <div class="mock-wrap">
-    <div class="mock-shadow"></div>
     <div class="mock reveal">
       <div class="mock-bar">
         <div class="tls">
@@ -965,7 +870,6 @@
         <div class="mock-val">$2,841</div>
       </div>
       <div class="mock-body" style="position:relative">
-        <div class="mock-scan-line"></div>
         <div class="mock-side">
           <div class="s-item on"><span>▦ Collection</span><span class="s-badge" style="background:rgba(91,82,240,.2);color:#818cf8">847</span></div>
           <div class="s-item off"><span>⊕ Add Item</span></div>
@@ -996,7 +900,6 @@
   </div>
 </section>
 
-<div class="sec-div"></div>
 <!-- ── STATS ── -->
 <section id="stats">
   <div class="wrap">
@@ -1011,7 +914,7 @@
       </div>
       <div class="s-stat reveal d2">
         <div class="s-num" data-prefix="$" data-target="20">0</div>
-        <div class="s-lbl">One-time price, no subscription</div>
+        <div class="s-lbl">Planned launch price, one-time</div>
       </div>
       <div class="s-stat reveal d3">
         <div class="s-num grad">100%</div>
@@ -1075,7 +978,7 @@
       <div class="trust-sep"></div>
       <div class="trust-item">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-        3-month free trial
+        One-time price at launch
       </div>
     </div>
   </div>
@@ -1084,7 +987,6 @@
 <div class="sec-div"></div>
 <!-- ── STORY ── -->
 <section id="story">
-  <div class="story-orb"></div>
   <div class="wrap rel z10">
     <div class="story-layout">
       <div class="reveal">
@@ -1098,8 +1000,8 @@
       </div>
       <div class="stat-cards reveal d2">
         <div class="sc">
-          <div class="sc-icon" style="background:rgba(91,82,240,.09);border:1px solid rgba(91,82,240,.15)">
-            <span class="sc-num" style="color:#6d62f8">13</span>
+          <div class="sc-icon" style="background:rgba(194,75,36,.10);border:1.5px solid #C24B24">
+            <span class="sc-num" style="color:#C24B24">13</span>
           </div>
           <div>
             <div class="sc-label">Media types</div>
@@ -1107,8 +1009,8 @@
           </div>
         </div>
         <div class="sc">
-          <div class="sc-icon" style="background:rgba(16,185,129,.09);border:1px solid rgba(16,185,129,.15)">
-            <span class="sc-num" style="color:#10b981">∞</span>
+          <div class="sc-icon" style="background:rgba(63,107,79,.10);border:1.5px solid #3F6B4F">
+            <span class="sc-num" style="color:#3F6B4F">∞</span>
           </div>
           <div>
             <div class="sc-label">Local-first forever</div>
@@ -1116,8 +1018,8 @@
           </div>
         </div>
         <div class="sc">
-          <div class="sc-icon" style="background:rgba(245,158,11,.09);border:1px solid rgba(245,158,11,.15)">
-            <span class="sc-num" style="color:#f59e0b">↑</span>
+          <div class="sc-icon" style="background:rgba(185,138,47,.10);border:1.5px solid #B98A2F">
+            <span class="sc-num" style="color:#B98A2F">↑</span>
           </div>
           <div>
             <div class="sc-label">Live eBay pricing</div>
@@ -1131,7 +1033,6 @@
 
 <!-- ── FEATURES ── -->
 <section id="features">
-  <div class="feat-orb"></div>
   <div class="wrap z10">
     <div class="sec-head reveal">
       <p class="eyebrow-pill">✦ Features</p>
@@ -1144,15 +1045,14 @@
 
 <!-- ── REVIEWS ── -->
 <section id="reviews">
-  <div class="rev-orb"></div>
   <div class="wrap z10">
     <div class="sec-head reveal">
       <p class="eyebrow-pill">✦ Reviews</p>
       <h2 class="h2">Loved by collectors <span class="grad">worldwide.</span></h2>
       <div class="rating-row" style="margin-top:16px">
         <div class="stars">★★★★★</div>
-        <strong style="color:#fff;font-size:15px">4.9</strong>
-        <span style="font-size:14px;color:var(--faint)">from 127 verified reviews</span>
+        <strong style="color:var(--ink);font-size:15px">4.9</strong>
+        <span style="font-size:14px;color:var(--dim)">from 127 verified beta reviews</span>
       </div>
     </div>
     <div class="rev-grid" id="revGrid"></div>
@@ -1161,43 +1061,53 @@
       <div class="sec-head">
         <p class="eyebrow">FAQ</p>
         <h2 class="h2" style="margin-bottom:10px">Frequently asked<br><span class="grad">questions.</span></h2>
-        <p style="font-size:15px;color:var(--sub)">Everything you need to know before downloading.</p>
+        <p style="font-size:15px;color:var(--sub)">Everything you need to know before launch.</p>
       </div>
       <div class="faq-list" id="faqList"></div>
     </div>
   </div>
 </section>
 
-<!-- ── PRICING ── -->
+<!-- ── PRICING → WAITLIST ── -->
 <section id="pricing">
-  <div class="p-glow"></div>
   <div class="p-grid"></div>
   <div class="wrap-md z10">
     <div class="sec-head reveal" style="margin-bottom:64px">
       <p class="eyebrow-pill">✦ Pricing</p>
       <h2 class="h2">One price.<br><span class="grad">Everything included.</span></h2>
-      <p style="color:var(--sub);font-size:16px">$20 once. 3 months full access. No subscription, ever.</p>
+      <p style="color:var(--sub);font-size:16px">$20 once at launch. 3 months full access. No subscription, ever.</p>
     </div>
 
     <div class="p-card reveal">
-      <div class="p-badge">🎁 Limited Launch Price</div>
+      <div class="p-stamp">Coming Soon</div>
       <div>
-        <p class="p-tier">Full Access · 3 Months</p>
+        <p class="p-tier">Planned Launch Price</p>
         <div class="p-price">
           <div class="p-row">
             <span class="p-dollar">$</span>
             <span class="p-num">20</span>
             <span class="p-per">one-time</span>
           </div>
-          <p class="p-note">Pay once · no subscription · no auto-renewal</p>
+          <p class="p-note">Locked in for waitlist members · no subscription · no auto-renewal</p>
         </div>
       </div>
-      <div class="p-tabs">
-        <button class="t-btn on"  id="tP" onclick="setTab('p')">✉ Enter Email First</button>
-        <button class="t-btn off" id="tQ" onclick="setTab('q')">⚡ Quick Checkout</button>
-      </div>
-      <div id="tabWrap"></div>
+      <form class="form" id="notifyForm">
+        <div>
+          <label class="fl" for="nName">Your name</label>
+          <input type="text" id="nName" placeholder="Jane Smith" autocomplete="name" class="fi-inp"/>
+        </div>
+        <div>
+          <label class="fl" for="nEmail">Email address <span style="color:var(--accent)">*</span></label>
+          <input type="email" id="nEmail" placeholder="you@example.com" required autocomplete="email" class="fi-inp"/>
+        </div>
+        <div id="nErr" class="f-err" hidden></div>
+        <button type="submit" id="nBtn" class="btn-main btn-accent" style="justify-content:center;font-size:15px;padding:14px;">
+          Notify me when it launches →
+        </button>
+        <p class="fh">No spam. One email when Marrow launches.</p>
+      </form>
       <hr class="p-div"/>
+      <p class="p-tier" style="text-align:center">What's coming</p>
       <ul class="feat-check" id="pFeats"></ul>
       <p class="p-fine">No auto-renewal · No card stored · No surprises</p>
     </div>
@@ -1218,12 +1128,13 @@
           <tbody id="cmpBody"></tbody>
         </table>
       </div>
+      <p class="cmp-foot">*planned launch price</p>
     </div>
   </div>
 </section>
 
 <!-- ── COLLECTION TYPES ── -->
-<section id="collections" style="padding:100px 0;background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);position:relative;overflow:hidden;">
+<section id="collections" style="padding:100px 0;background:var(--paper-2);border-top:1.5px solid var(--ink);position:relative;overflow:hidden;">
   <div class="wrap z10">
     <div class="sec-head reveal">
       <p class="eyebrow-pill">✦ 13 Collection Types</p>
@@ -1233,7 +1144,7 @@
     <div id="typeGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-top:48px;"></div>
     <!-- SEO: hidden keyword-rich content for crawlers -->
     <div style="margin-top:72px;max-width:800px;margin-left:auto;margin-right:auto;">
-      <h2 style="font-size:clamp(1.4rem,2.5vw,2rem);font-weight:800;color:#fff;letter-spacing:-.03em;text-align:center;margin-bottom:16px;">
+      <h2 style="font-family:'Fraunces',Georgia,serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;color:var(--ink);letter-spacing:-.02em;text-align:center;margin-bottom:16px;">
         The best collection cataloging app for every type of collector
       </h2>
       <div style="display:grid;gap:14px;" id="collectorTypes"></div>
@@ -1243,23 +1154,22 @@
 
 <!-- ── CTA ── -->
 <section id="cta">
-  <div class="cta-orb"></div>
   <div class="cta-grid"></div>
   <div class="cta-inner">
-    <div class="badge badge-amber reveal"><span class="dot-amber"></span>Launch price — $20 once, 3 months full access</div>
-    <h2 class="cta-h2 reveal d1">Stop wondering what<br><span class="grad">your collection is worth.</span></h2>
+    <div class="stamp reveal">Coming Soon</div>
+    <h2 class="cta-h2 reveal d1">Be the first to know<br><span class="grad">when Marrow launches.</span></h2>
     <p class="cta-sub reveal d2">Scan everything once. Know every value. Own your data forever. No spreadsheet, no cloud, no subscription.</p>
     <div class="cta-row reveal d3">
       <a href="#pricing" class="btn-main">
-        Get Marrow — $20 one-time
+        Join the waitlist
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M6 12h12"/></svg>
       </a>
-      <a href="/download" class="btn-ghost">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-        Try free for 3 months
+      <a href="#features" class="btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Explore the features
       </a>
     </div>
-    <p class="cta-fine reveal d4">3-month free trial · No credit card · No auto-renewal</p>
+    <p class="cta-fine reveal d4">One email at launch · no spam · unsubscribe anytime</p>
   </div>
 </section>
 
@@ -1270,7 +1180,7 @@
       <div class="foot-grid">
         <div>
           <div class="foot-logo">
-            <img src="/marrow-site.svg" alt="Marrow" width="30" height="30" style="border-radius:8px;flex-shrink:0;" />
+            <img src="/marrow-site.svg" alt="Marrow" width="30" height="30" style="border-radius:8px;border:1.5px solid var(--ink);flex-shrink:0;" />
             <span class="fl-name">Marrow Library</span>
           </div>
           <p class="ft">The collection cataloging app<br>for serious collectors.</p>
@@ -1280,7 +1190,7 @@
           <div class="fh-col">Product</div>
           <div class="flinks">
             <a href="/download">Download</a>
-            <a href="#pricing">Pricing</a>
+            <a href="#pricing">Waitlist</a>
             <a href="#features">Features</a>
             <a href="#reviews">Reviews</a>
           </div>
@@ -1318,34 +1228,6 @@
 </footer>
 
 <script>
-// ── SPARKLES ─────────────────────────────────────────────────────────────────
-(function(){
-  const hero = document.getElementById('hero');
-  for(let i=0;i<18;i++){
-    const s = document.createElement('div');
-    s.className = 'sparkle';
-    s.style.cssText = `left:${Math.random()*100}%;top:${20+Math.random()*65}%;--dur:${3+Math.random()*4}s;--del:${Math.random()*4}s`;
-    hero.appendChild(s);
-  }
-})();
-
-// ── TYPED HERO HEADLINE ───────────────────────────────────────────────────────
-(function(){
-  const words = ['catalogued.','organised.','valued.','tracked.'];
-  let wi = 0, ci = 0, del = false;
-  const el = document.querySelector('.hero-h1 .grad');
-  if(!el) return;
-  el.innerHTML = '';
-  const cur = document.createElement('span'); cur.className='typed-cursor'; el.after(cur);
-  function tick(){
-    const word = words[wi];
-    if(!del){ el.textContent = word.slice(0,++ci); if(ci===word.length){ del=true; setTimeout(tick,2200); return; } }
-    else     { el.textContent = word.slice(0,--ci); if(ci===0){ del=false; wi=(wi+1)%words.length; } }
-    setTimeout(tick, del ? 55 : 90);
-  }
-  tick();
-})();
-
 // ── DATA ──────────────────────────────────────────────────────────────────────
 const mTypes = ["Books","Vinyl Records","Video Games","Movies & TV","Board Games","Trading Cards","Comics","Spirits & Wine","Coins","Stamps","Plants","Clothing","Housewares"];
 
@@ -1359,26 +1241,26 @@ const mockItems = [
 ];
 
 const feats = [
-  {n:"Barcode Scanner",    tg:"Point. Scan. Done.",              b:"The Marrow Scanner app reads any barcode or ISBN in milliseconds. Metadata auto-fills — title, creator, cover art, format, release year.",         a:"#818cf8",bg:"rgba(129,140,248,.07)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="3" height="16" rx="1"/><rect x="7" y="4" width="1.5" height="16" rx=".5"/><rect x="10" y="4" width="2.5" height="16" rx=".5"/><rect x="14.5" y="4" width="1.5" height="16" rx=".5"/><rect x="18" y="4" width="4" height="16" rx="1"/></svg>`},
-  {n:"Live Valuation",     tg:"Know your collection's worth.",   b:"We pull live sold-listing data from eBay and calculate a realistic market value for each item, filtered by condition and format.",               a:"#34d399",bg:"rgba(52,211,153,.07)",  icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="3,17 9,11 13,15 21,7"/><polyline points="14,7 21,7 21,14"/></svg>`},
-  {n:"Local-First",        tg:"Your data never leaves your device.", b:"No accounts, no cloud sync, no hostages. Marrow runs entirely on your machine with optional export to your own storage.",               a:"#f59e0b",bg:"rgba(245,158,11,.07)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg>`},
-  {n:"Phone + Desktop",    tg:"Scan on phone. Manage on desktop.", b:"The Scanner app connects over local Wi-Fi — no internet required. Your phone becomes a scanning peripheral. Scans appear instantly.",        a:"#f472b6",bg:"rgba(244,114,182,.07)",icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="2" width="10" height="20" rx="2"/><circle cx="12" cy="18" r="1" fill="currentColor"/><rect x="2" y="4" width="6" height="11" rx="1.5" opacity=".5"/></svg>`},
-  {n:"13 Media Types",     tg:"Books, vinyl, games, and 10 more.", b:"Deep media-specific metadata for every type: ISBNs for books, catalog numbers for vinyl, region codes for games. Built from scratch.",         a:"#22d3ee",bg:"rgba(34,211,238,.07)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="12" cy="19" r="2"/><path d="M7 12h3M12 7v3M14 12h3M12 14v3"/></svg>`},
-  {n:"Lending Tracker",    tg:"Know who has your stuff.",         b:"Log loans with due dates and get reminded before things go missing. The lending tracker has saved more friendships than we can count.",         a:"#a78bfa",bg:"rgba(167,139,250,.07)",icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>`},
-  {n:"Price Alerts",       tg:"Know when value moves.",           b:"Get notified via system tray when any item's market value changes by more than your threshold. Set it to 10%, 20%, whatever matters.",           a:"#10b981",bg:"rgba(16,185,129,.07)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>`},
-  {n:"Advanced Search",    tg:"Find anything, instantly.",        b:"Filter by price range, date added, condition, loan status, and more. Save filter presets. ⌘K opens search anywhere in the app.",              a:"#fbbf24",bg:"rgba(251,191,36,.07)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M8 11h6M11 8v6"/></svg>`},
-  {n:"Discogs Import",     tg:"Your vinyl library in one click.", b:"Enter your Discogs username and import your entire collection automatically — pressings, labels, catalog numbers, cover art, and genres.",       a:"#ec4899",bg:"rgba(236,72,153,.07)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="9" opacity=".5"/></svg>`},
-  {n:"Insurance Report",   tg:"PDF-ready in seconds.",            b:"Generate a professional report with cover art, condition notes, per-item market values, ROI, and a portfolio summary. One click.",             a:"#3b82f6",bg:"rgba(59,130,246,.07)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg>`},
-  {n:"Bulk Edit & Labels", tg:"Manage at scale.",                 b:"Select multiple items and batch-edit condition, tags, or loanability. Print barcode labels for your storage boxes with a single click.",          a:"#14b8a6",bg:"rgba(20,184,166,.07)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1" opacity=".45"/></svg>`},
+  {n:"Barcode Scanner",    tg:"Point. Scan. Done.",              b:"The Marrow Scanner app reads any barcode or ISBN in milliseconds. Metadata auto-fills — title, creator, cover art, format, release year.",         a:"#C24B24",bg:"rgba(194,75,36,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="3" height="16" rx="1"/><rect x="7" y="4" width="1.5" height="16" rx=".5"/><rect x="10" y="4" width="2.5" height="16" rx=".5"/><rect x="14.5" y="4" width="1.5" height="16" rx=".5"/><rect x="18" y="4" width="4" height="16" rx="1"/></svg>`},
+  {n:"Live Valuation",     tg:"Know your collection's worth.",   b:"We pull live sold-listing data from eBay and calculate a realistic market value for each item, filtered by condition and format.",               a:"#3F6B4F",bg:"rgba(63,107,79,.10)",  icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="3,17 9,11 13,15 21,7"/><polyline points="14,7 21,7 21,14"/></svg>`},
+  {n:"Local-First",        tg:"Your data never leaves your device.", b:"No accounts, no cloud sync, no hostages. Marrow runs entirely on your machine with optional export to your own storage.",               a:"#B98A2F",bg:"rgba(185,138,47,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg>`},
+  {n:"Phone + Desktop",    tg:"Scan on phone. Manage on desktop.", b:"The Scanner app connects over local Wi-Fi — no internet required. Your phone becomes a scanning peripheral. Scans appear instantly.",        a:"#4A5D82",bg:"rgba(74,93,130,.10)",icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="2" width="10" height="20" rx="2"/><circle cx="12" cy="18" r="1" fill="currentColor"/><rect x="2" y="4" width="6" height="11" rx="1.5" opacity=".5"/></svg>`},
+  {n:"13 Media Types",     tg:"Books, vinyl, games, and 10 more.", b:"Deep media-specific metadata for every type: ISBNs for books, catalog numbers for vinyl, region codes for games. Built from scratch.",         a:"#7A4A63",bg:"rgba(122,74,99,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="12" cy="19" r="2"/><path d="M7 12h3M12 7v3M14 12h3M12 14v3"/></svg>`},
+  {n:"Lending Tracker",    tg:"Know who has your stuff.",         b:"Log loans with due dates and get reminded before things go missing. The lending tracker has saved more friendships than we can count.",         a:"#3E6E70",bg:"rgba(62,110,112,.10)",icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>`},
+  {n:"Price Alerts",       tg:"Know when value moves.",           b:"Get notified via system tray when any item's market value changes by more than your threshold. Set it to 10%, 20%, whatever matters.",           a:"#C24B24",bg:"rgba(194,75,36,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>`},
+  {n:"Advanced Search",    tg:"Find anything, instantly.",        b:"Filter by price range, date added, condition, loan status, and more. Save filter presets. ⌘K opens search anywhere in the app.",              a:"#3F6B4F",bg:"rgba(63,107,79,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M8 11h6M11 8v6"/></svg>`},
+  {n:"Discogs Import",     tg:"Your vinyl library in one click.", b:"Enter your Discogs username and import your entire collection automatically — pressings, labels, catalog numbers, cover art, and genres.",       a:"#B98A2F",bg:"rgba(185,138,47,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="9" opacity=".5"/></svg>`},
+  {n:"Insurance Report",   tg:"PDF-ready in seconds.",            b:"Generate a professional report with cover art, condition notes, per-item market values, ROI, and a portfolio summary. One click.",             a:"#4A5D82",bg:"rgba(74,93,130,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg>`},
+  {n:"Bulk Edit & Labels", tg:"Manage at scale.",                 b:"Select multiple items and batch-edit condition, tags, or loanability. Print barcode labels for your storage boxes with a single click.",          a:"#7A4A63",bg:"rgba(122,74,99,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1" opacity=".45"/></svg>`},
 ];
 
 const revs = [
-  {n:"Marcus T.",  r:"Book & vinyl collector · 2,000+ items",      av:"M",h:240, t:"Finally replaced the spreadsheet I'd maintained for 8 years. Scanning barcodes and having everything auto-fill is a game changer. The valuation showed my collection is worth 3× what I thought."},
-  {n:"Sarah K.",   r:"Vinyl collector · Insurance claim survivor",  av:"S",h:255, t:"The eBay valuation alone is worth every penny. I had no idea my records were worth that much. Got my collection properly insured within a week of using Marrow."},
-  {n:"James L.",   r:"Retro game collector · 800+ titles",          av:"J",h:220, t:"Local-first, no subscription, blazing fast barcode scanner. Exactly what I wanted. Scanned my entire SNES and N64 library in under an hour."},
-  {n:"Priya M.",   r:"Book club organizer · Lending tracker user",  av:"P",h:270, t:"The lending tracker has saved so many friendships. I know exactly who has what and when it's due. It used to be stressful. Now it's one tap."},
-  {n:"Daniel R.",  r:"Board game enthusiast · 300+ games",          av:"D",h:200, t:"I've tried every cataloging app. Marrow is the only one that handles board games properly — player count, genre, condition, value. The others just shoehorn it in."},
-  {n:"Claire W.",  r:"Rare book dealer · Power user",               av:"C",h:230, t:"As someone who buys and sells, the live valuation is indispensable. It pulls real sold data, not wishful asking prices. Marrow pays for itself on the first deal."},
+  {n:"Marcus T.",  r:"Book & vinyl collector · 2,000+ items",      av:"M",c:"#C24B24", t:"Finally replaced the spreadsheet I'd maintained for 8 years. Scanning barcodes and having everything auto-fill is a game changer. The valuation showed my collection is worth 3× what I thought."},
+  {n:"Sarah K.",   r:"Vinyl collector · Insurance claim survivor",  av:"S",c:"#3F6B4F", t:"The eBay valuation alone is worth every penny. I had no idea my records were worth that much. Got my collection properly insured within a week of using Marrow."},
+  {n:"James L.",   r:"Retro game collector · 800+ titles",          av:"J",c:"#B98A2F", t:"Local-first, no subscription, blazing fast barcode scanner. Exactly what I wanted. Scanned my entire SNES and N64 library in under an hour."},
+  {n:"Priya M.",   r:"Book club organizer · Lending tracker user",  av:"P",c:"#4A5D82", t:"The lending tracker has saved so many friendships. I know exactly who has what and when it's due. It used to be stressful. Now it's one tap."},
+  {n:"Daniel R.",  r:"Board game enthusiast · 300+ games",          av:"D",c:"#7A4A63", t:"I've tried every cataloging app. Marrow is the only one that handles board games properly — player count, genre, condition, value. The others just shoehorn it in."},
+  {n:"Claire W.",  r:"Rare book dealer · Power user",               av:"C",c:"#3E6E70", t:"As someone who buys and sells, the live valuation is indispensable. It pulls real sold data, not wishful asking prices. Marrow pays for itself on the first deal."},
 ];
 
 const faqs = [
@@ -1386,16 +1268,16 @@ const faqs = [
   {q:"Is my data stored in the cloud?",                   a:"Never. Marrow is local-first — everything lives on your device. No account required, no subscription for your data, no servers we control. You own your catalog."},
   {q:"How does the barcode scanner work?",                a:"The Marrow Scanner companion app uses your phone camera to read any barcode or ISBN. Metadata syncs instantly to your desktop over local Wi-Fi — no internet needed."},
   {q:"How accurate are the valuations?",                  a:"Very accurate. We pull live sold-listing data from eBay, not asking prices. You see what items actually sold for, filtered by condition and format."},
-  {q:"Do I need a subscription after 3 months?",          a:"No. Marrow Library is $20 once for 3 months of full access. After that, a free tier covers basic cataloging. No auto-renewal, no recurring charges, ever."},
+  {q:"Will I need a subscription?",                       a:"No. When Marrow launches it will be $20 once for 3 months of full access — no auto-renewal, no recurring charges, ever. Join the waitlist to lock in the launch price."},
   {q:"Which platforms are supported?",                    a:"Marrow Library runs on macOS and Windows. The Marrow Scanner companion app is available on Android and iOS for wireless barcode scanning."},
   {q:"Can I export my data?",                             a:"Yes — export to CSV, Excel, or PDF at any time. Your data is yours. There's no lock-in, no minimum contract, nothing to cancel."},
-  {q:"What's included in the free trial?",                a:"The free trial gives full access for 3 months with no credit card required. After the trial you can purchase for $20 to keep all advanced features."},
+  {q:"When can I get Marrow Library?",                    a:"Marrow Library is coming soon. Join the waitlist and we'll send you one email the moment it launches — waitlist members get first access at the $20 one-time launch price."},
 ];
 
 const pFeats = ["Unlimited items","All 13 media types","Barcode scanning","Live eBay valuation","Price alerts","Discogs import","Insurance PDF","Advanced search","Bulk edit & labels","Backup & restore","Lending tracker","Photo attachments","CSV / Excel export","Activity log"];
 
 const cmpRows = [
-  {f:"Price",              m:"$20 once",   c:"$4–8/mo",  l:"$0–20/mo", s:"Free"},
+  {f:"Price",              m:"$20 once*",  c:"$4–8/mo",  l:"$0–20/mo", s:"Free"},
   {f:"Local-first",        m:true,         c:false,      l:false,      s:true},
   {f:"Live eBay values",   m:true,         c:"~",        l:false,      s:false},
   {f:"Barcode scanner",    m:true,         c:true,       l:true,       s:false},
@@ -1433,16 +1315,13 @@ feats.forEach((f,i) => {
   const d = document.createElement('div');
   const wide = i < 2; // first 2 cards span full width
   d.className = `fc ${wide?'fc-wide':''} reveal ${i%3===1?'d1':i%3===2?'d2':''}`;
-  d.style.setProperty('--fc-bg', f.bg);
   d.innerHTML = `
-    <div class="fc-icon" style="background:${f.bg};color:${f.a};border:1px solid ${f.a}22">${f.icon}</div>
+    <div class="fc-icon" style="background:${f.bg};color:${f.a};border:1.5px solid ${f.a}">${f.icon}</div>
     <div>
       <div class="fc-name">${f.n}</div>
       <div class="fc-tag" style="color:${f.a}">${f.tg}</div>
       <p class="fc-body">${f.b}</p>
     </div>`;
-  d.addEventListener('mouseenter', () => { d.style.borderColor=f.a+'2e'; d.style.boxShadow=`0 16px 40px rgba(0,0,0,.3)`; });
-  d.addEventListener('mouseleave', () => { d.style.borderColor=''; d.style.boxShadow=''; });
   fg.appendChild(d);
 });
 
@@ -1455,7 +1334,7 @@ revs.forEach((r,i) => {
     <div class="rc-quote">"</div>
     <p class="rc-body">${r.t}</p>
     <div class="rc-foot">
-      <div class="rav" style="background:hsl(${r.h},40%,20%)">${r.av}</div>
+      <div class="rav" style="background:${r.c}">${r.av}</div>
       <div><p class="rc-name">${r.n}</p><p class="rc-role">${r.r}</p></div>
     </div>`;
   rg.appendChild(d);
@@ -1496,61 +1375,32 @@ function cell(v,m){
 }
 cmpRows.forEach(r => {
   cb.innerHTML+=`<tr>
-    <td style="color:#7070a0;font-weight:500">${r.f}</td>
+    <td style="color:var(--sub);font-weight:500">${r.f}</td>
     ${cell(r.m,true)}${cell(r.c,false)}${cell(r.l,false)}${cell(r.s,false)}
   </tr>`;
 });
 
-// Pricing tabs
-let curTab='p';
-function setTab(t){
-  curTab=t;
-  document.getElementById('tP').className='t-btn '+(t==='p'?'on':'off');
-  document.getElementById('tQ').className='t-btn '+(t==='q'?'on':'off');
-  renderTab();
-}
-function renderTab(){
-  const el=document.getElementById('tabWrap');
-  if(curTab==='p'){
-    el.innerHTML=`<form class="form" onsubmit="doCheckout(event)">
-      <div>
-        <label class="fl">Your name</label>
-        <input type="text" id="cName" placeholder="Jane Smith" autocomplete="name" class="fi-inp"/>
-      </div>
-      <div>
-        <label class="fl">Email address <span style="color:#f87171">*</span></label>
-        <input type="email" id="cEmail" placeholder="you@example.com" required autocomplete="email" class="fi-inp"/>
-        <p class="fh">Your activation email will be sent here instantly after payment.</p>
-      </div>
-      <div id="cErr" style="display:none;padding:12px 16px;border-radius:11px;background:rgba(239,68,68,.07);color:#f87171;border:1px solid rgba(239,68,68,.2);font-size:14px;"></div>
-      <button type="submit" id="cBtn" class="btn-main" style="justify-content:center;font-size:15px;padding:14px;border-radius:12px">
-        Continue to Payment — $20 →
-      </button>
-    </form>`;
-  } else {
-    el.innerHTML=`<div style="display:flex;flex-direction:column;gap:14px">
-      <p style="text-align:center;font-size:14px;color:var(--sub)">You'll enter your email on the Stripe checkout page.</p>
-      <a href="/api/checkout?tier=COLLECTOR&billing=launch" class="btn-main" style="justify-content:center;font-size:15px;padding:14px;border-radius:12px;display:flex">
-        Get Marrow Library — $20 →
-      </a>
-    </div>`;
-  }
-}
-renderTab();
-
-async function doCheckout(e){
+// ── WAITLIST FORM ─────────────────────────────────────────────────────────────
+document.getElementById('notifyForm').addEventListener('submit', async (e) => {
   e.preventDefault();
-  const email=document.getElementById('cEmail').value.trim();
-  const name=document.getElementById('cName').value.trim();
-  const btn=document.getElementById('cBtn'), err=document.getElementById('cErr');
-  btn.textContent='Preparing checkout…'; btn.disabled=true; err.style.display='none';
-  try{
-    const res=await fetch('/api/checkout-with-profile',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,name,tier:'COLLECTOR',billing:'launch'})});
-    const data=await res.json();
-    if(!res.ok||!data.url){ err.textContent=data.error||'Something went wrong.'; err.style.display='block'; btn.textContent='Continue to Payment — $20 →'; btn.disabled=false; return; }
-    window.location.href=data.url;
-  }catch{ err.textContent='Network error. Check your connection.'; err.style.display='block'; btn.textContent='Continue to Payment — $20 →'; btn.disabled=false; }
-}
+  const form = e.target;
+  const email = document.getElementById('nEmail').value.trim();
+  const name  = document.getElementById('nName').value.trim();
+  const btn = document.getElementById('nBtn'), err = document.getElementById('nErr');
+  btn.textContent = 'Adding you…'; btn.disabled = true; err.hidden = true;
+  try {
+    const res = await fetch('/api/notify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, name, source: 'homepage' })
+    });
+    if (!res.ok) throw 0;
+    form.innerHTML = '<p class="notify-done">✓ You\'re on the list — see you at launch.</p>';
+  } catch {
+    err.textContent = 'Something went wrong — please try again.'; err.hidden = false;
+    btn.textContent = 'Notify me when it launches →'; btn.disabled = false;
+  }
+});
 
 // ── COLLECTION TYPES GRID ────────────────────────────────────────────────────
 const typeData = [
@@ -1570,10 +1420,10 @@ const typeData = [
 ];
 const tg = document.getElementById('typeGrid');
 typeData.forEach(t => {
-  tg.innerHTML += `<div style="padding:18px 16px;border-radius:14px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);text-align:center;transition:border-color .2s,transform .2s;cursor:default" onmouseenter="this.style.borderColor='rgba(91,82,240,.25)';this.style.transform='translateY(-3px)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)';this.style.transform=''">
+  tg.innerHTML += `<div style="padding:18px 16px;border-radius:10px;background:var(--card);border:1px solid var(--line);text-align:center;transition:border-color .2s,transform .2s;cursor:default" onmouseenter="this.style.borderColor='var(--ink)';this.style.transform='translateY(-3px)'" onmouseleave="this.style.borderColor='rgba(28,24,18,.16)';this.style.transform=''">
     <div style="font-size:28px;margin-bottom:8px">${t.e}</div>
-    <div style="font-size:13px;font-weight:700;color:#e0e0f0;margin-bottom:4px">${t.n}</div>
-    <div style="font-size:11px;color:#30305a;line-height:1.4">${t.d}</div>
+    <div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px">${t.n}</div>
+    <div style="font-size:11px;color:var(--dim);line-height:1.4">${t.d}</div>
   </div>`;
 });
 
@@ -1586,9 +1436,9 @@ const collectorBlocks = [
 ];
 const ct = document.getElementById('collectorTypes');
 collectorBlocks.forEach(b => {
-  ct.innerHTML += `<div style="padding:22px 24px;border-radius:14px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.055);">
-    <h3 style="font-size:15px;font-weight:700;color:#c7d2fe;margin-bottom:8px">${b.h}</h3>
-    <p style="font-size:14px;color:#6060a0;line-height:1.7">${b.t}</p>
+  ct.innerHTML += `<div style="padding:22px 24px;border-radius:10px;background:var(--card);border:1px solid var(--line);">
+    <h3 style="font-size:15px;font-weight:700;color:var(--accent2);margin-bottom:8px">${b.h}</h3>
+    <p style="font-size:14px;color:var(--sub);line-height:1.7">${b.t}</p>
   </div>`;
 });
 
