@@ -1,19 +1,28 @@
 @import "tailwindcss";
 
+/* "The Archive" palette — warm paper, ink, burnt-sienna accent.
+   Same var names as before so existing pages keep resolving. */
 :root {
-  --bg: #03030f;
-  --surface: #060614;
-  --surface-2: #0a0a1e;
-  --border: rgba(255,255,255,0.06);
-  --border-2: rgba(255,255,255,0.10);
-  --indigo: #5b52f0;
-  --indigo-light: #7c74f5;
-  --indigo-glow: rgba(91,82,240,0.3);
-  --indigo-subtle: rgba(91,82,240,0.08);
-  --amber: #f59e0b;
-  --text-1: #f0f0ff;
-  --text-2: #9090b0;
-  --text-3: #505070;
+  --bg: #FAF6EE;
+  --surface: #FFFDF8;
+  --surface-2: #F3EDE0;
+  --surface-3: #ECE4D2;
+  --border: rgba(28,24,18,0.16);
+  --border-2: #1C1812;
+  --ink: #1C1812;
+  --indigo: #C24B24;
+  --indigo-light: #9A3A1B;
+  --indigo-glow: rgba(194,75,36,0.15);
+  --indigo-subtle: rgba(194,75,36,0.09);
+  --amber: #B98A2F;
+  --moss: #3F6B4F;
+  --text-1: #1C1812;
+  --text-2: #57503F;
+  --text-3: #8A806B;
+  --shadow-card: 4px 4px 0 #1C1812;
+  --shadow-card-sm: 2px 2px 0 #1C1812;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 }
 
 html, body {
@@ -22,6 +31,58 @@ html, body {
 }
 
 * { box-sizing: border-box; }
+
+/* Shared component language for the React pages */
+.card-ink {
+  background: var(--surface);
+  border: 1.5px solid var(--ink);
+  border-radius: 10px;
+  box-shadow: var(--shadow-card);
+}
+
+.btn-ink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--ink);
+  color: var(--bg);
+  border: 1.5px solid var(--ink);
+  border-radius: 10px;
+  box-shadow: var(--shadow-card-sm);
+  font-weight: 700;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn-ink:hover { transform: translate(-1px,-1px); box-shadow: 3px 3px 0 var(--ink); }
+
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--indigo);
+  color: #FFFDF8;
+  border: 1.5px solid var(--ink);
+  border-radius: 10px;
+  box-shadow: var(--shadow-card-sm);
+  font-weight: 700;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn-accent:hover { background: var(--indigo-light); transform: translate(-1px,-1px); box-shadow: 3px 3px 0 var(--ink); }
+
+.stamp {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--indigo);
+  border: 3px double var(--indigo);
+  border-radius: 6px;
+  padding: 6px 14px;
+  transform: rotate(-4deg);
+  opacity: .9;
+}
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }

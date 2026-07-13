@@ -135,9 +135,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" style={{ background: "#02020a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+    <html lang="en" style={{ background: "#FAF6EE", fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
       <head>
-        <meta name="theme-color" content="#02020a" />
+        <meta name="theme-color" content="#FAF6EE" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+        />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <meta name="author" content="Marrow Library" />
         <meta name="copyright" content="Marrow Library 2026" />
@@ -145,7 +151,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="revisit-after" content="7 days" />
         <meta property="og:locale" content="en_US" />
         <meta name="application-name" content="Marrow Library" />
-        <meta name="msapplication-TileColor" content="#5b52f0" />
+        <meta name="msapplication-TileColor" content="#C24B24" />
         {/* Ahrefs Analytics */}
         <script async src="https://analytics.ahrefs.com/analytics.js" data-key="9Bj+g0yBYup0W6rW6XA41A" />
         <script dangerouslySetInnerHTML={{ __html: `
