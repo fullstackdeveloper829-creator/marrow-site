@@ -15,6 +15,53 @@ export function signSession(payload: SessionPayload, secret: string): string {
   return `${encoded}.${hmac}`;
 }
 
+export interface SessionValidationResult {
+  valid: boolean;
+  payload?: SessionPayload;
+  error?: string;
+}
+
+export function verifySession(token: string, secret: string): SessionValidationResult {
+  const dot = token.lastIndexOf(".");
+  if (dot === -1) return { valid: false, error: "Malformed session token" };
+
+  const encoded = token.slice(0, dot);
+  const providedHmac = token.slice(dot + 1);
+  const expectedHmac = computeHmac(encoded, secret);
+
+  let equal = false;
+  try {
+    equal = timingSafeEqual(
+      Buffer.from(providedHmac, "hex"),
+      Buffer.from(expectedHmac, "hex")
+    );
+  } catch {
+    return { valid: false, error: "Invalid session token signature" };
+  }
+  if (!equal) return { valid: false, error: "Session token signature mismatch" };
+
+  let payload: unknown;
+  try {
+    payload = JSON.parse(fromBase64Url(encoded));
+  } catch {
+    return { valid: false, error: "Session token could not be decoded" };
+  }
+
+  const p = payload as Record<string, unknown>;
+  if (typeof p["email"] !== "string" || typeof p["purchasedAt"] !== "number") {
+    return { valid: false, error: "Session token missing required fields" };
+  }
+
+  return {
+    valid: true,
+    payload: {
+      email: p["email"] as string,
+      purchasedAt: p["purchasedAt"] as number,
+      iat: typeof p["iat"] === "number" ? (p["iat"] as number) : 0,
+    },
+  };
+}
+
 export interface LicensePayload {
   tier: LicenseTier;
   email: string;

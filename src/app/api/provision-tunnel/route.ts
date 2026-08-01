@@ -15,7 +15,7 @@
  * by /api/auth/verify-email.
  */
 import { NextRequest, NextResponse } from "next/server";
-import { validateLicenseKey } from "@/lib/license";
+import { validateLicenseKey, verifySession } from "@/lib/license";
 import { getCloudflareEnv, provisionTunnel, CloudflareProvisionError } from "@/lib/cloudflareProvision";
 
 export const dynamic = "force-dynamic";
@@ -60,11 +60,19 @@ function checkRateLimit(ip: string): boolean {
 // ── Credential validation ───────────────────────────────────────────────────
 
 function validateCredential(credential: string, secret: string): { valid: boolean; identifier?: string; error?: string } {
-  const result = validateLicenseKey(credential, secret);
-  if (result.valid && result.payload) {
-    return { valid: true, identifier: result.payload.email };
+  // Try legacy license key first, then session token — accept whichever the
+  // caller's install actually has stored locally.
+  const asLicenseKey = validateLicenseKey(credential, secret);
+  if (asLicenseKey.valid && asLicenseKey.payload) {
+    return { valid: true, identifier: asLicenseKey.payload.email };
   }
-  return { valid: false, error: result.error ?? "Invalid credential" };
+
+  const asSession = verifySession(credential, secret);
+  if (asSession.valid && asSession.payload) {
+    return { valid: true, identifier: asSession.payload.email };
+  }
+
+  return { valid: false, error: asLicenseKey.error ?? asSession.error ?? "Invalid credential" };
 }
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
