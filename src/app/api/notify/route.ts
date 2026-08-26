@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { resend } from "@/lib/resend";
+import { supabase } from "@/lib/supabase";
 
 export const dynamic = "force-dynamic";
 
@@ -28,8 +29,18 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   const { email, name, source } = parsed.data;
 
   // Always log first — Vercel function logs act as a backup record of every
-  // signup even when email delivery is unconfigured or failing.
+  // signup even when email delivery or storage is unconfigured or failing.
   console.log("[notify] signup:", email, name || "—", source);
+
+  if (process.env.SUPABASE_URL && process.env.SUPABASE_ANON_KEY) {
+    const { error } = await supabase
+      .from("signups")
+      .insert({ email, name: name || null, source });
+    // Ignore duplicate-email conflicts (unique index) — treat as a successful signup.
+    if (error && error.code !== "23505") {
+      console.error("[notify] supabase insert failed:", error);
+    }
+  }
 
   const apiKey = process.env.RESEND_API_KEY;
   if (apiKey && apiKey !== "re_placeholder") {
