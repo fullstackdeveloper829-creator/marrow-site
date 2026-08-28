@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reviews & FAQ — Marrow Library</title>
+  <meta name="description" content="See what beta collectors say about Marrow Library, plus answers to frequently asked questions about pricing, platforms, valuation and privacy." />
+  <link rel="canonical" href="https://marrow-site.vercel.app/reviews" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Marrow Library" />
+  <meta property="og:url" content="https://marrow-site.vercel.app/reviews" />
+  <meta property="og:title" content="Reviews & FAQ — Marrow Library" />
+  <meta property="og:description" content="See what beta collectors say about Marrow Library, plus answers to frequently asked questions." />
+  <meta property="og:image" content="https://marrow-site.vercel.app/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Reviews & FAQ — Marrow Library" />
+  <meta name="twitter:description" content="See what beta collectors say about Marrow Library, plus answers to frequently asked questions." />
+  <meta name="twitter:image" content="https://marrow-site.vercel.app/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/marrow-site.svg" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Is Marrow Library a subscription?", "acceptedAnswer": { "@type": "Answer", "text": "No. When Marrow Library launches, it will be a one-time $20 payment for 3 months of full access. There is no subscription, no auto-renewal, and no recurring charges ever. Join the waitlist to be notified at launch." } },
+      { "@type": "Question", "name": "Does Marrow Library store data in the cloud?", "acceptedAnswer": { "@type": "Answer", "text": "No. Marrow Library is 100% local-first. All data is stored in a SQLite database on your own device. No account is required, no data ever leaves your machine, and no servers are involved." } },
+      { "@type": "Question", "name": "Which platforms does Marrow Library support?", "acceptedAnswer": { "@type": "Answer", "text": "The main Marrow Library desktop app runs on Windows and macOS. The Marrow Scanner companion app is available on Android and iOS for wireless barcode scanning." } },
+      { "@type": "Question", "name": "When will Marrow Library be available?", "acceptedAnswer": { "@type": "Answer", "text": "Marrow Library is coming soon. Join the waitlist on the website and you'll get one email the moment it launches. Waitlist members lock in the planned $20 one-time launch price." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- ── TOP BAR ── -->
+<div id="topbar">
+  <div class="announce" id="announce">
+    📮 <strong>Coming soon</strong> — Marrow Library launches shortly. &nbsp;<a href="/pricing">Join the waitlist →</a>
+  </div>
+  <nav id="nav">
+    <div class="nav-row">
+      <a href="/" class="nav-brand">
+        <img src="/marrow-site.svg" alt="Marrow" width="32" height="32" style="border-radius:9px;border:1.5px solid var(--ink);flex-shrink:0;" />
+        <span class="brand-name">Marrow</span>
+      </a>
+      <div class="nav-links">
+        <a href="/#how"      class="nav-a" data-path="/">How it works</a>
+        <a href="/features"  class="nav-a" data-path="/features">Features</a>
+        <a href="/reviews"   class="nav-a" data-path="/reviews">Reviews</a>
+        <a href="/pricing"   class="nav-a" data-path="/pricing">Pricing</a>
+        <a href="/download"  class="nav-a" data-path="/download">Download</a>
+        <a href="/pricing"   class="nav-btn">Join the waitlist</a>
+      </div>
+      <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mob-menu" id="mobMenu">
+      <a href="/#how"      class="nav-a" onclick="closeMob()">How it works</a>
+      <a href="/features"  class="nav-a" onclick="closeMob()">Features</a>
+      <a href="/reviews"   class="nav-a" onclick="closeMob()">Reviews</a>
+      <a href="/pricing"   class="nav-a" onclick="closeMob()">Pricing</a>
+      <a href="/download"  class="nav-a" onclick="closeMob()">Download</a>
+      <a href="/pricing"   class="nav-btn" onclick="closeMob()">Join the waitlist</a>
+    </div>
+  </nav>
+</div>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero wrap z10 reveal">
+  <p class="eyebrow-pill">✦ Reviews</p>
+  <h1 class="h2">Loved by collectors <span class="grad">worldwide.</span></h1>
+  <div class="rating-row" style="margin-top:16px">
+    <div class="stars">★★★★★</div>
+    <strong style="color:var(--ink);font-size:15px">4.9</strong>
+    <span style="font-size:14px;color:var(--dim)">from 127 verified beta reviews</span>
+  </div>
+</div>
+
+<!-- ── REVIEWS ── -->
+<section id="reviews" style="padding-top:20px">
+  <div class="wrap z10">
+    <div class="rev-grid" id="revGrid"></div>
+
+    <div class="faq-sec reveal">
+      <div class="sec-head">
+        <p class="eyebrow">FAQ</p>
+        <h2 class="h2" style="margin-bottom:10px">Frequently asked<br><span class="grad">questions.</span></h2>
+        <p style="font-size:15px;color:var(--sub)">Everything you need to know before launch.</p>
+      </div>
+      <div class="faq-list" id="faqList"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section id="cta">
+  <div class="cta-grid"></div>
+  <div class="cta-inner">
+    <div class="stamp reveal">Coming Soon</div>
+    <h2 class="cta-h2 reveal d1">Be the first to know<br><span class="grad">when Marrow launches.</span></h2>
+    <p class="cta-sub reveal d2">Scan everything once. Know every value. Own your data forever. No spreadsheet, no cloud, no subscription.</p>
+    <div class="cta-row reveal d3">
+      <a href="/pricing" class="btn-main">
+        Join the waitlist
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M6 12h12"/></svg>
+      </a>
+      <a href="/features" class="btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Explore the features
+      </a>
+    </div>
+    <p class="cta-fine reveal d4">One email at launch · no spam · unsubscribe anytime</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="foot-main">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <div class="foot-logo">
+            <img src="/marrow-site.svg" alt="Marrow" width="30" height="30" style="border-radius:8px;border:1.5px solid var(--ink);flex-shrink:0;" />
+            <span class="fl-name">Marrow Library</span>
+          </div>
+          <p class="ft">The collection cataloging app<br>for serious collectors.</p>
+          <p class="fc-copy">© 2026 Marrow Library. All rights reserved.</p>
+        </div>
+        <div>
+          <div class="fh-col">Product</div>
+          <div class="flinks">
+            <a href="/download">Download</a>
+            <a href="/pricing">Waitlist</a>
+            <a href="/features">Features</a>
+            <a href="/reviews">Reviews</a>
+          </div>
+        </div>
+        <div>
+          <div class="fh-col">Collections</div>
+          <div class="flinks">
+            <a href="/features#collections">Books</a>
+            <a href="/features#collections">Vinyl & Music</a>
+            <a href="/features#collections">Video Games</a>
+            <a href="/features#collections">Board Games</a>
+            <a href="/features#collections">All 13 types →</a>
+          </div>
+        </div>
+        <div>
+          <div class="fh-col">Company</div>
+          <div class="flinks">
+            <a href="/privacy">Privacy policy</a>
+            <a href="/terms">Terms of service</a>
+            <a href="/refund">Refund policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <div class="wrap foot-bar-inner">
+      <p class="fb-txt">Made with ♥ for collectors. Local-first. No tracking. No subscriptions.</p>
+      <div class="chips">
+        <span class="chip chip-g">🔒 No tracking</span>
+        <span class="chip chip-i">🗄️ Local-first</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/site.js"></script>
+<script>
+const revs = [
+  {n:"Marcus T.",  r:"Book & vinyl collector · 2,000+ items",      av:"M",c:"#C24B24", t:"Finally replaced the spreadsheet I'd maintained for 8 years. Scanning barcodes and having everything auto-fill is a game changer. The valuation showed my collection is worth 3× what I thought."},
+  {n:"Sarah K.",   r:"Vinyl collector · Insurance claim survivor",  av:"S",c:"#3F6B4F", t:"The eBay valuation alone is worth every penny. I had no idea my records were worth that much. Got my collection properly insured within a week of using Marrow."},
+  {n:"James L.",   r:"Retro game collector · 800+ titles",          av:"J",c:"#B98A2F", t:"Local-first, no subscription, blazing fast barcode scanner. Exactly what I wanted. Scanned my entire SNES and N64 library in under an hour."},
+  {n:"Priya M.",   r:"Book club organizer · Lending tracker user",  av:"P",c:"#4A5D82", t:"The lending tracker has saved so many friendships. I know exactly who has what and when it's due. It used to be stressful. Now it's one tap."},
+  {n:"Daniel R.",  r:"Board game enthusiast · 300+ games",          av:"D",c:"#7A4A63", t:"I've tried every cataloging app. Marrow is the only one that handles board games properly — player count, genre, condition, value. The others just shoehorn it in."},
+  {n:"Claire W.",  r:"Rare book dealer · Power user",               av:"C",c:"#3E6E70", t:"As someone who buys and sells, the live valuation is indispensable. It pulls real sold data, not wishful asking prices. Marrow pays for itself on the first deal."},
+];
+
+const rg = document.getElementById('revGrid');
+revs.forEach((r,i) => {
+  const d=document.createElement('div');
+  d.className=`rc reveal ${i%3===1?'d1':i%3===2?'d2':''}`;
+  d.innerHTML=`
+    <div class="rc-quote">"</div>
+    <p class="rc-body">${r.t}</p>
+    <div class="rc-foot">
+      <div class="rav" style="background:${r.c}">${r.av}</div>
+      <div><p class="rc-name">${r.n}</p><p class="rc-role">${r.r}</p></div>
+    </div>`;
+  rg.appendChild(d);
+});
+
+const faqs = [
+  {q:"What types of collections does Marrow support?",    a:"Books, vinyl records, video games, movies, board games, trading cards, comic books, spirits, housewares, clothing, coins, stamps, and plants — 13 media types with deep, type-specific metadata."},
+  {q:"Is my data stored in the cloud?",                   a:"Never. Marrow is local-first — everything lives on your device. No account required, no subscription for your data, no servers we control. You own your catalog."},
+  {q:"How does the barcode scanner work?",                a:"The Marrow Scanner companion app uses your phone camera to read any barcode or ISBN. Metadata syncs instantly to your desktop over local Wi-Fi — no internet needed."},
+  {q:"How accurate are the valuations?",                  a:"Very accurate. We pull live sold-listing data from eBay, not asking prices. You see what items actually sold for, filtered by condition and format."},
+  {q:"Will I need a subscription?",                       a:"No. When Marrow launches it will be $20 once for 3 months of full access — no auto-renewal, no recurring charges, ever. Join the waitlist to lock in the launch price."},
+  {q:"Which platforms are supported?",                    a:"Marrow Library runs on macOS and Windows. The Marrow Scanner companion app is available on Android and iOS for wireless barcode scanning."},
+  {q:"Can I export my data?",                             a:"Yes — export to CSV, Excel, or PDF at any time. Your data is yours. There's no lock-in, no minimum contract, nothing to cancel."},
+  {q:"When can I get Marrow Library?",                    a:"Marrow Library is coming soon. Join the waitlist and we'll send you one email the moment it launches — waitlist members get first access at the $20 one-time launch price."},
+];
+const fl = document.getElementById('faqList');
+faqs.forEach(f => {
+  const it=document.createElement('div'); it.className='fi';
+  it.innerHTML=`
+    <button class="fi-btn" onclick="togFaq(this)">
+      <span class="fi-q">${f.q}</span>
+      <span class="fi-ic">+</span>
+    </button>
+    <div class="fi-body"><p class="fi-a">${f.a}</p></div>`;
+  fl.appendChild(it);
+});
+</script>
+</body>
+</html>
