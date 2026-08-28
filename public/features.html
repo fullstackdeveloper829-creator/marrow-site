@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Features — Marrow Library</title>
+  <meta name="description" content="Barcode scanning, live eBay valuation, local-first storage, Discogs import, insurance PDFs and more. See everything Marrow Library does — and the 13 collection types it supports." />
+  <link rel="canonical" href="https://marrow-site.vercel.app/features" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Marrow Library" />
+  <meta property="og:url" content="https://marrow-site.vercel.app/features" />
+  <meta property="og:title" content="Features — Marrow Library" />
+  <meta property="og:description" content="Barcode scanning, live eBay valuation, local-first storage, Discogs import, insurance PDFs and more." />
+  <meta property="og:image" content="https://marrow-site.vercel.app/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Features — Marrow Library" />
+  <meta name="twitter:description" content="Barcode scanning, live eBay valuation, local-first storage, Discogs import, insurance PDFs and more." />
+  <meta name="twitter:image" content="https://marrow-site.vercel.app/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/marrow-site.svg" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What types of collections does Marrow Library support?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Marrow Library supports 13 media types: books, vinyl records, video games, movies, board games, trading cards, comic books, spirits and wine, coins, stamps, plants, clothing, and housewares. Each type has deep, type-specific metadata." }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the barcode scanner work in Marrow Library?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The free Marrow Scanner companion app (iOS and Android) uses your phone camera to read any barcode or ISBN. It syncs instantly to the desktop app over local Wi-Fi — no internet required. Metadata auto-fills from 40+ sources." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- ── TOP BAR ── -->
+<div id="topbar">
+  <div class="announce" id="announce">
+    📮 <strong>Coming soon</strong> — Marrow Library launches shortly. &nbsp;<a href="/pricing">Join the waitlist →</a>
+  </div>
+  <nav id="nav">
+    <div class="nav-row">
+      <a href="/" class="nav-brand">
+        <img src="/marrow-site.svg" alt="Marrow" width="32" height="32" style="border-radius:9px;border:1.5px solid var(--ink);flex-shrink:0;" />
+        <span class="brand-name">Marrow</span>
+      </a>
+      <div class="nav-links">
+        <a href="/#how"      class="nav-a" data-path="/">How it works</a>
+        <a href="/features"  class="nav-a" data-path="/features">Features</a>
+        <a href="/reviews"   class="nav-a" data-path="/reviews">Reviews</a>
+        <a href="/pricing"   class="nav-a" data-path="/pricing">Pricing</a>
+        <a href="/download"  class="nav-a" data-path="/download">Download</a>
+        <a href="/pricing"   class="nav-btn">Join the waitlist</a>
+      </div>
+      <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mob-menu" id="mobMenu">
+      <a href="/#how"      class="nav-a" onclick="closeMob()">How it works</a>
+      <a href="/features"  class="nav-a" onclick="closeMob()">Features</a>
+      <a href="/reviews"   class="nav-a" onclick="closeMob()">Reviews</a>
+      <a href="/pricing"   class="nav-a" onclick="closeMob()">Pricing</a>
+      <a href="/download"  class="nav-a" onclick="closeMob()">Download</a>
+      <a href="/pricing"   class="nav-btn" onclick="closeMob()">Join the waitlist</a>
+    </div>
+  </nav>
+</div>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero wrap z10 reveal">
+  <p class="eyebrow-pill">✦ Features</p>
+  <h1 class="h2">Everything you need.<br><span class="grad">Nothing you don't.</span></h1>
+  <p>Purpose-built for collectors. Every feature earns its place.</p>
+</div>
+
+<!-- ── FEATURES ── -->
+<section id="features" style="padding-top:20px">
+  <div class="wrap z10">
+    <div class="feat-grid" id="featGrid"></div>
+  </div>
+</section>
+
+<!-- ── COLLECTION TYPES ── -->
+<section id="collections" style="padding:100px 0;background:var(--paper-2);border-top:1.5px solid var(--ink);position:relative;overflow:hidden;">
+  <div class="wrap z10">
+    <div class="sec-head reveal">
+      <p class="eyebrow-pill">✦ 13 Collection Types</p>
+      <h2 class="h2">Built for every kind<br>of <span class="grad">physical collection.</span></h2>
+      <p class="sec-sub">Whether you collect books or bourbon, Marrow has deep, type-specific metadata for all of it.</p>
+    </div>
+    <div id="typeGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-top:48px;"></div>
+    <!-- SEO: hidden keyword-rich content for crawlers -->
+    <div style="margin-top:72px;max-width:800px;margin-left:auto;margin-right:auto;">
+      <h2 style="font-family:'Fraunces',Georgia,serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;color:var(--ink);letter-spacing:-.02em;text-align:center;margin-bottom:16px;">
+        The best collection cataloging app for every type of collector
+      </h2>
+      <div style="display:grid;gap:14px;" id="collectorTypes"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section id="cta">
+  <div class="cta-grid"></div>
+  <div class="cta-inner">
+    <div class="stamp reveal">Coming Soon</div>
+    <h2 class="cta-h2 reveal d1">Be the first to know<br><span class="grad">when Marrow launches.</span></h2>
+    <p class="cta-sub reveal d2">Scan everything once. Know every value. Own your data forever. No spreadsheet, no cloud, no subscription.</p>
+    <div class="cta-row reveal d3">
+      <a href="/pricing" class="btn-main">
+        Join the waitlist
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M6 12h12"/></svg>
+      </a>
+      <a href="/reviews" class="btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Read reviews
+      </a>
+    </div>
+    <p class="cta-fine reveal d4">One email at launch · no spam · unsubscribe anytime</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="foot-main">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <div class="foot-logo">
+            <img src="/marrow-site.svg" alt="Marrow" width="30" height="30" style="border-radius:8px;border:1.5px solid var(--ink);flex-shrink:0;" />
+            <span class="fl-name">Marrow Library</span>
+          </div>
+          <p class="ft">The collection cataloging app<br>for serious collectors.</p>
+          <p class="fc-copy">© 2026 Marrow Library. All rights reserved.</p>
+        </div>
+        <div>
+          <div class="fh-col">Product</div>
+          <div class="flinks">
+            <a href="/download">Download</a>
+            <a href="/pricing">Waitlist</a>
+            <a href="/features">Features</a>
+            <a href="/reviews">Reviews</a>
+          </div>
+        </div>
+        <div>
+          <div class="fh-col">Collections</div>
+          <div class="flinks">
+            <a href="/features#collections">Books</a>
+            <a href="/features#collections">Vinyl & Music</a>
+            <a href="/features#collections">Video Games</a>
+            <a href="/features#collections">Board Games</a>
+            <a href="/features#collections">All 13 types →</a>
+          </div>
+        </div>
+        <div>
+          <div class="fh-col">Company</div>
+          <div class="flinks">
+            <a href="/privacy">Privacy policy</a>
+            <a href="/terms">Terms of service</a>
+            <a href="/refund">Refund policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <div class="wrap foot-bar-inner">
+      <p class="fb-txt">Made with ♥ for collectors. Local-first. No tracking. No subscriptions.</p>
+      <div class="chips">
+        <span class="chip chip-g">🔒 No tracking</span>
+        <span class="chip chip-i">🗄️ Local-first</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/site.js"></script>
+<script>
+const feats = [
+  {n:"Barcode Scanner",    tg:"Point. Scan. Done.",              b:"The Marrow Scanner app reads any barcode or ISBN in milliseconds. Metadata auto-fills — title, creator, cover art, format, release year.",         a:"#C24B24",bg:"rgba(194,75,36,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="3" height="16" rx="1"/><rect x="7" y="4" width="1.5" height="16" rx=".5"/><rect x="10" y="4" width="2.5" height="16" rx=".5"/><rect x="14.5" y="4" width="1.5" height="16" rx=".5"/><rect x="18" y="4" width="4" height="16" rx="1"/></svg>`},
+  {n:"Live Valuation",     tg:"Know your collection's worth.",   b:"We pull live sold-listing data from eBay and calculate a realistic market value for each item, filtered by condition and format.",               a:"#3F6B4F",bg:"rgba(63,107,79,.10)",  icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="3,17 9,11 13,15 21,7"/><polyline points="14,7 21,7 21,14"/></svg>`},
+  {n:"Local-First",        tg:"Your data never leaves your device.", b:"No accounts, no cloud sync, no hostages. Marrow runs entirely on your machine with optional export to your own storage.",               a:"#B98A2F",bg:"rgba(185,138,47,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg>`},
+  {n:"Phone + Desktop",    tg:"Scan on phone. Manage on desktop.", b:"The Scanner app connects over local Wi-Fi — no internet required. Your phone becomes a scanning peripheral. Scans appear instantly.",        a:"#4A5D82",bg:"rgba(74,93,130,.10)",icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="2" width="10" height="20" rx="2"/><circle cx="12" cy="18" r="1" fill="currentColor"/><rect x="2" y="4" width="6" height="11" rx="1.5" opacity=".5"/></svg>`},
+  {n:"13 Media Types",     tg:"Books, vinyl, games, and 10 more.", b:"Deep media-specific metadata for every type: ISBNs for books, catalog numbers for vinyl, region codes for games. Built from scratch.",         a:"#7A4A63",bg:"rgba(122,74,99,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="12" cy="19" r="2"/><path d="M7 12h3M12 7v3M14 12h3M12 14v3"/></svg>`},
+  {n:"Lending Tracker",    tg:"Know who has your stuff.",         b:"Log loans with due dates and get reminded before things go missing. The lending tracker has saved more friendships than we can count.",         a:"#3E6E70",bg:"rgba(62,110,112,.10)",icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>`},
+  {n:"Price Alerts",       tg:"Know when value moves.",           b:"Get notified via system tray when any item's market value changes by more than your threshold. Set it to 10%, 20%, whatever matters.",           a:"#C24B24",bg:"rgba(194,75,36,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>`},
+  {n:"Advanced Search",    tg:"Find anything, instantly.",        b:"Filter by price range, date added, condition, loan status, and more. Save filter presets. ⌘K opens search anywhere in the app.",              a:"#3F6B4F",bg:"rgba(63,107,79,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M8 11h6M11 8v6"/></svg>`},
+  {n:"Discogs Import",     tg:"Your vinyl library in one click.", b:"Enter your Discogs username and import your entire collection automatically — pressings, labels, catalog numbers, cover art, and genres.",       a:"#B98A2F",bg:"rgba(185,138,47,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="9" opacity=".5"/></svg>`},
+  {n:"Insurance Report",   tg:"PDF-ready in seconds.",            b:"Generate a professional report with cover art, condition notes, per-item market values, ROI, and a portfolio summary. One click.",             a:"#4A5D82",bg:"rgba(74,93,130,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg>`},
+  {n:"Bulk Edit & Labels", tg:"Manage at scale.",                 b:"Select multiple items and batch-edit condition, tags, or loanability. Print barcode labels for your storage boxes with a single click.",          a:"#7A4A63",bg:"rgba(122,74,99,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1" opacity=".45"/></svg>`},
+];
+
+const fg = document.getElementById('featGrid');
+feats.forEach((f,i) => {
+  const d = document.createElement('div');
+  const wide = i < 2;
+  d.className = `fc ${wide?'fc-wide':''} reveal ${i%3===1?'d1':i%3===2?'d2':''}`;
+  d.innerHTML = `
+    <div class="fc-icon" style="background:${f.bg};color:${f.a};border:1.5px solid ${f.a}">${f.icon}</div>
+    <div>
+      <div class="fc-name">${f.n}</div>
+      <div class="fc-tag" style="color:${f.a}">${f.tg}</div>
+      <p class="fc-body">${f.b}</p>
+    </div>`;
+  fg.appendChild(d);
+});
+
+// ── COLLECTION TYPES GRID ────────────────────────────────────────────────────
+const typeData = [
+  {e:"📚",n:"Books",d:"ISBN lookup, genre, binding, page count"},
+  {e:"🎵",n:"Vinyl & Music",d:"Discogs import, catalog numbers, pressings"},
+  {e:"🎮",n:"Video Games",d:"Platform, region, RAWG & IGDB metadata"},
+  {e:"🎬",n:"Movies & TV",d:"TMDB/OMDB, runtime, format, region code"},
+  {e:"🎲",n:"Board Games",d:"BGG ratings, player count, play time"},
+  {e:"🃏",n:"Trading Cards",d:"TCGPlayer pricing, grade, set"},
+  {e:"💬",n:"Comics",d:"Issue, volume, condition, key issues"},
+  {e:"🍷",n:"Spirits & Wine",d:"Distillery, vintage, ABV"},
+  {e:"🪙",n:"Coins",d:"Mint year, grade, denomination"},
+  {e:"📮",n:"Stamps",d:"Country, year, perforation, condition"},
+  {e:"👕",n:"Clothing",d:"Brand, size, era, condition"},
+  {e:"🏺",n:"Housewares",d:"Maker, era, material, value"},
+  {e:"🌱",n:"Plants",d:"Species, care notes, acquisition date"},
+];
+const tg = document.getElementById('typeGrid');
+typeData.forEach(t => {
+  tg.innerHTML += `<div style="padding:18px 16px;border-radius:10px;background:var(--card);border:1px solid var(--line);text-align:center;transition:border-color .2s,transform .2s;cursor:default" onmouseenter="this.style.borderColor='var(--ink)';this.style.transform='translateY(-3px)'" onmouseleave="this.style.borderColor='rgba(28,24,18,.16)';this.style.transform=''">
+    <div style="font-size:28px;margin-bottom:8px">${t.e}</div>
+    <div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px">${t.n}</div>
+    <div style="font-size:11px;color:var(--dim);line-height:1.4">${t.d}</div>
+  </div>`;
+});
+
+// ── COLLECTOR TYPE SEO BLOCKS ─────────────────────────────────────────────────
+const collectorBlocks = [
+  {h:"Best book cataloging app",         t:"Scan the ISBN and Marrow pulls title, author, genre, page count, and cover art from OpenLibrary and Google Books. Track which books you've read, loaned out, or want to read. Works offline — no Goodreads account needed."},
+  {h:"Best vinyl record cataloging app", t:"Import your entire Discogs collection in one click. Get catalog numbers, pressing details, labels, and matrix numbers. eBay sold-listing values show what your records are actually worth — not wishful asking prices."},
+  {h:"Best video game collection tracker",t:"Scan any cartridge or disc barcode and get platform, region, genre, and current eBay market value. Supports retro games (NES, SNES, N64, PS1, PS2) through modern titles. Track box, manual, and seal condition separately."},
+  {h:"Best board game cataloging app",   t:"BoardGameGeek metadata fills in automatically — player count, play time, age rating, and BGG score. Track condition, storage box, and loan status. Great for large collections where tracking what you own and where it is matters."},
+];
+const ct = document.getElementById('collectorTypes');
+collectorBlocks.forEach(b => {
+  ct.innerHTML += `<div style="padding:22px 24px;border-radius:10px;background:var(--card);border:1px solid var(--line);">
+    <h3 style="font-size:15px;font-weight:700;color:var(--accent2);margin-bottom:8px">${b.h}</h3>
+    <p style="font-size:14px;color:var(--sub);line-height:1.7">${b.t}</p>
+  </div>`;
+});
+</script>
+</body>
+</html>

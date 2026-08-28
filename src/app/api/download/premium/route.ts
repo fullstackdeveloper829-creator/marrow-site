@@ -11,7 +11,7 @@ import { validateLicenseKey, PAID_TIERS, type LicenseTier } from "@/lib/license"
 export const dynamic = "force-dynamic";
 
 const REPO    = "fullstackdeveloper829-creator/marrow-library";
-const STABLE  = "v1.2.1";
+const STABLE  = "v5";
 const STABLE_URLS: Record<string, string> = {
   windows: `https://github.com/${REPO}/releases/download/${STABLE}/MarrowLibrary-${STABLE}-windows-setup.exe`,
   macos:   `https://github.com/${REPO}/releases/download/${STABLE}/MarrowLibrary-${STABLE}-macos-universal.dmg`,

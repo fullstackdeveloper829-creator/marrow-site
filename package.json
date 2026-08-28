@@ -1,6 +1,6 @@
 {
   "name": "marrow-site",
-  "version": "1.0.0",
+  "version": "5.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
@@ -9,8 +9,11 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.112.4",
     "@tailwindcss/postcss": "^4.3.0",
     "@types/nodemailer": "^8.0.0",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^1.0.14",
     "next": "14.2.29",
     "nodemailer": "^8.0.10",
     "react": "18.3.1",

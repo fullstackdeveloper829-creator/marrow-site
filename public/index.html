@@ -28,6 +28,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="/marrow-site.svg" />
+  <link rel="stylesheet" href="/styles.css" />
 
   <!-- JSON-LD Structured Data for AI search, Google AI Overviews, Perplexity, Bing Copilot -->
   <script type="application/ld+json">
@@ -123,683 +124,43 @@
           "contactType": "customer support",
           "email": "support@marrowlibrary.app"
         }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What types of collections does Marrow Library support?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Marrow Library supports 13 media types: books, vinyl records, video games, movies, board games, trading cards, comic books, spirits and wine, coins, stamps, plants, clothing, and housewares. Each type has deep, type-specific metadata."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is Marrow Library a subscription?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. When Marrow Library launches, it will be a one-time $20 payment for 3 months of full access. There is no subscription, no auto-renewal, and no recurring charges ever. Join the waitlist to be notified at launch."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does Marrow Library store data in the cloud?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. Marrow Library is 100% local-first. All data is stored in a SQLite database on your own device. No account is required, no data ever leaves your machine, and no servers are involved."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How does the barcode scanner work in Marrow Library?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The free Marrow Scanner companion app (iOS and Android) uses your phone camera to read any barcode or ISBN. It syncs instantly to the desktop app over local Wi-Fi — no internet required. Metadata auto-fills from 40+ sources."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Which platforms does Marrow Library support?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The main Marrow Library desktop app runs on Windows and macOS. The Marrow Scanner companion app is available on Android and iOS for wireless barcode scanning."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "When will Marrow Library be available?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Marrow Library is coming soon. Join the waitlist on the website and you'll get one email the moment it launches. Waitlist members lock in the planned $20 one-time launch price."
-            }
-          }
-        ]
       }
     ]
   }
   </script>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    /* ── "THE ARCHIVE" — warm paper, ink, burnt-sienna stamp ── */
-    :root {
-      --paper:   #FAF6EE;
-      --paper-2: #F3EDE0;
-      --paper-3: #ECE4D2;
-      --card:    #FFFDF8;
-      --ink:     #1C1812;
-      --sub:     #57503F;   /* body text */
-      --dim:     #8A806B;   /* muted labels */
-      --faint:   #B3A98E;   /* faintest text */
-      --line:    rgba(28,24,18,.16);
-      --accent:  #C24B24;
-      --accent2: #9A3A1B;
-      --tint:    rgba(194,75,36,.09);
-      --moss:    #3F6B4F;
-      --ochre:   #B98A2F;
-      --r:      10px;
-      --r-lg:   16px;
-      --r-sm:   6px;
-      --shadow:    4px 4px 0 var(--ink);
-      --shadow-sm: 2px 2px 0 var(--ink);
-      --shadow-lg: 6px 6px 0 var(--ink);
-      --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--paper);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: var(--ink);
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #D8CFBA; border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: #C2B79C; }
-
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
-    button { font-family: inherit; }
-
-    .wrap    { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
-    .wrap-md { max-width: 880px;  margin: 0 auto; padding: 0 32px; }
-    .wrap-sm { max-width: 660px;  margin: 0 auto; padding: 0 32px; }
-
-    /* ── Scroll reveal ── */
-    .reveal {
-      opacity: 0; transform: translateY(32px);
-      transition: opacity .75s cubic-bezier(.16,1,.3,1), transform .75s cubic-bezier(.16,1,.3,1);
-    }
-    .reveal.in { opacity: 1; transform: none; }
-    .d1 { transition-delay: .08s; }
-    .d2 { transition-delay: .16s; }
-    .d3 { transition-delay: .24s; }
-    .d4 { transition-delay: .32s; }
-    .d5 { transition-delay: .40s; }
-
-    /* ── COMING SOON stamp ── */
-    .stamp {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: var(--mono); font-weight: 600; font-size: 12px;
-      text-transform: uppercase; letter-spacing: .14em;
-      color: var(--accent); background: var(--card);
-      border: 3px double var(--accent); border-radius: var(--r-sm);
-      padding: 6px 16px; transform: rotate(-4deg); opacity: .92;
-    }
-
-    /* ── TOP BAR (announcement + nav fixed together) ── */
-    #topbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      display: flex; flex-direction: column;
-    }
-    .announce {
-      background: var(--paper-3);
-      border-bottom: 1px solid var(--line);
-      padding: 9px 20px; text-align: center;
-      font-size: 13px; font-weight: 500; color: var(--sub);
-      font-family: var(--mono);
-      transition: max-height .3s, opacity .3s, padding .3s;
-      max-height: 48px; overflow: hidden;
-    }
-    .announce.hidden { max-height: 0; opacity: 0; padding: 0; }
-    .announce strong { color: var(--accent); font-weight: 600; }
-    .announce a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(194,75,36,.4); }
-
-    #nav {
-      background: transparent;
-      border-bottom: 1px solid transparent;
-      transition: background .35s, border-color .35s, backdrop-filter .35s;
-    }
-    #nav.scrolled {
-      background: rgba(250,246,238,.92);
-      border-color: var(--ink);
-      backdrop-filter: blur(14px) saturate(150%);
-      -webkit-backdrop-filter: blur(14px) saturate(150%);
-    }
-    .nav-row {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 62px; padding: 0 32px; max-width: 1160px; margin: 0 auto;
-    }
-    .nav-brand { display: flex; align-items: center; gap: 10px; }
-    .brand-name { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 17px; color: var(--ink); letter-spacing: -.01em; }
-    .nav-links { display: flex; align-items: center; gap: 4px; }
-    .nav-a {
-      padding: 6px 13px; border-radius: 8px; font-size: 14px; font-weight: 500; color: var(--sub);
-      transition: color .15s, background .15s;
-    }
-    .nav-a:hover { color: var(--ink); background: rgba(28,24,18,.05); }
-    .nav-a.active { color: var(--accent2); }
-    .nav-btn {
-      margin-left: 6px; padding: 8px 20px; border-radius: var(--r);
-      font-size: 14px; font-weight: 700; color: var(--paper); border: 1.5px solid var(--ink); cursor: pointer;
-      background: var(--ink);
-      box-shadow: var(--shadow-sm);
-      transition: transform .15s, box-shadow .15s, background .15s;
-    }
-    .nav-btn:hover { transform: translate(-1px,-1px); box-shadow: 3px 3px 0 var(--accent); }
-    .nav-btn:active { transform: translate(1px,1px); box-shadow: none; }
-    .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
-    .burger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: .25s; }
-    .mob-menu {
-      display: none; flex-direction: column; gap: 3px;
-      padding: 10px 18px 18px; background: rgba(250,246,238,.98); border-top: 1px solid var(--line); border-bottom: 1.5px solid var(--ink);
-    }
-    .mob-menu.open { display: flex; }
-    .mob-menu .nav-a { padding: 11px 14px; font-size: 15px; }
-    .mob-menu .nav-btn { text-align: center; margin: 6px 0 0; padding: 13px; border-radius: 13px; font-size: 15px; }
-    @media (max-width: 768px) { .nav-links { display: none; } .burger { display: flex; } }
-
-    /* ── HERO ── */
-    #hero {
-      position: relative; overflow: hidden;
-      padding-top: 110px;
-    }
-    .hero-grid { display: none; }
-
-    .hero-body {
-      position: relative; z-index: 10;
-      display: flex; flex-direction: column; align-items: center; text-align: center;
-      gap: 32px; padding: 80px 32px 52px; max-width: 900px; margin: 0 auto;
-    }
-
-    /* Badges */
-    .badge-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: center; }
-    .badge {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 5px 14px; border-radius: 999px; font-size: 12px; font-weight: 500; white-space: nowrap;
-      font-family: var(--mono); letter-spacing: .04em;
-    }
-    .badge-ver { background: var(--card); border: 1px solid var(--line); color: var(--dim); }
-    .dot-green { width: 6px; height: 6px; border-radius: 50%; background: var(--moss); }
-
-    /* Headline */
-    .hero-h1 {
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: clamp(2.9rem, 8vw, 5.8rem);
-      font-weight: 700; letter-spacing: -.025em; line-height: 1.02; color: var(--ink);
-    }
-    .grad { color: var(--accent); font-style: italic; }
-
-    .hero-sub { font-size: 18px; color: var(--sub); max-width: 440px; line-height: 1.7; margin: 14px auto 0; text-align: center; }
-    .hero-sub em { color: var(--ink); font-style: normal; font-weight: 600; }
-
-    /* CTA buttons */
-    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
-    .btn-main {
-      display: inline-flex; align-items: center; gap: 9px;
-      padding: 15px 34px; border-radius: var(--r); font-size: 16px; font-weight: 700; color: var(--paper);
-      background: var(--ink);
-      border: 1.5px solid var(--ink); cursor: pointer;
-      box-shadow: var(--shadow);
-      transition: transform .15s, box-shadow .15s; letter-spacing: -.01em;
-    }
-    .btn-main:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--accent); }
-    .btn-main:active { transform: translate(1px,1px); box-shadow: none; }
-    .btn-main:disabled { opacity: .6; cursor: default; transform: none; box-shadow: var(--shadow); }
-    .btn-accent { background: var(--accent); }
-    .btn-accent:hover { background: var(--accent2); box-shadow: 6px 6px 0 var(--ink); }
-    .btn-ghost {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 15px 24px; border-radius: var(--r); font-size: 15px; font-weight: 600;
-      border: 1.5px solid var(--ink); color: var(--ink);
-      background: transparent;
-      transition: background .2s, transform .15s, box-shadow .15s;
-    }
-    .btn-ghost:hover { background: var(--card); transform: translate(-1px,-1px); box-shadow: var(--shadow-sm); }
-    .btn-ghost svg { width: 16px; height: 16px; }
-
-    /* Platform chips */
-    .platforms { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
-    .plat {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 6px 14px; border-radius: 9px; font-size: 13px; font-weight: 500;
-      font-family: var(--mono);
-      background: var(--card); border: 1px solid var(--line); color: var(--dim);
-      transition: border-color .2s, color .2s;
-    }
-    .plat:hover { border-color: var(--ink); color: var(--sub); }
-
-    /* Social proof */
-    .proof {
-      display: inline-flex; align-items: center; gap: 14px;
-      padding: 11px 20px; border-radius: var(--r);
-      background: var(--card); border: 1.5px solid var(--ink);
-      box-shadow: var(--shadow-sm);
-    }
-    .avs { display: flex; }
-    .av {
-      width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 11px; font-weight: 800; color: var(--card);
-      border: 2px solid var(--card); margin-left: -9px;
-    }
-    .av:first-child { margin-left: 0; }
-    .stars { display: flex; gap: 1px; color: var(--ochre); font-size: 13px; }
-    .proof-txt { font-size: 13px; color: var(--dim); }
-    .proof-txt strong { color: var(--ink); }
-
-    /* Marquee */
-    .marquee { width: 100%; overflow: hidden; mask-image: linear-gradient(90deg,transparent,black 10%,black 90%,transparent); -webkit-mask-image: linear-gradient(90deg,transparent,black 10%,black 90%,transparent); }
-    .marquee-inner { display: flex; gap: 10px; width: max-content; animation: scroll 32s linear infinite; }
-    .m-tag { padding: 5px 14px; border-radius: 999px; font-size: 12px; font-weight: 500; white-space: nowrap; font-family: var(--mono); background: transparent; border: 1px solid var(--line); color: var(--dim); }
-    @keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
-    /* App mockup — dark interior kept, framed like an archival photo */
-    .mock-wrap { position: relative; z-index: 10; max-width: 680px; margin: 0 auto; padding: 0 32px 96px; }
-    .mock {
-      border-radius: 14px; overflow: hidden;
-      background: #060616; border: 1.5px solid var(--ink);
-      box-shadow: 8px 8px 0 var(--ink);
-    }
-    .mock-bar { display: flex; align-items: center; gap: 8px; padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255,.06); background: rgba(3,3,12,.9); }
-    .tls { display: flex; gap: 6px; }
-    .tl { width: 10px; height: 10px; border-radius: 50%; }
-    .mock-title { flex: 1; display: flex; justify-content: center; }
-    .mock-pill { height: 21px; padding: 0 14px; border-radius: 6px; display: flex; align-items: center; font-size: 10px; font-family: monospace; background: rgba(91,82,240,.12); color: #818cf8; border: 1px solid rgba(91,82,240,.2); }
-    .mock-val { font-size: 10px; font-family: monospace; padding: 2px 8px; border-radius: 5px; background: rgba(16,185,129,.1); color: #34d399; border: 1px solid rgba(16,185,129,.18); }
-    .mock-body { display: flex; height: 272px; }
-    .mock-side { width: 145px; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,.05); background: rgba(3,3,12,.7); padding: 7px 0; display: flex; flex-direction: column; gap: 2px; }
-    .s-item { display: flex; align-items: center; justify-content: space-between; padding: 7px 10px; margin: 0 5px; border-radius: 8px; font-size: 10px; font-weight: 500; }
-    .s-item.on { background: rgba(91,82,240,.18); color: #a5b4fc; }
-    .s-item.off { color: #30305a; }
-    .s-badge { font-size: 9px; font-weight: 700; padding: 2px 5px; border-radius: 999px; }
-    .s-div { height: 1px; background: rgba(255,255,255,.04); margin: 5px 10px; }
-    .s-head { padding: 5px 10px 2px; font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: .09em; color: #202048; }
-    .s-row { display: flex; align-items: center; justify-content: space-between; padding: 2px 10px; font-size: 9px; color: #282860; }
-    .s-dot { width: 5px; height: 5px; border-radius: 50%; display: inline-block; margin-right: 4px; }
-    .mock-main { flex: 1; display: flex; flex-direction: column; background: rgba(5,5,18,.8); }
-    .mock-search { display: flex; align-items: center; gap: 7px; padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,.05); }
-    .s-bar { flex: 1; height: 23px; border-radius: 6px; padding: 0 10px; display: flex; align-items: center; font-size: 9px; background: rgba(255,255,255,.04); color: #2a2a60; border: 1px solid rgba(255,255,255,.05); }
-    .v-tgl { display: flex; gap: 3px; }
-    .v-btn { width: 18px; height: 18px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 8px; }
-    .v-btn.a { background: rgba(91,82,240,.22); color: #818cf8; }
-    .v-btn.b { color: #252560; }
-    .mock-grid-wrap { flex: 1; overflow: hidden; padding: 9px; }
-    .igrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 7px; }
-    .icard { border-radius: 8px; overflow: hidden; background: rgba(10,10,28,.9); border: 1px solid rgba(255,255,255,.07); }
-    .ibar { height: 2px; }
-    .ithumb { display: flex; align-items: center; justify-content: center; font-size: 21px; padding: 10px 0 5px; }
-    .iinfo { padding: 0 6px 7px; }
-    .iname { font-size: 8px; font-weight: 700; color: #d0d0f0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-    .irow { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; }
-    .icond { font-size: 7px; font-weight: 700; padding: 2px 5px; border-radius: 999px; }
-    .iprice { font-size: 9px; font-weight: 700; font-family: monospace; color: #34d399; }
-
-    /* ── STATS BAR ── */
-    #stats {
-      background: var(--paper-2); border-top: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink);
-      padding: 40px 0;
-    }
-    .stats-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; }
-    @media(min-width:600px){ .stats-grid{ grid-template-columns:repeat(4,1fr); } }
-    .s-stat { text-align: center; }
-    .s-num {
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: clamp(2rem,4vw,2.8rem); font-weight: 700; letter-spacing: -.02em; line-height: 1;
-      color: var(--ink);
-    }
-    .s-lbl { font-size: 14px; color: var(--dim); font-weight: 500; margin-top: 6px; }
-
-    /* ── STORY ── */
-    #story {
-      padding: 120px 0; position: relative; overflow: hidden;
-      background: var(--paper);
-    }
-    .story-layout { display: grid; gap: 72px; align-items: center; }
-    @media(min-width:1024px){ .story-layout{ grid-template-columns:1fr 1fr; } }
-    .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .12em; color: var(--accent2); margin-bottom: 18px; }
-    .h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; color: var(--ink); line-height: 1.06; font-size: clamp(2rem,3.8vw,3.1rem); letter-spacing: -.02em; margin-bottom: 28px; }
-    .story-body { color: var(--sub); font-size: 16px; display: flex; flex-direction: column; gap: 16px; line-height: 1.72; }
-    .story-body em { color: var(--ink); font-style: normal; font-weight: 600; }
-    .stat-cards { display: flex; flex-direction: column; gap: 14px; }
-    .sc {
-      display: flex; align-items: center; gap: 20px; padding: 20px 22px; border-radius: var(--r);
-      background: var(--card); border: 1.5px solid var(--ink);
-      box-shadow: var(--shadow-sm);
-      transition: transform .3s, box-shadow .3s;
-    }
-    .sc:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow); }
-    .sc-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .sc-num { font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 700; }
-    .sc-label { font-size: 15px; font-weight: 700; color: var(--ink); }
-    .sc-sub { font-size: 13px; color: var(--dim); margin-top: 2px; }
-
-    /* ── FEATURES ── */
-    #features {
-      padding: 120px 0; position: relative; overflow: hidden;
-      background: var(--paper-2);
-      border-top: 1.5px solid var(--ink);
-    }
-    .sec-head { text-align: center; margin-bottom: 64px; }
-    .sec-sub { font-size: 17px; color: var(--sub); max-width: 500px; margin: 16px auto 0; line-height: 1.65; }
-    .feat-grid { display: grid; gap: 16px; }
-    @media(min-width:640px){  .feat-grid{ grid-template-columns:1fr 1fr; } }
-    @media(min-width:1024px){ .feat-grid{ grid-template-columns:1fr 1fr 1fr; } }
-    .fc {
-      padding: 26px; border-radius: var(--r);
-      background: var(--card); border: 1.5px solid var(--ink);
-      box-shadow: var(--shadow-sm);
-      display: flex; flex-direction: column; gap: 14px;
-      transition: transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s;
-      position: relative; overflow: hidden;
-    }
-    .fc:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow); }
-    .fc-icon { width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .fc-icon svg { width: 21px; height: 21px; }
-    .fc-name { font-size: 15px; font-weight: 700; color: var(--ink); letter-spacing: -.01em; }
-    .fc-tag { font-family: var(--mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; margin-top: 2px; }
-    .fc-body { font-size: 14px; color: var(--sub); line-height: 1.65; }
-
-    /* ── REVIEWS ── */
-    #reviews {
-      padding: 120px 0; position: relative; overflow: hidden;
-      background: var(--paper);
-      border-top: 1.5px solid var(--ink);
-    }
-    .rev-grid { display: grid; gap: 16px; margin-top: 52px; }
-    @media(min-width:640px){  .rev-grid{ grid-template-columns:1fr 1fr; } }
-    @media(min-width:1024px){ .rev-grid{ grid-template-columns:1fr 1fr 1fr; } }
-    .rc {
-      padding: 26px; border-radius: var(--r);
-      background: var(--card); border: 1.5px solid var(--ink);
-      box-shadow: var(--shadow-sm);
-      display: flex; flex-direction: column; gap: 16px;
-      transition: transform .25s, box-shadow .25s;
-    }
-    .rc:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow); }
-    .rc-body { font-size: 14px; color: var(--sub); line-height: 1.72; flex: 1; font-style: italic; }
-    .rc-foot { display: flex; align-items: center; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line); }
-    .rav { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: var(--card); flex-shrink: 0; }
-    .rc-name { font-size: 14px; font-weight: 700; color: var(--ink); }
-    .rc-role { font-size: 12px; color: var(--dim); margin-top: 2px; }
-    .rating-row { display: inline-flex; align-items: center; gap: 14px; padding: 11px 24px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--ink); box-shadow: var(--shadow-sm); }
-    .rc-quote { font-size: 48px; line-height: 1; color: rgba(194,75,36,.25); font-family: 'Fraunces', Georgia, serif; margin-bottom: -10px; }
-
-    /* ── FAQ ── */
-    .faq-sec { margin-top: 96px; }
-    .faq-list { max-width: 660px; margin: 48px auto 0; display: flex; flex-direction: column; gap: 9px; }
-    .fi {
-      border-radius: var(--r-sm); overflow: hidden;
-      background: var(--card); border: 1px solid var(--line);
-      transition: border-color .2s;
-    }
-    .fi.open { border-color: var(--accent); }
-    .fi-btn {
-      width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
-      padding: 18px 22px; background: none; border: none; cursor: pointer; text-align: left; font-family: inherit;
-    }
-    .fi-q { font-size: 15px; font-weight: 600; color: var(--sub); transition: color .2s; }
-    .fi.open .fi-q { color: var(--ink); }
-    .fi-ic {
-      width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      background: var(--paper-2); color: var(--dim);
-      transition: background .2s, color .2s, transform .3s; font-size: 14px; font-weight: 700; line-height: 1;
-    }
-    .fi.open .fi-ic { background: var(--tint); color: var(--accent); transform: rotate(45deg); }
-    .fi-body { max-height: 0; overflow: hidden; transition: max-height .35s cubic-bezier(.16,1,.3,1); }
-    .fi-a { padding: 0 22px 18px; font-size: 14px; color: var(--sub); line-height: 1.7; }
-
-    /* ── PRICING → WAITLIST ── */
-    #pricing {
-      padding: 120px 0; position: relative; overflow: hidden;
-      background: var(--paper-2);
-      border-top: 1.5px solid var(--ink);
-    }
-    .p-grid { display: none; }
-
-    .p-card {
-      max-width: 460px; margin: 0 auto; position: relative; border-radius: var(--r-lg); padding: 40px 36px 36px;
-      background: var(--card);
-      border: 1.5px solid var(--ink);
-      box-shadow: var(--shadow-lg);
-      display: flex; flex-direction: column; gap: 24px;
-    }
-    .p-stamp {
-      position: absolute; top: -20px; left: 50%; transform: translateX(-50%) rotate(-4deg); white-space: nowrap;
-      font-family: var(--mono); font-weight: 600; font-size: 13px;
-      text-transform: uppercase; letter-spacing: .16em;
-      padding: 8px 22px; border-radius: var(--r-sm);
-      background: var(--paper); color: var(--accent);
-      border: 3px double var(--accent);
-    }
-    .p-tier { font-family: var(--mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--accent2); }
-    .p-price { text-align: center; padding: 6px 0 2px; }
-    .p-row { display: flex; align-items: flex-end; justify-content: center; gap: 5px; margin: 10px 0 5px; }
-    .p-dollar { font-family: 'Fraunces', Georgia, serif; font-size: 26px; font-weight: 700; color: var(--dim); align-self: flex-start; padding-top: 12px; }
-    .p-num { font-family: 'Fraunces', Georgia, serif; font-size: 82px; font-weight: 700; color: var(--ink); line-height: 1; letter-spacing: -.02em; }
-    .p-per { font-size: 15px; font-weight: 600; color: var(--dim); padding-bottom: 12px; }
-    .p-note { font-size: 12px; color: var(--dim); }
-    .form { display: flex; flex-direction: column; gap: 14px; }
-    .fl { display: block; font-family: var(--mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .09em; color: var(--dim); margin-bottom: 7px; }
-    .fi-inp {
-      width: 100%; padding: 13px 16px; border-radius: 8px; font-size: 14px; color: var(--ink);
-      background: var(--paper); border: 1.5px solid var(--ink); outline: none;
-      transition: border-color .2s, box-shadow .2s; font-family: inherit;
-    }
-    .fi-inp:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--tint); }
-    .fi-inp::placeholder { color: var(--faint); }
-    .fh { font-size: 12px; color: var(--dim); margin-top: 5px; text-align: center; }
-    .f-err { padding: 12px 16px; border-radius: 8px; background: rgba(194,75,36,.08); color: var(--accent2); border: 1px solid var(--accent); font-size: 14px; }
-    .notify-done {
-      text-align: center; font-size: 15px; font-weight: 600; color: var(--moss);
-      padding: 18px 16px; border-radius: var(--r);
-      background: rgba(63,107,79,.08); border: 1.5px solid var(--moss);
-    }
-    .p-div { border: none; border-top: 1px solid var(--line); }
-    .feat-check { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
-    .fci { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--sub); line-height: 1.3; }
-    .ck { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 900; background: rgba(63,107,79,.14); color: var(--moss); }
-    .p-fine { font-size: 12px; text-align: center; color: var(--dim); }
-
-    /* Comparison table */
-    .cmp-sec { margin-top: 80px; }
-    .cmp-title { text-align: center; font-family: 'Fraunces', Georgia, serif; font-size: 21px; font-weight: 700; color: var(--ink); margin-bottom: 28px; letter-spacing: -.01em; }
-    .tbl-wrap { overflow-x: auto; border-radius: var(--r); border: 1.5px solid var(--ink); background: var(--card); box-shadow: var(--shadow); }
-    table.cmp { width: 100%; border-collapse: collapse; }
-    table.cmp th, table.cmp td { padding: 13px 18px; text-align: center; font-size: 14px; }
-    table.cmp th { font-family: var(--mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--dim); background: var(--paper-3); border-bottom: 1.5px solid var(--ink); }
-    table.cmp th:first-child, table.cmp td:first-child { text-align: left; }
-    table.cmp td { color: var(--sub); border-bottom: 1px solid var(--line); }
-    table.cmp tr:last-child td { border-bottom: none; }
-    table.cmp tr:hover td { background: rgba(28,24,18,.02); }
-    table.cmp .m-col { color: var(--ink); font-weight: 700; background: var(--tint); }
-    table.cmp th.m-col { color: var(--accent2); background: var(--tint); }
-    .cy { color: var(--moss); font-size: 16px; }
-    .cn { color: var(--faint); font-size: 16px; }
-    .cp { color: var(--ochre); font-size: 13px; font-weight: 700; }
-    .cmp-foot { text-align: center; font-size: 12px; color: var(--dim); margin-top: 12px; }
-
-    /* ── CTA ── */
-    #cta {
-      padding: 130px 0; position: relative; overflow: hidden;
-      background: var(--paper-3);
-      border-top: 1.5px solid var(--ink);
-    }
-    .cta-grid { display: none; }
-    .cta-inner { position: relative; z-index: 10; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 26px; max-width: 780px; margin: 0 auto; padding: 0 32px; }
-    .cta-h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; color: var(--ink); line-height: 1.06; font-size: clamp(2.2rem,5vw,3.8rem); letter-spacing: -.02em; }
-    .cta-sub { font-size: 18px; color: var(--sub); max-width: 460px; line-height: 1.6; }
-    .cta-fine { font-size: 13px; color: var(--dim); font-family: var(--mono); }
-
-    /* ── FOOTER ── */
-    footer { background: var(--paper-3); border-top: 1.5px solid var(--ink); }
-    .foot-main { padding: 60px 0; }
-    .foot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-    @media(min-width:768px){ .foot-grid{ grid-template-columns: 2fr 1fr 1fr 1fr; } }
-    .foot-logo { display: flex; align-items: center; gap: 9px; margin-bottom: 14px; }
-    .fl-name { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 16px; color: var(--ink); }
-    .ft { font-size: 14px; color: var(--sub); line-height: 1.5; }
-    .fc-copy { font-size: 12px; color: var(--dim); margin-top: 14px; }
-    .fh-col { font-family: var(--mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--dim); margin-bottom: 16px; }
-    .flinks { display: flex; flex-direction: column; gap: 10px; }
-    .flinks a { font-size: 14px; color: var(--sub); transition: color .15s; }
-    .flinks a:hover { color: var(--accent2); }
-    .foot-bar { border-top: 1px solid var(--line); padding: 18px 0; }
-    .foot-bar-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; }
-    .fb-txt { font-size: 12px; color: var(--dim); }
-    .chips { display: flex; gap: 10px; flex-wrap: wrap; }
-    .chip { font-size: 11px; padding: 3px 10px; border-radius: 999px; font-weight: 500; font-family: var(--mono); }
-    .chip-g { background: rgba(63,107,79,.10); color: var(--moss); border: 1px solid rgba(63,107,79,.3); }
-    .chip-i { background: var(--tint); color: var(--accent2); border: 1px solid rgba(194,75,36,.3); }
-
-    /* ── HOW IT WORKS ── */
-    #how {
-      padding: 100px 0; position: relative; overflow: hidden;
-      background: var(--paper);
-    }
-    .how-grid { display: grid; gap: 16px; margin-top: 56px; }
-    @media(min-width:768px){ .how-grid{ grid-template-columns: 1fr 1fr 1fr; } }
-    .how-step {
-      position: relative; padding: 36px 32px; border-radius: var(--r);
-      background: var(--card); border: 1.5px solid var(--ink);
-      box-shadow: var(--shadow-sm);
-      transition: transform .25s, box-shadow .25s;
-    }
-    .how-step:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow); }
-    .how-num {
-      font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--accent2); margin-bottom: 18px; display: flex; align-items: center; gap: 8px;
-    }
-    .how-num::before {
-      content: attr(data-n); width: 26px; height: 26px; border-radius: 50%;
-      background: var(--tint); border: 1.5px solid var(--accent);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 12px; font-weight: 700; color: var(--accent); flex-shrink: 0;
-      line-height: 1;
-    }
-    .how-icon { font-size: 36px; margin-bottom: 16px; display: block; }
-    .how-h { font-family: 'Fraunces', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink); letter-spacing: -.01em; margin-bottom: 10px; }
-    .how-p { font-size: 14px; color: var(--sub); line-height: 1.7; }
-    .how-arrow {
-      position: absolute; right: -16px; top: 50%; transform: translateY(-50%);
-      width: 28px; height: 28px; border-radius: 50%; z-index: 2;
-      background: var(--paper); border: 1.5px solid var(--ink);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--ink); font-size: 12px;
-    }
-    @media(max-width:767px){ .how-arrow { display: none; } }
-
-    /* ── TRUST BAR ── */
-    .trust-bar {
-      display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px 24px;
-      padding: 22px 32px; border-radius: var(--r);
-      background: var(--card); border: 1.5px solid var(--ink);
-      box-shadow: var(--shadow-sm);
-      margin-top: 52px;
-    }
-    .trust-item { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500; color: var(--sub); white-space: nowrap; }
-    .trust-item svg { width: 15px; height: 15px; flex-shrink: 0; color: var(--moss); }
-    .trust-sep { width: 1px; height: 18px; background: var(--line); }
-    @media(max-width:640px){ .trust-sep { display: none; } }
-
-    /* ── UTILS ── */
-    .z10 { position: relative; z-index: 10; }
-    .tc  { text-align: center; }
-    .rel { position: relative; }
-    @media(max-width:640px){
-      #hero { padding-top: 100px; }
-      .hero-body { padding: 60px 24px 40px; gap: 24px; }
-      #story, #features, #reviews, #pricing, #cta { padding: 80px 0; }
-      .wrap, .wrap-md { padding: 0 20px; }
-    }
-
-    /* ── SECTION DIVIDERS ── */
-    .sec-div { height: 1.5px; margin: 0; background: var(--ink); border: none; }
-
-    /* ── FEATURE GRID: 2-col featured first row ── */
-    .fc.fc-wide {
-      grid-column: span 2;
-      flex-direction: row; align-items: flex-start; gap: 24px;
-    }
-    .fc.fc-wide .fc-icon { width: 52px; height: 52px; flex-shrink: 0; margin-top: 3px; }
-    @media(max-width:639px){ .fc.fc-wide { grid-column: span 1; flex-direction: column; } }
-
-    /* ── EYEBROW PILL ── */
-    .eyebrow-pill {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 5px 16px; border-radius: 999px; font-size: 11px; font-weight: 600;
-      font-family: var(--mono); text-transform: uppercase; letter-spacing: .1em;
-      background: var(--tint); border: 1px solid var(--accent);
-      color: var(--accent2); margin-bottom: 18px;
-    }
-
-    /* ── BETTER STATS ── */
-    .s-stat { position: relative; padding: 28px 24px; border-radius: var(--r); background: var(--card); border: 1px solid var(--line); transition: border-color .3s, transform .3s; }
-    .s-stat:hover { border-color: var(--ink); transform: translateY(-3px); }
-
-    /* ── PLATFORM CHIPS ENHANCED ── */
-    .plat svg { width: 14px; height: 14px; }
-
-    /* ── MOBILE TOUCH TARGETS ── */
-    @media(max-width:640px){
-      .btn-main, .btn-ghost { width: 100%; justify-content: center; }
-      .cta-row { flex-direction: column; }
-      .fc.fc-wide { grid-column: span 1; }
-    }
-  </style>
 </head>
 <body>
 
 <!-- ── TOP BAR ── -->
 <div id="topbar">
   <div class="announce" id="announce">
-    📮 <strong>Coming soon</strong> — Marrow Library launches shortly. &nbsp;<a href="#pricing">Join the waitlist →</a>
+    📮 <strong>Coming soon</strong> — Marrow Library launches shortly. &nbsp;<a href="/pricing">Join the waitlist →</a>
   </div>
   <nav id="nav">
     <div class="nav-row">
-      <a href="#" class="nav-brand">
+      <a href="/" class="nav-brand">
         <img src="/marrow-site.svg" alt="Marrow" width="32" height="32" style="border-radius:9px;border:1.5px solid var(--ink);flex-shrink:0;" />
         <span class="brand-name">Marrow</span>
       </a>
       <div class="nav-links">
-        <a href="#how"         class="nav-a" data-sec="how">How it works</a>
-        <a href="#features"    class="nav-a" data-sec="features">Features</a>
-        <a href="#collections" class="nav-a" data-sec="collections">Collections</a>
-        <a href="#reviews"     class="nav-a" data-sec="reviews">Reviews</a>
-        <a href="#pricing"  class="nav-a" data-sec="pricing">Pricing</a>
-        <a href="/download" class="nav-a">Download</a>
-        <a href="#pricing"  class="nav-btn">Join the waitlist</a>
+        <a href="/#how"      class="nav-a" data-path="/">How it works</a>
+        <a href="/features"  class="nav-a" data-path="/features">Features</a>
+        <a href="/reviews"   class="nav-a" data-path="/reviews">Reviews</a>
+        <a href="/pricing"   class="nav-a" data-path="/pricing">Pricing</a>
+        <a href="/download"  class="nav-a" data-path="/download">Download</a>
+        <a href="/pricing"   class="nav-btn">Join the waitlist</a>
       </div>
       <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
     <div class="mob-menu" id="mobMenu">
-      <a href="#story"    class="nav-a" onclick="closeMob()">About</a>
-      <a href="#features" class="nav-a" onclick="closeMob()">Features</a>
-      <a href="#reviews"  class="nav-a" onclick="closeMob()">Reviews</a>
-      <a href="#pricing"  class="nav-a" onclick="closeMob()">Pricing</a>
-      <a href="/download" class="nav-a" onclick="closeMob()">Download</a>
-      <a href="#pricing"  class="nav-btn" onclick="closeMob()">Join the waitlist</a>
+      <a href="/#how"      class="nav-a" onclick="closeMob()">How it works</a>
+      <a href="/features"  class="nav-a" onclick="closeMob()">Features</a>
+      <a href="/reviews"   class="nav-a" onclick="closeMob()">Reviews</a>
+      <a href="/pricing"   class="nav-a" onclick="closeMob()">Pricing</a>
+      <a href="/download"  class="nav-a" onclick="closeMob()">Download</a>
+      <a href="/pricing"   class="nav-btn" onclick="closeMob()">Join the waitlist</a>
     </div>
   </nav>
 </div>
@@ -812,6 +173,7 @@
     <div class="badge-row reveal">
       <span class="stamp">Coming Soon</span>
       <span class="badge badge-ver"><span class="dot-green"></span>v1.5.1 · in development</span>
+      <span class="badge badge-ver"><span class="dot-green"></span>v5 · in development</span>
     </div>
 
     <div class="reveal d1">
@@ -823,7 +185,7 @@
     </div>
 
     <div class="cta-row reveal d2">
-      <a href="#pricing" class="btn-main">
+      <a href="/pricing" class="btn-main">
         Notify me at launch
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M6 12h12"/></svg>
       </a>
@@ -849,7 +211,7 @@
         <div class="av" style="background:#7A4A63">D</div>
       </div>
       <div class="stars">★★★★★</div>
-      <span class="proof-txt"><strong>4.9</strong> from 127 beta collectors</span>
+      <span class="proof-txt"><strong>4.9</strong> from 127 beta collectors — <a href="/reviews" style="text-decoration:underline">read reviews</a></span>
     </div>
 
     <div class="marquee reveal d5">
@@ -1031,127 +393,6 @@
   </div>
 </section>
 
-<!-- ── FEATURES ── -->
-<section id="features">
-  <div class="wrap z10">
-    <div class="sec-head reveal">
-      <p class="eyebrow-pill">✦ Features</p>
-      <h2 class="h2">Everything you need.<br><span class="grad">Nothing you don't.</span></h2>
-      <p class="sec-sub">Purpose-built for collectors. Every feature earns its place.</p>
-    </div>
-    <div class="feat-grid" id="featGrid"></div>
-  </div>
-</section>
-
-<!-- ── REVIEWS ── -->
-<section id="reviews">
-  <div class="wrap z10">
-    <div class="sec-head reveal">
-      <p class="eyebrow-pill">✦ Reviews</p>
-      <h2 class="h2">Loved by collectors <span class="grad">worldwide.</span></h2>
-      <div class="rating-row" style="margin-top:16px">
-        <div class="stars">★★★★★</div>
-        <strong style="color:var(--ink);font-size:15px">4.9</strong>
-        <span style="font-size:14px;color:var(--dim)">from 127 verified beta reviews</span>
-      </div>
-    </div>
-    <div class="rev-grid" id="revGrid"></div>
-
-    <div class="faq-sec reveal">
-      <div class="sec-head">
-        <p class="eyebrow">FAQ</p>
-        <h2 class="h2" style="margin-bottom:10px">Frequently asked<br><span class="grad">questions.</span></h2>
-        <p style="font-size:15px;color:var(--sub)">Everything you need to know before launch.</p>
-      </div>
-      <div class="faq-list" id="faqList"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ── PRICING → WAITLIST ── -->
-<section id="pricing">
-  <div class="p-grid"></div>
-  <div class="wrap-md z10">
-    <div class="sec-head reveal" style="margin-bottom:64px">
-      <p class="eyebrow-pill">✦ Pricing</p>
-      <h2 class="h2">One price.<br><span class="grad">Everything included.</span></h2>
-      <p style="color:var(--sub);font-size:16px">$20 once at launch. 3 months full access. No subscription, ever.</p>
-    </div>
-
-    <div class="p-card reveal">
-      <div class="p-stamp">Coming Soon</div>
-      <div>
-        <p class="p-tier">Planned Launch Price</p>
-        <div class="p-price">
-          <div class="p-row">
-            <span class="p-dollar">$</span>
-            <span class="p-num">20</span>
-            <span class="p-per">one-time</span>
-          </div>
-          <p class="p-note">Locked in for waitlist members · no subscription · no auto-renewal</p>
-        </div>
-      </div>
-      <form class="form" id="notifyForm">
-        <div>
-          <label class="fl" for="nName">Your name</label>
-          <input type="text" id="nName" placeholder="Jane Smith" autocomplete="name" class="fi-inp"/>
-        </div>
-        <div>
-          <label class="fl" for="nEmail">Email address <span style="color:var(--accent)">*</span></label>
-          <input type="email" id="nEmail" placeholder="you@example.com" required autocomplete="email" class="fi-inp"/>
-        </div>
-        <div id="nErr" class="f-err" hidden></div>
-        <button type="submit" id="nBtn" class="btn-main btn-accent" style="justify-content:center;font-size:15px;padding:14px;">
-          Notify me when it launches →
-        </button>
-        <p class="fh">No spam. One email when Marrow launches.</p>
-      </form>
-      <hr class="p-div"/>
-      <p class="p-tier" style="text-align:center">What's coming</p>
-      <ul class="feat-check" id="pFeats"></ul>
-      <p class="p-fine">No auto-renewal · No card stored · No surprises</p>
-    </div>
-
-    <div class="cmp-sec reveal">
-      <p class="cmp-title">How Marrow stacks up</p>
-      <div class="tbl-wrap">
-        <table class="cmp">
-          <thead>
-            <tr>
-              <th>Feature</th>
-              <th class="m-col">Marrow</th>
-              <th>CLZ</th>
-              <th>Libib</th>
-              <th>Spreadsheet</th>
-            </tr>
-          </thead>
-          <tbody id="cmpBody"></tbody>
-        </table>
-      </div>
-      <p class="cmp-foot">*planned launch price</p>
-    </div>
-  </div>
-</section>
-
-<!-- ── COLLECTION TYPES ── -->
-<section id="collections" style="padding:100px 0;background:var(--paper-2);border-top:1.5px solid var(--ink);position:relative;overflow:hidden;">
-  <div class="wrap z10">
-    <div class="sec-head reveal">
-      <p class="eyebrow-pill">✦ 13 Collection Types</p>
-      <h2 class="h2">Built for every kind<br>of <span class="grad">physical collection.</span></h2>
-      <p class="sec-sub">Whether you collect books or bourbon, Marrow has deep, type-specific metadata for all of it.</p>
-    </div>
-    <div id="typeGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-top:48px;"></div>
-    <!-- SEO: hidden keyword-rich content for crawlers -->
-    <div style="margin-top:72px;max-width:800px;margin-left:auto;margin-right:auto;">
-      <h2 style="font-family:'Fraunces',Georgia,serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;color:var(--ink);letter-spacing:-.02em;text-align:center;margin-bottom:16px;">
-        The best collection cataloging app for every type of collector
-      </h2>
-      <div style="display:grid;gap:14px;" id="collectorTypes"></div>
-    </div>
-  </div>
-</section>
-
 <!-- ── CTA ── -->
 <section id="cta">
   <div class="cta-grid"></div>
@@ -1160,11 +401,11 @@
     <h2 class="cta-h2 reveal d1">Be the first to know<br><span class="grad">when Marrow launches.</span></h2>
     <p class="cta-sub reveal d2">Scan everything once. Know every value. Own your data forever. No spreadsheet, no cloud, no subscription.</p>
     <div class="cta-row reveal d3">
-      <a href="#pricing" class="btn-main">
+      <a href="/pricing" class="btn-main">
         Join the waitlist
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M6 12h12"/></svg>
       </a>
-      <a href="#features" class="btn-ghost">
+      <a href="/features" class="btn-ghost">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
         Explore the features
       </a>
@@ -1190,19 +431,19 @@
           <div class="fh-col">Product</div>
           <div class="flinks">
             <a href="/download">Download</a>
-            <a href="#pricing">Waitlist</a>
-            <a href="#features">Features</a>
-            <a href="#reviews">Reviews</a>
+            <a href="/pricing">Waitlist</a>
+            <a href="/features">Features</a>
+            <a href="/reviews">Reviews</a>
           </div>
         </div>
         <div>
           <div class="fh-col">Collections</div>
           <div class="flinks">
-            <a href="#features">Books</a>
-            <a href="#features">Vinyl & Music</a>
-            <a href="#features">Video Games</a>
-            <a href="#features">Board Games</a>
-            <a href="#features">All 13 types →</a>
+            <a href="/features#collections">Books</a>
+            <a href="/features#collections">Vinyl & Music</a>
+            <a href="/features#collections">Video Games</a>
+            <a href="/features#collections">Board Games</a>
+            <a href="/features#collections">All 13 types →</a>
           </div>
         </div>
         <div>
@@ -1227,8 +468,9 @@
   </div>
 </footer>
 
+<script src="/site.js"></script>
 <script>
-// ── DATA ──────────────────────────────────────────────────────────────────────
+// ── HOME-PAGE-ONLY DATA ─────────────────────────────────────────────────────
 const mTypes = ["Books","Vinyl Records","Video Games","Movies & TV","Board Games","Trading Cards","Comics","Spirits & Wine","Coins","Stamps","Plants","Clothing","Housewares"];
 
 const mockItems = [
@@ -1239,55 +481,6 @@ const mockItems = [
   {t:"Wingspan",    e:"🎲",c:"#f59e0b",g:"NM",   v:"$55"},
   {t:"Charizard",   e:"🃏",c:"#ef4444",g:"NM",   v:"$310"},
 ];
-
-const feats = [
-  {n:"Barcode Scanner",    tg:"Point. Scan. Done.",              b:"The Marrow Scanner app reads any barcode or ISBN in milliseconds. Metadata auto-fills — title, creator, cover art, format, release year.",         a:"#C24B24",bg:"rgba(194,75,36,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="3" height="16" rx="1"/><rect x="7" y="4" width="1.5" height="16" rx=".5"/><rect x="10" y="4" width="2.5" height="16" rx=".5"/><rect x="14.5" y="4" width="1.5" height="16" rx=".5"/><rect x="18" y="4" width="4" height="16" rx="1"/></svg>`},
-  {n:"Live Valuation",     tg:"Know your collection's worth.",   b:"We pull live sold-listing data from eBay and calculate a realistic market value for each item, filtered by condition and format.",               a:"#3F6B4F",bg:"rgba(63,107,79,.10)",  icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="3,17 9,11 13,15 21,7"/><polyline points="14,7 21,7 21,14"/></svg>`},
-  {n:"Local-First",        tg:"Your data never leaves your device.", b:"No accounts, no cloud sync, no hostages. Marrow runs entirely on your machine with optional export to your own storage.",               a:"#B98A2F",bg:"rgba(185,138,47,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg>`},
-  {n:"Phone + Desktop",    tg:"Scan on phone. Manage on desktop.", b:"The Scanner app connects over local Wi-Fi — no internet required. Your phone becomes a scanning peripheral. Scans appear instantly.",        a:"#4A5D82",bg:"rgba(74,93,130,.10)",icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="2" width="10" height="20" rx="2"/><circle cx="12" cy="18" r="1" fill="currentColor"/><rect x="2" y="4" width="6" height="11" rx="1.5" opacity=".5"/></svg>`},
-  {n:"13 Media Types",     tg:"Books, vinyl, games, and 10 more.", b:"Deep media-specific metadata for every type: ISBNs for books, catalog numbers for vinyl, region codes for games. Built from scratch.",         a:"#7A4A63",bg:"rgba(122,74,99,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="12" cy="19" r="2"/><path d="M7 12h3M12 7v3M14 12h3M12 14v3"/></svg>`},
-  {n:"Lending Tracker",    tg:"Know who has your stuff.",         b:"Log loans with due dates and get reminded before things go missing. The lending tracker has saved more friendships than we can count.",         a:"#3E6E70",bg:"rgba(62,110,112,.10)",icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>`},
-  {n:"Price Alerts",       tg:"Know when value moves.",           b:"Get notified via system tray when any item's market value changes by more than your threshold. Set it to 10%, 20%, whatever matters.",           a:"#C24B24",bg:"rgba(194,75,36,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>`},
-  {n:"Advanced Search",    tg:"Find anything, instantly.",        b:"Filter by price range, date added, condition, loan status, and more. Save filter presets. ⌘K opens search anywhere in the app.",              a:"#3F6B4F",bg:"rgba(63,107,79,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M8 11h6M11 8v6"/></svg>`},
-  {n:"Discogs Import",     tg:"Your vinyl library in one click.", b:"Enter your Discogs username and import your entire collection automatically — pressings, labels, catalog numbers, cover art, and genres.",       a:"#B98A2F",bg:"rgba(185,138,47,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="9" opacity=".5"/></svg>`},
-  {n:"Insurance Report",   tg:"PDF-ready in seconds.",            b:"Generate a professional report with cover art, condition notes, per-item market values, ROI, and a portfolio summary. One click.",             a:"#4A5D82",bg:"rgba(74,93,130,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg>`},
-  {n:"Bulk Edit & Labels", tg:"Manage at scale.",                 b:"Select multiple items and batch-edit condition, tags, or loanability. Print barcode labels for your storage boxes with a single click.",          a:"#7A4A63",bg:"rgba(122,74,99,.10)", icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1" opacity=".45"/></svg>`},
-];
-
-const revs = [
-  {n:"Marcus T.",  r:"Book & vinyl collector · 2,000+ items",      av:"M",c:"#C24B24", t:"Finally replaced the spreadsheet I'd maintained for 8 years. Scanning barcodes and having everything auto-fill is a game changer. The valuation showed my collection is worth 3× what I thought."},
-  {n:"Sarah K.",   r:"Vinyl collector · Insurance claim survivor",  av:"S",c:"#3F6B4F", t:"The eBay valuation alone is worth every penny. I had no idea my records were worth that much. Got my collection properly insured within a week of using Marrow."},
-  {n:"James L.",   r:"Retro game collector · 800+ titles",          av:"J",c:"#B98A2F", t:"Local-first, no subscription, blazing fast barcode scanner. Exactly what I wanted. Scanned my entire SNES and N64 library in under an hour."},
-  {n:"Priya M.",   r:"Book club organizer · Lending tracker user",  av:"P",c:"#4A5D82", t:"The lending tracker has saved so many friendships. I know exactly who has what and when it's due. It used to be stressful. Now it's one tap."},
-  {n:"Daniel R.",  r:"Board game enthusiast · 300+ games",          av:"D",c:"#7A4A63", t:"I've tried every cataloging app. Marrow is the only one that handles board games properly — player count, genre, condition, value. The others just shoehorn it in."},
-  {n:"Claire W.",  r:"Rare book dealer · Power user",               av:"C",c:"#3E6E70", t:"As someone who buys and sells, the live valuation is indispensable. It pulls real sold data, not wishful asking prices. Marrow pays for itself on the first deal."},
-];
-
-const faqs = [
-  {q:"What types of collections does Marrow support?",    a:"Books, vinyl records, video games, movies, board games, trading cards, comic books, spirits, housewares, clothing, coins, stamps, and plants — 13 media types with deep, type-specific metadata."},
-  {q:"Is my data stored in the cloud?",                   a:"Never. Marrow is local-first — everything lives on your device. No account required, no subscription for your data, no servers we control. You own your catalog."},
-  {q:"How does the barcode scanner work?",                a:"The Marrow Scanner companion app uses your phone camera to read any barcode or ISBN. Metadata syncs instantly to your desktop over local Wi-Fi — no internet needed."},
-  {q:"How accurate are the valuations?",                  a:"Very accurate. We pull live sold-listing data from eBay, not asking prices. You see what items actually sold for, filtered by condition and format."},
-  {q:"Will I need a subscription?",                       a:"No. When Marrow launches it will be $20 once for 3 months of full access — no auto-renewal, no recurring charges, ever. Join the waitlist to lock in the launch price."},
-  {q:"Which platforms are supported?",                    a:"Marrow Library runs on macOS and Windows. The Marrow Scanner companion app is available on Android and iOS for wireless barcode scanning."},
-  {q:"Can I export my data?",                             a:"Yes — export to CSV, Excel, or PDF at any time. Your data is yours. There's no lock-in, no minimum contract, nothing to cancel."},
-  {q:"When can I get Marrow Library?",                    a:"Marrow Library is coming soon. Join the waitlist and we'll send you one email the moment it launches — waitlist members get first access at the $20 one-time launch price."},
-];
-
-const pFeats = ["Unlimited items","All 13 media types","Barcode scanning","Live eBay valuation","Price alerts","Discogs import","Insurance PDF","Advanced search","Bulk edit & labels","Backup & restore","Lending tracker","Photo attachments","CSV / Excel export","Activity log"];
-
-const cmpRows = [
-  {f:"Price",              m:"$20 once*",  c:"$4–8/mo",  l:"$0–20/mo", s:"Free"},
-  {f:"Local-first",        m:true,         c:false,      l:false,      s:true},
-  {f:"Live eBay values",   m:true,         c:"~",        l:false,      s:false},
-  {f:"Barcode scanner",    m:true,         c:true,       l:true,       s:false},
-  {f:"Discogs import",     m:true,         c:false,      l:false,      s:false},
-  {f:"Price alerts",       m:true,         c:false,      l:false,      s:false},
-  {f:"No account needed",  m:true,         c:false,      l:false,      s:true},
-  {f:"Insurance PDF",      m:true,         c:false,      l:"~",        s:false},
-];
-
-// ── RENDER ────────────────────────────────────────────────────────────────────
 
 // Marquee
 const mq = document.getElementById('mqTrack');
@@ -1308,202 +501,6 @@ mockItems.forEach(x => {
     </div>
   </div>`;
 });
-
-// Features
-const fg = document.getElementById('featGrid');
-feats.forEach((f,i) => {
-  const d = document.createElement('div');
-  const wide = i < 2; // first 2 cards span full width
-  d.className = `fc ${wide?'fc-wide':''} reveal ${i%3===1?'d1':i%3===2?'d2':''}`;
-  d.innerHTML = `
-    <div class="fc-icon" style="background:${f.bg};color:${f.a};border:1.5px solid ${f.a}">${f.icon}</div>
-    <div>
-      <div class="fc-name">${f.n}</div>
-      <div class="fc-tag" style="color:${f.a}">${f.tg}</div>
-      <p class="fc-body">${f.b}</p>
-    </div>`;
-  fg.appendChild(d);
-});
-
-// Reviews
-const rg = document.getElementById('revGrid');
-revs.forEach((r,i) => {
-  const d=document.createElement('div');
-  d.className=`rc reveal ${i%3===1?'d1':i%3===2?'d2':''}`;
-  d.innerHTML=`
-    <div class="rc-quote">"</div>
-    <p class="rc-body">${r.t}</p>
-    <div class="rc-foot">
-      <div class="rav" style="background:${r.c}">${r.av}</div>
-      <div><p class="rc-name">${r.n}</p><p class="rc-role">${r.r}</p></div>
-    </div>`;
-  rg.appendChild(d);
-});
-
-// FAQ accordion
-const fl = document.getElementById('faqList');
-faqs.forEach(f => {
-  const it=document.createElement('div'); it.className='fi';
-  it.innerHTML=`
-    <button class="fi-btn" onclick="togFaq(this)">
-      <span class="fi-q">${f.q}</span>
-      <span class="fi-ic">+</span>
-    </button>
-    <div class="fi-body"><p class="fi-a">${f.a}</p></div>`;
-  fl.appendChild(it);
-});
-function togFaq(btn) {
-  const it=btn.closest('.fi'), body=it.querySelector('.fi-body');
-  const wasOpen=it.classList.contains('open');
-  document.querySelectorAll('.fi.open').forEach(el => {
-    el.classList.remove('open'); el.querySelector('.fi-body').style.maxHeight='0';
-  });
-  if(!wasOpen){ it.classList.add('open'); body.style.maxHeight=body.scrollHeight+'px'; }
-}
-
-// Pricing features
-const pf=document.getElementById('pFeats');
-pFeats.forEach(f => { pf.innerHTML+=`<li class="fci"><span class="ck">✓</span>${f}</li>`; });
-
-// Comparison table
-const cb=document.getElementById('cmpBody');
-function cell(v,m){
-  if(v===true)  return `<td class="${m?'m-col':''}" ><span class="cy">✓</span></td>`;
-  if(v===false) return `<td><span class="cn">✕</span></td>`;
-  if(v==='~')   return `<td><span class="cp">Partial</span></td>`;
-  return `<td class="${m?'m-col':''}">${v}</td>`;
-}
-cmpRows.forEach(r => {
-  cb.innerHTML+=`<tr>
-    <td style="color:var(--sub);font-weight:500">${r.f}</td>
-    ${cell(r.m,true)}${cell(r.c,false)}${cell(r.l,false)}${cell(r.s,false)}
-  </tr>`;
-});
-
-// ── WAITLIST FORM ─────────────────────────────────────────────────────────────
-document.getElementById('notifyForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const form = e.target;
-  const email = document.getElementById('nEmail').value.trim();
-  const name  = document.getElementById('nName').value.trim();
-  const btn = document.getElementById('nBtn'), err = document.getElementById('nErr');
-  btn.textContent = 'Adding you…'; btn.disabled = true; err.hidden = true;
-  try {
-    const res = await fetch('/api/notify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, name, source: 'homepage' })
-    });
-    if (!res.ok) throw 0;
-    form.innerHTML = '<p class="notify-done">✓ You\'re on the list — see you at launch.</p>';
-  } catch {
-    err.textContent = 'Something went wrong — please try again.'; err.hidden = false;
-    btn.textContent = 'Notify me when it launches →'; btn.disabled = false;
-  }
-});
-
-// ── COLLECTION TYPES GRID ────────────────────────────────────────────────────
-const typeData = [
-  {e:"📚",n:"Books",d:"ISBN lookup, genre, binding, page count"},
-  {e:"🎵",n:"Vinyl & Music",d:"Discogs import, catalog numbers, pressings"},
-  {e:"🎮",n:"Video Games",d:"Platform, region, RAWG & IGDB metadata"},
-  {e:"🎬",n:"Movies & TV",d:"TMDB/OMDB, runtime, format, region code"},
-  {e:"🎲",n:"Board Games",d:"BGG ratings, player count, play time"},
-  {e:"🃏",n:"Trading Cards",d:"TCGPlayer pricing, grade, set"},
-  {e:"💬",n:"Comics",d:"Issue, volume, condition, key issues"},
-  {e:"🍷",n:"Spirits & Wine",d:"Distillery, vintage, ABV"},
-  {e:"🪙",n:"Coins",d:"Mint year, grade, denomination"},
-  {e:"📮",n:"Stamps",d:"Country, year, perforation, condition"},
-  {e:"👕",n:"Clothing",d:"Brand, size, era, condition"},
-  {e:"🏺",n:"Housewares",d:"Maker, era, material, value"},
-  {e:"🌱",n:"Plants",d:"Species, care notes, acquisition date"},
-];
-const tg = document.getElementById('typeGrid');
-typeData.forEach(t => {
-  tg.innerHTML += `<div style="padding:18px 16px;border-radius:10px;background:var(--card);border:1px solid var(--line);text-align:center;transition:border-color .2s,transform .2s;cursor:default" onmouseenter="this.style.borderColor='var(--ink)';this.style.transform='translateY(-3px)'" onmouseleave="this.style.borderColor='rgba(28,24,18,.16)';this.style.transform=''">
-    <div style="font-size:28px;margin-bottom:8px">${t.e}</div>
-    <div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px">${t.n}</div>
-    <div style="font-size:11px;color:var(--dim);line-height:1.4">${t.d}</div>
-  </div>`;
-});
-
-// ── COLLECTOR TYPE SEO BLOCKS ─────────────────────────────────────────────────
-const collectorBlocks = [
-  {h:"Best book cataloging app",         t:"Scan the ISBN and Marrow pulls title, author, genre, page count, and cover art from OpenLibrary and Google Books. Track which books you've read, loaned out, or want to read. Works offline — no Goodreads account needed."},
-  {h:"Best vinyl record cataloging app", t:"Import your entire Discogs collection in one click. Get catalog numbers, pressing details, labels, and matrix numbers. eBay sold-listing values show what your records are actually worth — not wishful asking prices."},
-  {h:"Best video game collection tracker",t:"Scan any cartridge or disc barcode and get platform, region, genre, and current eBay market value. Supports retro games (NES, SNES, N64, PS1, PS2) through modern titles. Track box, manual, and seal condition separately."},
-  {h:"Best board game cataloging app",   t:"BoardGameGeek metadata fills in automatically — player count, play time, age rating, and BGG score. Track condition, storage box, and loan status. Great for large collections where tracking what you own and where it is matters."},
-];
-const ct = document.getElementById('collectorTypes');
-collectorBlocks.forEach(b => {
-  ct.innerHTML += `<div style="padding:22px 24px;border-radius:10px;background:var(--card);border:1px solid var(--line);">
-    <h3 style="font-size:15px;font-weight:700;color:var(--accent2);margin-bottom:8px">${b.h}</h3>
-    <p style="font-size:14px;color:var(--sub);line-height:1.7">${b.t}</p>
-  </div>`;
-});
-
-// ── SCROLL REVEAL ─────────────────────────────────────────────────────────────
-const ro = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
-}, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
-document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
-// Immediately reveal elements already in the viewport (guards against IO timing race)
-requestAnimationFrame(() => requestAnimationFrame(() => {
-  document.querySelectorAll('.reveal').forEach(el => {
-    const r = el.getBoundingClientRect();
-    if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('in');
-  });
-}));
-
-// ── COUNTER ANIMATION ─────────────────────────────────────────────────────────
-function animCount(el, to, pre='', suf=''){
-  const dur=1500, t0=performance.now();
-  const tick=now=>{
-    const p=Math.min((now-t0)/dur,1), ease=1-Math.pow(1-p,3);
-    el.textContent=pre+Math.round(ease*to)+suf;
-    if(p<1) requestAnimationFrame(tick);
-  };
-  requestAnimationFrame(tick);
-}
-const co = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      animCount(e.target,+e.target.dataset.target,e.target.dataset.prefix||'',e.target.dataset.suffix||'');
-      co.unobserve(e.target);
-    }
-  });
-},{threshold:.5});
-document.querySelectorAll('[data-target]').forEach(el=>co.observe(el));
-
-// ── NAV SCROLL + ACTIVE LINKS ─────────────────────────────────────────────────
-const navEl=document.getElementById('nav');
-const annEl=document.getElementById('announce');
-const secEls=document.querySelectorAll('section[id]');
-const navAs=document.querySelectorAll('.nav-a[data-sec]');
-let annHidden=false;
-
-window.addEventListener('scroll',()=>{
-  const y=window.scrollY;
-  navEl.classList.toggle('scrolled', y>10);
-  // Hide announce bar after scrolling 80px
-  if(y>80 && !annHidden){ annEl.classList.add('hidden'); annHidden=true; }
-  else if(y<=80 && annHidden){ annEl.classList.remove('hidden'); annHidden=false; }
-  // Active nav link
-  let cur='';
-  secEls.forEach(s=>{ if(y>=s.offsetTop-140) cur=s.id; });
-  navAs.forEach(a=>a.classList.toggle('active', a.dataset.sec===cur));
-},{passive:true});
-
-// ── MOBILE MENU ───────────────────────────────────────────────────────────────
-const burgerBtn=document.getElementById('burger'), mobMenu=document.getElementById('mobMenu');
-burgerBtn.addEventListener('click',()=>{
-  const open=mobMenu.classList.toggle('open');
-  burgerBtn.setAttribute('aria-expanded',open);
-  const [s0,s1,s2]=burgerBtn.querySelectorAll('span');
-  if(open){ s0.style.transform='translateY(7px) rotate(45deg)'; s1.style.opacity='0'; s2.style.transform='translateY(-7px) rotate(-45deg)'; }
-  else     { [s0,s1,s2].forEach(s=>{s.style.transform='';s.style.opacity='';}); }
-});
-function closeMob(){ mobMenu.classList.remove('open'); burgerBtn.setAttribute('aria-expanded',false); burgerBtn.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity='';}); }
 </script>
 </body>
 </html>
