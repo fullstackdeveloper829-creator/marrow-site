@@ -10,6 +10,27 @@
   </url>
 
   <url>
+    <loc>https://marrow-site.vercel.app/features</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://marrow-site.vercel.app/reviews</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://marrow-site.vercel.app/pricing</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
     <loc>https://marrow-site.vercel.app/download</loc>
     <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
